@@ -1,6 +1,5 @@
 import React from 'react';
 import Grid from './grid';
-import { fetchGrid } from '../../actions/grid_actions';
 
 
 class GridPage extends React.Component {
@@ -10,7 +9,7 @@ class GridPage extends React.Component {
   } 
 
   componentDidMount() {
-    fetchGrids()
+    this.props.fetchGrids()
       .then((res) => this.setState({grids: res.grid}));
   }
 
