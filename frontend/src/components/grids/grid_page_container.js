@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { makeGrid } from '../../actions/grid_actions';
+import { makeGrid, fetchGrids } from '../../actions/grid_actions';
 import  GridPage  from './grid_page';
 // import { }
 
@@ -12,8 +12,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    makeGrid: data => dispatch(makeGrid(data))
-
+    makeGrid: data => dispatch(makeGrid(data)),
+    fetchGrids: () => dispatch(fetchGrids())
   };
 };
 
