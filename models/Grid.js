@@ -21,4 +21,4 @@ const GridSchema = new Schema({
 });
 
 
-module.exports = Grid = mongoose.model('grid', GridSchema);
+module.exports = Grid = mongoose.model('grids', GridSchema);
