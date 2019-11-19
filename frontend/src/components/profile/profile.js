@@ -1,7 +1,6 @@
 // src/components/profile/profile.js
 
 import React from 'react';
-import TweetBox from '../tweets/tweet_box';
 
 class Profile extends React.Component {
     constructor(props) {
