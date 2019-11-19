@@ -1,4 +1,4 @@
-// src/reducers/tweets_reducer.js
+// src/reducers/grids_reducer.js
 
 import { RECEIVE_GRIDS, RECEIVE_USER_GRIDS, RECEIVE_NEW_GRID } from '../actions/grid_actions';
   
@@ -6,18 +6,18 @@ import { RECEIVE_GRIDS, RECEIVE_USER_GRIDS, RECEIVE_NEW_GRID } from '../actions/
     Object.freeze(state);
     let newState = Object.assign({}, state);
     switch(action.type) {
-      case RECEIVE_TWEETS:
-        newState.all = action.tweets.data;
+      case RECEIVE_GRIDS:
+        newState.all = action.grids.data;
         return newState;
-      case RECEIVE_USER_TWEETS:
-        newState.user = action.tweets.data;
+      case RECEIVE_USER_GRIDS:
+        newState.user = action.grids.data;
         return newState;
-      case RECEIVE_NEW_TWEET:
-        newState.new = action.tweet.data
+      case RECEIVE_NEW_GRID:
+        newState.new = action.grid.data;
         return newState;
       default:
         return state;
     }
   };
   
-  export default TweetsReducer;
+  export default GridsReducer;
