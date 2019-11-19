@@ -1,10 +1,11 @@
 const express = require('express');
 const router = express.Router();
 const mongoose = require('mongoose');
-const passport = require('passport');
-const validateGridInput = require('../../validation/grid');
+const validateSampleInput = require('../../validation/sample');
 
 const Sample = require('../../models/Sample');
+
+router.get("/test", (req, res) => res.json({ msg: "This is the samples route" }));
 
 router.get('/', (req, res) => {
   Sample.find()
@@ -14,19 +15,18 @@ router.get('/', (req, res) => {
 
 router.post('/',
   (req, res) => {
-    const { errors, isValid } = validateGridInput(req.body);
+    const { errors, isValid } = validateSampleInput(req.body);
 
     if (!isValid) {
       return res.status(400).json(errors);
     }
 
-    const newGrid = new Grid({
-      user: req.user.id,
-      title: req.body.title,
-      grid: req.body.grid
+    const newSample = new Sample({
+      name: req.body.name,
+      url: req.body.url
     });
 
-    newGrid.save().then(grid => res.json(grid));
+    newSample.save().then(sample => res.json(sample));
   }
 );
 

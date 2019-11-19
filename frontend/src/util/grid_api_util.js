@@ -4,6 +4,10 @@ export const getGrids = () => {
   return axios.get('/api/grids');
 };
 
+export const getGrid = id => {
+  return axios.get(`/api/grids/${id}`);
+};
+
 export const getUserGrids = id => {
   return axios.get(`/api/grids/user/${id}`);
 };

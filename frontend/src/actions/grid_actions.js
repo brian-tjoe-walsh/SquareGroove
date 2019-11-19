@@ -1,14 +1,20 @@
-// src/actions/tweet_actions.js
+// src/actions/grid_actions.js
 
-import { getGrids, getUserGrids, createGrid } from '../util/grid_api_util';
+import { getGrids, getGrid, getUserGrids, createGrid } from '../util/grid_api_util';
 
 export const RECEIVE_GRIDS = "RECEIVE_GRIDS";
 export const RECEIVE_USER_GRIDS = "RECEIVE_USER_GRIDS";
 export const RECEIVE_NEW_GRID = "RECEIVE_NEW_GRID";
+export const RECEIVE_GRID = "RECEIVE_GRID";
 
 export const receiveGrids = grids => ({
   type: RECEIVE_GRIDS,
   grids
+});
+
+export const receiveGrid = grid => ({
+  type: RECEIVE_GRIDS,
+  grid
 });
 
 export const receiveUserGrids = grids => ({
@@ -24,6 +30,12 @@ export const receiveNewGrid = grid => ({
 export const fetchGrids = () => dispatch => (
   getGrids()
     .then(grids => dispatch(receiveGrids(grids)))
+    .catch(err => console.log(err))
+);
+
+export const fetchGrid = id => dispatch => (
+  getGrid(id)
+    .then(grid => dispatch(receiveGrid(grid)))
     .catch(err => console.log(err))
 );
 
