@@ -37,6 +37,7 @@ app.get("/", (req, res) => {
 
 app.use("/api/users", users);
 app.use("/api/grids", grids);
+app.use("/api/audios", grids);
 
 
 const port = process.env.PORT || 5000;
