@@ -7,10 +7,17 @@ class Grid extends React.Component {
   }
 
   render() {
+    debugger
     return (
-      <div clsasName="mainBackground">
+      <div className="mainBackground">
         <div className="mainGrid">
-
+          {this.grid.map(row => ( 
+            <div className="row">
+            {row.map(ele => (
+              <div className="ele">{ele}</div>
+            ))}
+            </div>
+          ))}
         </div>
       </div>
     )
