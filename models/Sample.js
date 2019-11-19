@@ -16,5 +16,6 @@ const SampleSchema = new Schema({
   }
 });
 
-const Sample = mongoose.model('samples', UserSchema);
+const Sample = mongoose.model('samples', SampleSchema);
+
 module.exports = Sample;
