@@ -5,24 +5,24 @@ import Grid from './grid';
 class GridPage extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { grids: null};
+    this.state = { grid: null};
   } 
 
   componentDidMount() {
     this.props.fetchGrids()
-      .then((res) => this.setState({grids: res.grid}));
+      .then((res) => this.setState({ grid: res.grids.data[0].grid}));
   }
 
   render() {
-    debugger
     
-    if (!this.state.grids) {
+    if (!this.state.grid) {
       return null;
     } else {
+      debugger
       return(
-        <div clsasName="mainBackground">
+        <div className="mainBackground">
           <div className="mainGrid">
-            <Grid grids={this.state.grids}/>
+            <Grid grid={this.state.grid}/>
           </div>
         </div>
       )
