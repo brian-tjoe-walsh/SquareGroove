@@ -19,8 +19,9 @@ class SignupForm extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
+    debugger
     if (nextProps.signedIn === true) {
-      this.props.history.push('/login');
+      this.props.history.push('/');
     }
 
     this.setState({errors: nextProps.errors})
@@ -41,7 +42,7 @@ class SignupForm extends React.Component {
       password2: this.state.password2
     };
 
-    this.props.signup(user, this.props.history); 
+    this.props.signup(user, this.props.history).then(() => this.props.closeModal());
   }
 
   renderErrors() {
@@ -59,6 +60,7 @@ class SignupForm extends React.Component {
   render() {
     return (
       <div className="login-form-container">
+        Please Sign Up or {this.props.otherForm}
         <form onSubmit={this.handleSubmit}>
           <div className="login-form">
             <br/>
