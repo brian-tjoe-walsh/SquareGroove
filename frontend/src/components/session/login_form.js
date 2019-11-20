@@ -61,7 +61,7 @@ class LoginForm extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="loginForm">
         Please Login or {this.props.otherForm}
         <form onSubmit={this.handleSubmit}>
           <div>
