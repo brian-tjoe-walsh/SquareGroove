@@ -4,11 +4,13 @@ import { combineReducers } from 'redux';
 import session from './session_reducer';
 import errors from './errors_reducer';
 import grids from './grids_reducer';
+import samples from './samples_reducer';
 
 const RootReducer = combineReducers({
   errors,
   session,
-  grids
+  grids,
+  samples
 });
 
 export default RootReducer;
