@@ -4,7 +4,7 @@
     bottom: 0;
     right: 0;
     left: 0;
-    background: rgba(0, 0, 0, 0.7);
+    background: rgba(255, 255, 255, 0.7);
     z-index: 10;
   }
   
@@ -21,7 +21,7 @@
     width: 30%;
     height: 50%;
     transform: translate(-50%, -50%);
-    background: linear-gradient(to bottom right, rgb(51, 223, 235), rgb(51, 152, 235));
+    background: linear-gradient(to bottom right, rgb(237, 202, 255), rgb(159, 74, 220));
   }
 
 .loginForm {
@@ -32,16 +32,60 @@
 }
 
 .loginInputEmail  {
+  width: 30px;
   padding: 12px;
   margin-bottom: 20px;
   margin-top: 20px;
+  transition-property: width;
+  transition-duration: .5s;
+  transition-timing-function: ease-in-out;
+  transition-delay: .1s;
+}
+
+.inputTransform {
+  width: 125px;
+}
+
+#inputTransform {
+  width: 125px;
 }
 
 .loginInputPassword {
   padding: 12px;
   margin-bottom: 20px;
+  width: 50px;
+  transition-property: width;
+  transition-duration: .5s;
+  transition-timing-function: ease-in-out;
+  transition-delay: .1s;
 }
 
-input[type=""]
+input[type=text]:focus {
+  border: 3px solid #555;
+}
 
+.btn {
+	box-shadow:inset 0px 1px 0px 0px #efdcfb;
+	background:linear-gradient(to bottom, #dfbdfa 5%, #bc80ea 100%);
+	background-color:#dfbdfa;
+	border-radius:6px;
+	border:1px solid #c584f3;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:15px;
+	font-weight:bold;
+	padding:6px 24px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #9752cc;
+}
+.btn:hover {
+	background:linear-gradient(to bottom, #bc80ea 5%, #dfbdfa 100%);
+	background-color:#bc80ea;
+}
+.btn:active {
+	position:relative;
+	top:1px;
+}
 

@@ -2,6 +2,7 @@
 
 import React from 'react';
 import { withRouter } from 'react-router-dom';
+import $ from 'jquery';
 
 class LoginForm extends React.Component {
   constructor(props) {
@@ -46,6 +47,16 @@ class LoginForm extends React.Component {
     this.props.login(user).then(() => this.props.closeModal());
   }
 
+  handleClickEmail() {
+    let emailInput = $('.loginInputEmail');
+    emailInput.addClass('inputTransform');
+  }
+
+  handleClickPassword() {
+    let passwordInput = $('.loginInputPassword');
+    passwordInput.attr('id', "inputTransform");
+  }
+
   // Render the session errors if there are any
   renderErrors() {
     return(
@@ -62,11 +73,14 @@ class LoginForm extends React.Component {
   render() {
     return (
       <div className="loginForm">
-        Please Login or {this.props.otherForm}
+        Please login or
+        <br/>
+        {this.props.otherForm}
         <form onSubmit={this.handleSubmit}>
           <div>
               <input type="text"
                 value={this.state.email}
+                onClick={this.handleClickEmail}
                 onChange={this.update('email')}
                 placeholder="Email"
                 className="loginInputEmail"
@@ -74,9 +88,10 @@ class LoginForm extends React.Component {
             <br/>
               <input type="password"
                 value={this.state.password}
+                onClick={this.handleClickPassword}
                 onChange={this.update('password')}
                 placeholder="Password"
-                className= "loginInputPassword"
+                className="loginInputPassword"
               />
             <br/>
             <input type="submit" value="Submit" />
