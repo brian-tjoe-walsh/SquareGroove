@@ -33,7 +33,11 @@ document.addEventListener('DOMContentLoaded', () => {
   window.logout = logout;
 
   const ele = React.createElement(Root, { store: store });
-
+  window.playAudio = () => {
+    let audio = document.getElementById("audio");
+    audio.load();
+    audio.play();
+  }
 
   ReactDOM.render(ele, root);
 
