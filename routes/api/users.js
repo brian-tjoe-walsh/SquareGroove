@@ -11,7 +11,7 @@ router.get("/test", (req, res) => res.json({ msg: "This is the users route" }));
 
 router.post('/register', (req, res) => {
   const {errors, isValid} = validateRegisterInput(req.body);
-  debugger
+  // debugger
   if (!isValid) {
     return res.status(400).json(errors);
   }

@@ -31,6 +31,7 @@ class Grid extends React.Component {
         $(col.children[i]).addClass("rowLit1");
       } else {
         $(col.children[i]).addClass("bright");
+        $(col.children[i]).removeClass("clicked");
       }
     }
 
@@ -46,12 +47,13 @@ class Grid extends React.Component {
     oldCol = document.getElementById(`idx${temp}`);
 
     for (let i = 0; i < oldCol.children.length; i++) {
-      debugger
+      // debugger
       if ((oldCol.children[i].className === "ele rowLit1")) {
         $(oldCol.children[i]).removeClass("rowLit1");
         $(oldCol.children[i]).addClass("rowLit2");
-      } else if (oldCol.children[i].className === "clicked bright") {
-        $(col.children[i]).removeClass("bright");
+      } else if (oldCol.children[i].className === "bright") {
+        $(oldCol.children[i]).removeClass("bright");
+        $(oldCol.children[i]).addClass("clicked");
       }
     }
 
@@ -69,7 +71,7 @@ class Grid extends React.Component {
       if ((oldCol.children[i].className === "ele rowLit2")) {
         $(oldCol.children[i]).removeClass("rowLit2");
         $(oldCol.children[i]).addClass("rowLit3");
-      }
+      } 
     }
 
     if (ele - 3 === -1) {
@@ -137,7 +139,7 @@ class Grid extends React.Component {
 
   addTimer(ele) {
     if (document.getElementById(`idx${ele}`)) {
-      this.classDispersion(ele)
+      this.classDispersion(ele);
       // debugger
     }
     
