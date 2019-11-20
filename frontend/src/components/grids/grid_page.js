@@ -18,6 +18,7 @@ class GridPage extends React.Component {
     if (!this.state.grid) {
       return null;
     } else {
+      // debugger
       return(
         <div className="mainBackground">
           <div className="mainGrid">
