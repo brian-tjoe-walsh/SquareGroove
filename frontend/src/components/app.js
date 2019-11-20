@@ -12,6 +12,7 @@ import SignupFormContainer from './session/signup_form_container';
 // import ProfileContainer from './profile/profile_container';
 // import GridComposeContainer from './grids/grid_compose_container';
 import './css/grid.css';
+import './app.css';
 
 const App = () => (
   <div>

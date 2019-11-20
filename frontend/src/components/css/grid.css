@@ -1,5 +1,83 @@
 .mainBackground {
-	background: red;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	background: linear-gradient(to bottom right, rgb(51, 223, 235), rgb(51, 152, 235));
 	height: 100%;
 	width: 100%;
+}
+
+.gridBackground {
+	background: none;
+	display: flex; 
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	background: none;
+	height: 500px;
+	width: 500px;
+
+}
+
+.mainGrid {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	background: none;
+	height: 500px;
+	width: 500px;
+}
+
+.ele {
+	height: 25px;
+	width: 25px;
+	color: transparent;
+	background: rgb(171, 237, 241);
+	opacity: 70%;
+	text-align: center;
+	margin: 3px;
+	border-radius: 3px;
+	animation-name: unclick;
+  animation-duration: 500ms;
+}
+
+@keyframes unclick {
+  from {
+    background: rgb(242, 251, 252);
+    }
+  to {
+    background: rgb(171, 237, 241);
+  }
+}
+
+.clicked {
+	height: 25px;
+	width: 25px;
+	color: transparent;
+	background: rgb(242, 251, 252);
+	/* opacity: 70%; */
+	text-align: center;
+	margin: 3px;
+	border-radius: 3px;
+	animation-name: click;
+  animation-duration: 500ms;
+}
+
+@keyframes click {
+  from {
+    background: rgb(171, 237, 241);
+    }
+  to {
+    background: rgb(242, 251, 252);
+  }
+}
+
+.row {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	background: none;
 }
