@@ -13,11 +13,11 @@ class Sample extends React.Component {
         // debugger
         return (
         <div>
-            {this.props.samples.map(sample => (
+            {this.props.samples.map((sample, idx) => (
                 <div>
-                    <audio id="audio"controls controlsList="nodownload">
+                    <audio id={`sample-${idx}`}>
                         <source src={sample.url} type="audio/mp3"/>
-                    </audio> {sample.name}
+                    </audio>
                     <br/>
                 </div>
             ))}
