@@ -82,7 +82,7 @@
 
 .rowLit1 {
 	background: white;
-	opacity: 65%;
+	opacity: 70%;
 	animation: rowLit1;
 	animation-duration: 200ms;
 }
@@ -93,7 +93,7 @@
   }
   
   to {
-    opacity: 65%;
+    opacity: 70%;
   }
 }
 
@@ -106,7 +106,7 @@
 
 @keyframes rowLit2 {
   from {
-    opacity: 65%;
+    opacity: 70%;
   }
   
   to {
