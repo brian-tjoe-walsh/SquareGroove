@@ -14,13 +14,10 @@ import Modal from './modal/modal';
 // import ProfileContainer from './profile/profile_container';
 // import GridComposeContainer from './grids/grid_compose_container';
 import './css/grid.css';
-<<<<<<< HEAD
 import './app.css';
-=======
 import './css/modal.css';
 
 
->>>>>>> master
 
 const App = () => (
   <div>
