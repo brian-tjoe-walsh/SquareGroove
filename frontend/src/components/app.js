@@ -10,12 +10,18 @@ import GridPageContainer from './grids/grid_page_container';
 import LoginFormContainer from './session/login_form_container';
 import SignupFormContainer from './session/signup_form_container';
 import SampleContainer from './sample/sample_container'
+import Modal from './modal/modal';
 // import ProfileContainer from './profile/profile_container';
 // import GridComposeContainer from './grids/grid_compose_container';
+import './css/grid.css';
+import './css/modal.css';
+
+
 
 const App = () => (
   <div>
     {/* <NavBarContainer /> */}
+    <Modal />
     <Switch>
       <Route exact path="/" component={GridPageContainer} />
       <Route exact path="/sample" component={SampleContainer} />
