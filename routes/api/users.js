@@ -11,7 +11,7 @@ router.get("/test", (req, res) => res.json({ msg: "This is the users route" }));
 
 router.post('/register', (req, res) => {
   const {errors, isValid} = validateRegisterInput(req.body);
-
+  debugger
   if (!isValid) {
     return res.status(400).json(errors);
   }
@@ -36,8 +36,21 @@ router.post('/register', (req, res) => {
           bcrypt.hash(newUser.password, salt, (err, hash) => {
             if (err) throw err;
             newUser.password = hash;
+            const payload = {
+              id: newUser.id,
+              handle: newUser.handle,
+              email: newUser.email
+            }
             newUser.save()
-              .then(user => res.json(user))
+              .then(user => {
+                jwt.sign(payload, keys.secretOrKey, { expiresIn: 3600 }, (err, token) => {
+                  res.json({
+                    ...user._doc,
+                    success: true,
+                    token: "Bearer " + token
+                  })
+                })
+              })
               .catch(err => console.log(err));
           });
         });
@@ -47,7 +60,7 @@ router.post('/register', (req, res) => {
 
 router.post('/login', (req, res) => {
   const { errors, isValid } = validateLoginInput(req.body);
-
+  
   if (!isValid) {
     return res.status(400).json(errors);
   }
