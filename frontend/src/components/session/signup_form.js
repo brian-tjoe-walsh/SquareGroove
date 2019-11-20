@@ -19,7 +19,7 @@ class SignupForm extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    debugger
+    // debugger
     if (nextProps.signedIn === true) {
       this.props.history.push('/');
     }

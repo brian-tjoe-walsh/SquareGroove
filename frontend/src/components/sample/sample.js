@@ -10,7 +10,7 @@ class Sample extends React.Component {
     if (Object.keys(this.props.samples).length === 0){
         return null;
     } else {
-        debugger
+        // debugger
         return (
         <div>
             {this.props.samples.map((sample, idx) => (
