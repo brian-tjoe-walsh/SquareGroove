@@ -1,10 +1,14 @@
 import React from 'react';
+import $ from "jquery";
+
 
 class Cube extends React.Component {
   constructor(props) {
     super(props);
     this.ele = this.props.ele;
-    this.state = {class: "ele"};
+    this.state = {
+      class: "ele",
+      col: null};
     this.handleClick.bind(this);
   }
 
@@ -16,12 +20,13 @@ class Cube extends React.Component {
     } else {
       this.setState({class: "ele"});
     }
+
+    this.props.switchPos([this.props.row, this.props.col]);
   }
 
   render() {
-    // debugger
     return (
-      <div onClick={this.handleClick.bind(this)} className={this.state.class}>
+      <div onClick={this.handleClick.bind(this)} className={this.state.class} >
         {this.ele}
       </div>
     )

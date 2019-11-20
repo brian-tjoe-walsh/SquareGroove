@@ -3,7 +3,7 @@
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	background: linear-gradient(to bottom right, rgb(51, 223, 235), rgb(51, 152, 235));
+	background: linear-gradient(to bottom right, rgb(28, 229, 243), rgb(30, 142, 235));
 	height: 100%;
 	width: 100%;
 }
@@ -35,7 +35,7 @@
 	width: 25px;
 	color: transparent;
 	background: rgb(171, 237, 241);
-	opacity: 70%;
+	opacity: 35%;
 	text-align: center;
 	margin: 3px;
 	border-radius: 3px;
@@ -62,7 +62,8 @@
 	margin: 3px;
 	border-radius: 3px;
 	animation-name: click;
-  animation-duration: 500ms;
+	animation-duration: 500ms;
+	/* box-shadow: 1px 1px 3px white; */
 }
 
 @keyframes click {
@@ -80,4 +81,62 @@
 	justify-content: center;
 	align-items: center;
 	background: none;
+}
+
+.rowLit1 {
+	background: white;
+	opacity: 65%;
+	/* box-shadow: 1px 1px 1px white; */
+}
+
+.rowLit2 {
+	background: white;
+	opacity: 55%;
+}
+
+.rowLit3 {
+	background: white;
+	opacity: 45%;
+}
+
+.rowLit4 {
+	background: white;
+	opacity: 35%;
+}
+.rowLit5 {
+	background: white;
+	opacity: 25%;
+}
+
+/* @keyframes lighting {
+  from {
+    background: rgb(171, 237, 241);
+    }
+  to {
+    background: rgb(242, 251, 252);
+  }
+} */
+
+.bright {
+	height: 25px;
+	width: 25px;
+	color: transparent;
+	background: rgb(242, 251, 252);
+	/* opacity: 70%; */
+	text-align: center;
+	margin: 3px;
+	border-radius: 3px;
+	animation: ripple 200ms; 
+}
+
+@keyframes ripple {
+  from {
+    opacity: 1;
+    transform: scale3d(0.75,0.75,1);
+  }
+  
+  to {
+    opacity: 0;
+    transform: scale3d(1.5,1.5,1);
+  }
 }
