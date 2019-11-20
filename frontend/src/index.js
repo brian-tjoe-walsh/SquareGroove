@@ -29,9 +29,15 @@ document.addEventListener('DOMContentLoaded', () => {
   }
   const root = document.getElementById('root');
   console.log(root);
+  window.dispatch = store.dispatch;
+  window.logout = logout;
 
   const ele = React.createElement(Root, { store: store });
-
+  window.playAudio = () => {
+    let audio = document.getElementById("audio");
+    audio.load();
+    audio.play();
+  }
 
   ReactDOM.render(ele, root);
 

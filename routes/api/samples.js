@@ -9,6 +9,7 @@ router.get("/test", (req, res) => res.json({ msg: "This is the samples route" })
 
 router.get('/', (req, res) => {
   Sample.find()
+    .sort([['name', 'ascending']])
     .then(samples => res.json(samples))
     .catch(err => res.status(404).json({ nosamplesfound: 'No samples found' }));
 });

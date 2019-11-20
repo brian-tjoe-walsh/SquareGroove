@@ -47,9 +47,12 @@ q:before, q:after {
 table {
 	border-collapse: collapse;
 	border-spacing: 0;
+<<<<<<< HEAD:frontend/src/components/app.css
 }
 
 .root {
 	height:100%;
 	width: 100%;
+=======
+>>>>>>> master:frontend/src/App.css
 }
