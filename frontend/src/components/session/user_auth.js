@@ -14,7 +14,6 @@ class UserAuth extends React.Component {
     render() {
         return (
             <div>
-
             </div>
         )
     }

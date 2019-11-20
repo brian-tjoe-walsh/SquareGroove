@@ -9,14 +9,39 @@
   }
   
   .modal-child {
+    -webkit-border-radius: 25px;
+    -webkit-border-top-left-radius: 0;
+    -moz-border-radius: 25px;
+    -moz-border-radius-topleft: 0;
+    border-radius: 25px;
+    border-top-left-radius: 0;
     position: absolute;
     top: 50%;
     left: 50%;
-    width: 50%;
+    width: 30%;
     height: 50%;
     transform: translate(-50%, -50%);
     background: linear-gradient(to bottom right, rgb(51, 223, 235), rgb(51, 152, 235));
   }
 
+.loginForm {
+  text-align: center;
+  padding-top: 30%;
+  font-family: Helvetica;
+  color: white;
+}
+
+.loginInputEmail  {
+  padding: 12px;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+.loginInputPassword {
+  padding: 12px;
+  margin-bottom: 20px;
+}
+
+input[type=""]
 
 
