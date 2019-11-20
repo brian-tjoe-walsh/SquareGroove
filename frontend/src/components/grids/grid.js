@@ -2,7 +2,7 @@ import React from 'react';
 import Cube from './cube';
 import Timer from '../timer/timer';
 import $ from "jquery";
-
+import SampleContainer from '../sample/sample_container'
 
 
 class Grid extends React.Component {
@@ -143,7 +143,18 @@ class Grid extends React.Component {
     
     this.timer = ele;
     console.log(this.grid[ele]);
+    this.playAudioRow(this.grid[ele])
 
+  }
+
+  playAudioRow(row){
+    row.forEach( (ele, idx) => {
+      if (ele === 1){
+        let audio = document.getElementById(`sample-${idx}`);
+        audio.load();
+        audio.play();
+      }
+    })
   }
 
 
@@ -181,6 +192,9 @@ class Grid extends React.Component {
         </div>
         <div>
           <Timer addTimer={this.addTimer} />
+        </div>
+        <div>
+          <SampleContainer/>
         </div>
       </div>
     )
