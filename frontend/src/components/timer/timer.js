@@ -4,7 +4,7 @@ class Timer extends React.Component {
   constructor(props) {
     super(props);
     this.state = {time: 0};
-    setInterval(this._tick.bind(this), 300);  
+    setInterval(this._tick.bind(this), 250);  
   }
 
   _tick() {

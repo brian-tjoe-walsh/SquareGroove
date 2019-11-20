@@ -44,9 +44,6 @@
 }
 
 @keyframes unclick {
-  from {
-    background: rgb(242, 251, 252);
-    }
   to {
     background: rgb(171, 237, 241);
   }
@@ -86,26 +83,86 @@
 .rowLit1 {
 	background: white;
 	opacity: 65%;
-	/* box-shadow: 1px 1px 1px white; */
+	animation: rowLit1;
+	animation-duration: 200ms;
+}
+
+@keyframes rowLit1 {
+  from {
+    opacity: 35%;
+  }
+  
+  to {
+    opacity: 65%;
+  }
 }
 
 .rowLit2 {
 	background: white;
 	opacity: 55%;
+	animation: rowLit2;
+	animation-duration: 200ms;
+}
+
+@keyframes rowLit2 {
+  from {
+    opacity: 65%;
+  }
+  
+  to {
+    opacity: 55%;
+  }
 }
 
 .rowLit3 {
 	background: white;
 	opacity: 45%;
+	animation: rowLit3;
+	animation-duration: 200ms;
+}
+
+@keyframes rowLit3 {
+  from {
+    opacity: 55%;
+  }
+  
+  to {
+    opacity: 45%;
+  }
 }
 
 .rowLit4 {
 	background: white;
 	opacity: 35%;
+	animation: rowLit4;
+	animation-duration: 200ms;
 }
+
+@keyframes rowLit4 {
+  from {
+    opacity: 45%;
+  }
+  
+  to {
+    opacity: 35%;
+  }
+}
+
 .rowLit5 {
+	animation: rowLit5;
+	animation-duration: 200ms;
 	background: white;
 	opacity: 25%;
+}
+
+@keyframes rowlit5 {
+  from {
+    opacity: 35%;
+  }
+  
+  to {
+    opacity: 25%;
+  }
 }
 
 /* @keyframes lighting {
@@ -126,7 +183,7 @@
 	text-align: center;
 	margin: 3px;
 	border-radius: 3px;
-	animation: ripple 200ms; 
+	animation: ripple 150ms; 
 }
 
 @keyframes ripple {
