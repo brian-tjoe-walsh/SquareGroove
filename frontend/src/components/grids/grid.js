@@ -122,13 +122,13 @@ class Grid extends React.Component {
       if (idx <= 14) {
         if (ele === 1){
           let audio = document.getElementById(`sample-${idx}`);
-          audio.load();
+          audio.currentTime = 0;
           audio.play();
         }
       } else {
         if (ele === 1) {
           let audio = document.getElementById(`drum-${idx - 15}`);
-          audio.load();
+          audio.currentTime = 0;
           audio.play();
         }
       }
