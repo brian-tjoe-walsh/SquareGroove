@@ -7,8 +7,8 @@ const receiveSamples = samples => ({
     samples
 });
 
-export const fetchSamples = () => dispatch => (
-    getSamples()
+export const fetchSamples = (instrument) => dispatch => (
+    getSamples(instrument)
       .then(samples => dispatch(receiveSamples(samples)))
       .catch(err => console.log(err))
   );

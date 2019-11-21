@@ -10,6 +10,10 @@ const SampleSchema = new Schema({
     type: String,
     required: true
   },
+  instrument: {
+    type: String,
+    required: true
+  },
   date: {
     type: Date,
     default: Date.now

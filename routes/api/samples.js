@@ -14,6 +14,13 @@ router.get('/', (req, res) => {
     .catch(err => res.status(404).json({ nosamplesfound: 'No samples found' }));
 });
 
+router.get('/bell', (req, res) => {
+  Sample.find({instrument: 'bell'})
+    .sort([['name', 'descending']])
+    .then(samples => res.json(samples))
+    .catch(err => res.status(404).json({ nosamplesfound: 'No samples found' }));
+});
+
 router.post('/',
   (req, res) => {
     const { errors, isValid } = validateSampleInput(req.body);
@@ -24,7 +31,8 @@ router.post('/',
 
     const newSample = new Sample({
       name: req.body.name,
-      url: req.body.url
+      url: req.body.url,
+      instrument: req.body.instrument
     });
 
     newSample.save().then(sample => res.json(sample));
