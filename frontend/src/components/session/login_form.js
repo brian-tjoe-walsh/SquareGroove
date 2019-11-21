@@ -18,7 +18,7 @@ class LoginForm extends React.Component {
     this.renderErrors = this.renderErrors.bind(this);
   }
 
-  // Once the user has been authenticated, redirect to the Tweets page
+  // Once the user has been authenticated, redirect to the main page
   componentWillReceiveProps(nextProps) {
     if (nextProps.currentUser === true) {
       this.props.history.push('/');
@@ -73,8 +73,7 @@ class LoginForm extends React.Component {
   render() {
     return (
       <div className="loginForm">
-        Please login or
-        <br/>
+        Please Login or&nbsp;
         {this.props.otherForm}
         <form onSubmit={this.handleSubmit}>
           <div>
@@ -94,7 +93,7 @@ class LoginForm extends React.Component {
                 className="loginInputPassword"
               />
             <br/>
-            <input type="submit" value="Submit" />
+            <input type="submit" className= "submit-btn" value="Submit" />
             {this.renderErrors()}
           </div>
         </form>
