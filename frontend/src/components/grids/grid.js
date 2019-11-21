@@ -191,7 +191,7 @@ class Grid extends React.Component {
           <Timer start={this.timer} addTimer={this.addTimer} bpm={this.bpm}/>
         </div>
         <div className="sampleComponent">
-          <SampleContainer/>
+          <SampleContainer />
         </div>
       </div>
     )
