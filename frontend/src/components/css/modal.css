@@ -21,7 +21,7 @@
     width: 30%;
     height: 50%;
     transform: translate(-50%, -50%);
-    background: linear-gradient(to bottom right, rgb(237, 202, 255), rgb(159, 74, 220));
+    background: linear-gradient(to bottom right, rgb(31, 174, 235), rgb(26, 69, 123));
   }
 
 .loginForm {
@@ -65,11 +65,11 @@ input[type=text]:focus {
 }
 
 .btn {
-	box-shadow:inset 0px 1px 0px 0px #efdcfb;
-	background:linear-gradient(to bottom, #dfbdfa 5%, #bc80ea 100%);
-	background-color:#dfbdfa;
+	box-shadow:inset 0px 1px 0px 0px #bbdaf7;
+	background:linear-gradient(to bottom, #79bbff 5%, #378de5 100%);
+	background-color:#79bbff;
 	border-radius:6px;
-	border:1px solid #c584f3;
+	border:1px solid #84bbf3;
 	display:inline-block;
 	cursor:pointer;
 	color:#ffffff;
@@ -78,11 +78,11 @@ input[type=text]:focus {
 	font-weight:bold;
 	padding:6px 24px;
 	text-decoration:none;
-	text-shadow:0px 1px 0px #9752cc;
+	text-shadow:0px 1px 0px #528ecc;
 }
 .btn:hover {
-	background:linear-gradient(to bottom, #bc80ea 5%, #dfbdfa 100%);
-	background-color:#bc80ea;
+	background:linear-gradient(to bottom, #378de5 5%, #79bbff 100%);
+	background-color:#378de5;
 }
 .btn:active {
 	position:relative;
