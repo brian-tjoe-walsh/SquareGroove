@@ -110,7 +110,11 @@ class Grid extends React.Component {
     }
     
     this.timer = ele;
-    this.playAudioRow(this.grid[this.timer]);
+    let audio = document.getElementById(`sample-14`);
+    let drum = document.getElementById(`drum-2`);
+    if (audio && drum) {
+      this.playAudioRow(this.grid[this.timer]);
+    }
 
   }
 
