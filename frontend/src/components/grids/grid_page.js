@@ -1,6 +1,6 @@
 import React from 'react';
 import Grid from './grid';
-
+import $ from 'jquery';
 
 class GridPage extends React.Component {
   constructor(props) {
@@ -13,6 +13,11 @@ class GridPage extends React.Component {
       .then((res) => this.setState({ grid: res.grids.data[0].grid}));
   }
 
+  toggleSidebar() {
+    let sidebar = $('.sidebar');
+    sidebar.toggleClass('hidebar')
+  }
+
   render() {
     
     if (!this.state.grid) {
@@ -21,6 +26,18 @@ class GridPage extends React.Component {
       // debugger
       return(
         <div className="mainBackground">
+          <div className="menuIcon" onClick={this.toggleSidebar}>
+            <div className="hamburger"></div>
+          </div>
+          <div className="sidebar">
+            <nav>
+              <ul>
+                <li>Profile</li>
+                <li>Index</li>
+                <li>Logout</li>
+              </ul>
+            </nav>
+          </div>
             <Grid grid={this.state.grid}/>
         </div>
       )
