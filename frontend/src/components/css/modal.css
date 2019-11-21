@@ -4,7 +4,7 @@
     bottom: 0;
     right: 0;
     left: 0;
-    background: rgba(255, 255, 255, 0.7);
+    background: linear-gradient(to bottom right, rgb(28, 229, 243), rgb(30, 142, 235));
     z-index: 10;
   }
   
@@ -13,15 +13,17 @@
     -webkit-border-top-left-radius: 0;
     -moz-border-radius: 25px;
     -moz-border-radius-topleft: 0;
-    border-radius: 25px;
-    border-top-left-radius: 0;
+    border-radius: 50px;
     position: absolute;
     top: 50%;
     left: 50%;
-    width: 30%;
+    width: 25%;
     height: 50%;
     transform: translate(-50%, -50%);
-    background: linear-gradient(to bottom right, rgb(31, 174, 235), rgb(26, 69, 123));
+    background: linear-gradient(to bottom right, rgb(62, 186, 238), rgb(26, 104, 199));
+    opacity: 90%;
+    /* background-color: rgb(129, 231, 238); */
+    font-size: 18px;
   }
 
 .loginForm {
@@ -32,32 +34,26 @@
 }
 
 .loginInputEmail  {
-  width: 30px;
+  width: 130px;
+  height: 0px;
   padding: 12px;
   margin-bottom: 20px;
   margin-top: 20px;
-  transition-property: width;
-  transition-duration: .5s;
-  transition-timing-function: ease-in-out;
-  transition-delay: .1s;
 }
 
-.inputTransform {
+/* .inputTransform {
   width: 125px;
 }
 
 #inputTransform {
   width: 125px;
-}
+} */
 
 .loginInputPassword {
   padding: 12px;
   margin-bottom: 20px;
-  width: 50px;
-  transition-property: width;
-  transition-duration: .5s;
-  transition-timing-function: ease-in-out;
-  transition-delay: .1s;
+  width: 130px;
+  height: 0px;
 }
 
 input[type=text]:focus {
@@ -65,24 +61,11 @@ input[type=text]:focus {
 }
 
 .btn {
-	box-shadow:inset 0px 1px 0px 0px #bbdaf7;
-	background:linear-gradient(to bottom, #79bbff 5%, #378de5 100%);
-	background-color:#79bbff;
-	border-radius:6px;
-	border:1px solid #84bbf3;
-	display:inline-block;
-	cursor:pointer;
-	color:#ffffff;
-	font-family:Arial;
-	font-size:15px;
-	font-weight:bold;
-	padding:6px 24px;
-	text-decoration:none;
-	text-shadow:0px 1px 0px #528ecc;
+  text-decoration: underline;
 }
+
 .btn:hover {
-	background:linear-gradient(to bottom, #378de5 5%, #79bbff 100%);
-	background-color:#378de5;
+  cursor: pointer;
 }
 .btn:active {
 	position:relative;

@@ -21,6 +21,13 @@ router.get('/bell', (req, res) => {
     .catch(err => res.status(404).json({ nosamplesfound: 'No samples found' }));
 });
 
+router.get('/voice', (req, res) => {
+  Sample.find({instrument: 'voice'})
+    .sort([['name', 'descending']])
+    .then(samples => res.json(samples))
+    .catch(err => res.status(404).json({ nosamplesfound: 'No samples found' }));
+});
+
 router.get('/drums', (req, res) => {
   Sample.find({ instrument: 'drum' })
     .sort([['name', 'descending']])
