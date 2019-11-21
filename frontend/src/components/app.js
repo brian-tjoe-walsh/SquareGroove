@@ -12,12 +12,13 @@ import SignupFormContainer from './session/signup_form_container';
 import SampleContainer from './sample/sample_container'
 import Modal from './modal/modal';
 import UserAuth from './session/user_auth';
-// import ProfileContainer from './profile/profile_container';
+import ProfileContainer from './profile/profile_container';
 // import GridComposeContainer from './grids/grid_compose_container';
 import './css/grid.css';
 import './css/bpm.css';
 import './app.css';
 import './css/modal.css';
+import './css/profile.css';
 
 
 
@@ -31,6 +32,7 @@ const App = () => (
       {/* <AuthRoute exact path="/login" component={LoginFormContainer} />
       <AuthRoute exact path="/signup" component={SignupFormContainer} /> */}
       <AuthRoute exact path="/auth" component={UserAuth} />
+      <ProtectedRoute exact path="/profile" component={ProfileContainer} />
       {/* <Route exact path="/grids" component={GridsContainer} /> */}
       {/* <ProtectedRoute exact path="/profile" component={ProfileContainer} /> */}
     </Switch>
