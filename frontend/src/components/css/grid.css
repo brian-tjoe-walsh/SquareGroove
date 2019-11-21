@@ -4,7 +4,6 @@
 	justify-content: center;
 	align-items: center;
 	background: linear-gradient(to bottom right, rgb(28, 229, 243), rgb(30, 142, 235));
-	height: 100%;
 	width: 100%;
 }
 
@@ -13,6 +12,7 @@
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
+	width: 100%;
 }
 
 .gridBackground {
@@ -22,9 +22,13 @@
 	justify-content: center;
 	align-items: center;
 	background: none;
-	height: 500px;
 	width: 500px;
+	height: 600px;
 
+}
+
+.sampleComponent {
+	height: 0px;
 }
 
 .mainGrid {
@@ -33,8 +37,8 @@
 	justify-content: center;
 	align-items: center;
 	background: none;
-	height: 500px;
 	width: 500px;
+	height: 500px;
 }
 
 .ele {
@@ -194,6 +198,30 @@
 }
 
 @keyframes ripple {
+	from {
+		opacity: 1;
+		transform: scale3d(0.75,0.75,1);
+	}
+	
+	to {
+		opacity: 0;
+		transform: scale3d(1.5,1.5,1);
+	}
+}
+
+.kick {
+	height: 25px;
+	width: 25px;
+	color: transparent;
+	background: rgb(242, 251, 252);
+	/* opacity: 70%; */
+	text-align: center;
+	margin: 3px;
+	border-radius: 3px;
+	animation: kick 300ms; 
+}
+
+@keyframes kick {
   from {
     opacity: 1;
     transform: scale3d(0.75,0.75,1);
@@ -201,6 +229,16 @@
   
   to {
     opacity: 0;
-    transform: scale3d(1.5,1.5,1);
+    transform: scale3d(2,2,1);
   }
+}
+
+.drumRack {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	background: none;
+	width: 500px;
+	height: 100px;
 }

@@ -15,17 +15,7 @@ class Grid extends React.Component {
     this.bpm = 120;
     this.addTimer = this.addTimer.bind(this);
     this.switchPos = this.switchPos.bind(this);
-    // this.bpmChanger = this.bpmChanger.bind(this);
-    // debugger
   }
-
-  // handleClick(e) {
-  //   e.preventDefault();
-  //   // debugger
-
-  //   let ele = e.currentTarget;
-  //   // return ($(ele).addClass("here"));
-  // }
 
   classDispersion(ele) {
     let col = document.getElementById(`idx${ele}`);
@@ -36,6 +26,14 @@ class Grid extends React.Component {
       } else {
         $(col.children[i]).addClass("bright");
         $(col.children[i]).removeClass("clicked");
+      }
+    }
+
+    let drum = document.getElementById(`drum${ele}`);
+
+    for (let i = 0; i < drum.children.length; i++) {
+      if (drum.children[i].className === "clicked") {
+        $(drum.children[i]).addClass("kick");
       }
     }
 
@@ -55,6 +53,16 @@ class Grid extends React.Component {
         $(oldCol.children[i]).addClass("clicked");
       }
     }
+
+    drum = document.getElementById(`drum${temp}`);
+
+    for (let i = 0; i < drum.children.length; i++) {
+      if ((drum.children[i].className === "clicked kick")) {
+        $(drum.children[i]).removeClass("kick");
+      }
+    }
+
+
 
     temp = ((ele - 2 + 16) % 16);
     oldCol = document.getElementById(`idx${temp}`);
@@ -101,9 +109,7 @@ class Grid extends React.Component {
       this.classDispersion(ele);
     }
     
-    // debugger
     this.timer = ele;
-    // console.log(this.grid[ele]);
     this.playAudioRow(this.grid[this.timer]);
 
   }
@@ -127,34 +133,51 @@ class Grid extends React.Component {
     } else {
       this.grid[coord[0]][coord[1]] = 1;
     }
-
-    // console.log(this.grid);
   }
 
   render() {
-    // debugger
     return (
       <div className="outsideGrid">
         <div className="gridBackground">
           <div className="mainGrid">
             {this.grid.map((row, idx) => ( 
               <div className="row" id={`idx${idx}`} key={idx}>
-              {row.map((ele, idx2) => (
-                < Cube 
-                  row={idx} 
-                  col={idx2} 
-                  key={idx2} 
-                  ele={ele}
-                  switchPos={this.switchPos}/>
-              ))}
+              {row.map((ele, idx2) => {
+                if (idx2 < 15) {
+                  return (
+                    < Cube 
+                    row={idx} 
+                    key={idx2} 
+                    ele={ele}
+                    switchPos={this.switchPos}/>
+                  )
+                } 
+              })}
+              </div>
+            ))}
+          </div>
+          <div className="drumRack"> 
+            {this.grid.map((row, idx) => (
+              <div className="row" id={`drum${idx}`} key={idx}>
+                {row.map((ele, idx2) => {
+                  if (idx2 >= 15) {
+                    return (
+                      < Cube
+                        row={idx}
+                        key={idx2}
+                        ele={ele}
+                        switchPos={this.switchPos} />
+                    )
+                  }
+                })}
               </div>
             ))}
           </div>
         </div>
-        <div>
+        <div className="bpmComponent">
           <Timer start={this.timer} addTimer={this.addTimer} bpm={this.bpm}/>
         </div>
-        <div>
+        <div className="sampleComponent">
           <SampleContainer/>
         </div>
       </div>

@@ -14,7 +14,7 @@ class Timer extends React.Component {
   }
 
   _tick() {
-    debugger;
+    // debugger;
     if (this.state.time >= 15) {
       this.setState({time: 0});
     } else {
@@ -44,9 +44,6 @@ class Timer extends React.Component {
           max="300"
           step="20"
           defaultValue={this.bpm}></input>
-          <div>
-            
-          </div>
       </div>
     )
   }

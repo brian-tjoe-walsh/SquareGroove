@@ -21,9 +21,7 @@ class GridPage extends React.Component {
       // debugger
       return(
         <div className="mainBackground">
-          <div className="mainGrid">
             <Grid grid={this.state.grid}/>
-          </div>
         </div>
       )
     }

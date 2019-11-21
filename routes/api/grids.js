@@ -43,6 +43,7 @@ router.post('/',
     const newGrid = new Grid({
       user: req.user.id,
       title: req.body.title,
+      style: req.body.style,
       grid: req.body.grid
     });
 

@@ -11,7 +11,7 @@ class Sample extends React.Component {
         return null;
     } else {
         return (
-        <div>
+        <div className="sampleComponent">
             {this.props.samples.bell.map((sample, idx) => (
                 <div>
                     <audio id={`sample-${idx}`}>

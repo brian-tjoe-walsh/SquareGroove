@@ -12,7 +12,7 @@ module.exports = function validateGridInput(data) {
   }
 
   for (let i = 0; i < data.grid.length; i++) {
-    if (data.grid[i].length !== 15) {
+    if (data.grid[i].length !== 18) {
       errors.grid = `Rows in Grid are not of adequate length`;
       break;
     }

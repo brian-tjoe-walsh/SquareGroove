@@ -10,6 +10,10 @@ const GridSchema = new Schema({
     type: String,
     required: true
   },
+  style: {
+    type: String,
+    required: true
+  },
   grid: {
     type: Object,
     required: true

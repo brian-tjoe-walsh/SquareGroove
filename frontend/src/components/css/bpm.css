@@ -28,3 +28,7 @@
   cursor: pointer; /* Cursor on hover */
   border-radius: 50px;
 }
+
+.bpmComponent {
+  height: 20px;
+}
