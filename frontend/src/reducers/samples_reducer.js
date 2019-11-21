@@ -5,7 +5,8 @@ const SamplesReducer = (state = {}, action) => {
     let newState = Object.assign({}, state);
     switch(action.type) {
       case RECEIVE_SAMPLES:
-        newState = action.samples.data;
+        let instrument = action.samples.data[0].instrument;
+        newState = { [instrument]: action.samples.data };
         return newState;
       default:
         return state;
