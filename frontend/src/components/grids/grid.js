@@ -1,8 +1,10 @@
 import React from 'react';
 import Cube from './cube';
 import Timer from '../timer/timer';
+import BPM from '../bpm/bpm';
 import $ from "jquery";
 import SampleContainer from '../sample/sample_container'
+import { timingSafeEqual } from 'crypto';
 
 
 class Grid extends React.Component {
@@ -10,18 +12,20 @@ class Grid extends React.Component {
     super(props);
     this.grid = this.props.grid;
     this.timer = 0;
+    this.bpm = 120;
     this.addTimer = this.addTimer.bind(this);
     this.switchPos = this.switchPos.bind(this);
+    // this.bpmChanger = this.bpmChanger.bind(this);
     // debugger
   }
 
-  handleClick(e) {
-    e.preventDefault();
-    // debugger
+  // handleClick(e) {
+  //   e.preventDefault();
+  //   // debugger
 
-    let ele = e.currentTarget;
-    // return ($(ele).addClass("here"));
-  }
+  //   let ele = e.currentTarget;
+  //   // return ($(ele).addClass("here"));
+  // }
 
   classDispersion(ele) {
     let col = document.getElementById(`idx${ele}`);
@@ -38,12 +42,7 @@ class Grid extends React.Component {
     let temp;
     let oldCol;
 
-    if (ele - 1 < 0) {
-      temp = 15;
-    } else {
-      temp = ele - 1;
-    }
-
+    temp = ((ele - 1 + 16) % 16);
     oldCol = document.getElementById(`idx${temp}`);
 
     for (let i = 0; i < oldCol.children.length; i++) {
@@ -57,14 +56,7 @@ class Grid extends React.Component {
       }
     }
 
-    if (ele - 2 === -1) {
-      temp = 15;
-    } else if (ele - 2 === -2) {
-      temp = 14;
-    } else {
-      temp = ele - 2;
-    }
-
+    temp = ((ele - 2 + 16) % 16);
     oldCol = document.getElementById(`idx${temp}`);
 
     for (let i = 0; i < oldCol.children.length; i++) {
@@ -74,16 +66,7 @@ class Grid extends React.Component {
       } 
     }
 
-    if (ele - 3 === -1) {
-      temp = 15;
-    } else if (ele - 3 === -2) {
-      temp = 14;
-    } else if (ele - 3 === -3) {
-      temp = 13;
-    } else {
-      temp = ele - 3;
-    }
-
+    temp = ((ele - 3 + 16) % 16);
     oldCol = document.getElementById(`idx${temp}`);
 
     for (let i = 0; i < oldCol.children.length; i++) {
@@ -93,18 +76,7 @@ class Grid extends React.Component {
       }
     }
 
-    if (ele - 4 === -1) {
-      temp = 15;
-    } else if (ele - 4 === -2) {
-      temp = 14;
-    } else if (ele - 4 === -3) {
-      temp = 13;
-    } else if (ele - 4 === -4) {
-      temp = 12;
-    } else {
-      temp = ele - 4;
-    }
-
+    temp = ((ele - 4 + 16) % 16);
     oldCol = document.getElementById(`idx${temp}`);
 
     for (let i = 0; i < oldCol.children.length; i++) {
@@ -114,20 +86,7 @@ class Grid extends React.Component {
       }
     }
 
-    if (ele - 5 === -1) {
-      temp = 15;
-    } else if (ele - 5 === -2) {
-      temp = 14;
-    } else if (ele - 5 === -3) {
-      temp = 13;
-    } else if (ele - 5 === -4) {
-      temp = 12;
-    } else if (ele - 5 === -5) {
-      temp = 11;
-    } else {
-      temp = ele - 5;
-    }
-
+    temp = ((ele - 5 + 16) % 16);
     oldCol = document.getElementById(`idx${temp}`);
 
     for (let i = 0; i < oldCol.children.length; i++) {
@@ -140,12 +99,12 @@ class Grid extends React.Component {
   addTimer(ele) {
     if (document.getElementById(`idx${ele}`)) {
       this.classDispersion(ele);
-      // debugger
     }
     
+    // debugger
     this.timer = ele;
-    console.log(this.grid[ele]);
-    this.playAudioRow(this.grid[ele])
+    // console.log(this.grid[ele]);
+    this.playAudioRow(this.grid[this.timer]);
 
   }
 
@@ -156,7 +115,7 @@ class Grid extends React.Component {
         audio.load();
         audio.play();
       }
-    })
+    });
   }
 
 
@@ -175,7 +134,7 @@ class Grid extends React.Component {
   render() {
     // debugger
     return (
-      <div className="mainGrid">
+      <div className="outsideGrid">
         <div className="gridBackground">
           <div className="mainGrid">
             {this.grid.map((row, idx) => ( 
@@ -193,7 +152,7 @@ class Grid extends React.Component {
           </div>
         </div>
         <div>
-          <Timer addTimer={this.addTimer} />
+          <Timer start={this.timer} addTimer={this.addTimer} bpm={this.bpm}/>
         </div>
         <div>
           <SampleContainer/>

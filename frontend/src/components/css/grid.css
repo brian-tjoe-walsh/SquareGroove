@@ -8,6 +8,13 @@
 	width: 100%;
 }
 
+.outsideGrid {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
 .gridBackground {
 	background: none;
 	display: flex; 

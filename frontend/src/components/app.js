@@ -15,6 +15,7 @@ import UserAuth from './session/user_auth';
 // import ProfileContainer from './profile/profile_container';
 // import GridComposeContainer from './grids/grid_compose_container';
 import './css/grid.css';
+import './css/bpm.css';
 import './app.css';
 import './css/modal.css';
 
