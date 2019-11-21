@@ -10,12 +10,13 @@ class GridPage extends React.Component {
 
   componentDidMount() {
     this.props.fetchGrids()
-      .then((res) => this.setState({ grid: res.grids.data[0].grid}));
+      .then((res) => this.setState({ grid: res.grids.data[res.grids.data.length - 1]}));
   }
 
   render() {
     
     if (!this.state.grid) {
+      // debugger
       return null;
     } else {
       // debugger

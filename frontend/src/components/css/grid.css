@@ -100,6 +100,13 @@
 	animation-duration: 200ms;
 }
 
+.drumLit1 {
+	background: white;
+	opacity: 70%;
+	animation: rowLit1;
+	animation-duration: 200ms;
+}
+
 @keyframes rowLit1 {
   from {
     opacity: 35%;
@@ -111,6 +118,12 @@
 }
 
 .rowLit2 {
+	background: white;
+	opacity: 55%;
+	animation: rowLit2;
+	animation-duration: 200ms;
+}
+.drumLit2 {
 	background: white;
 	opacity: 55%;
 	animation: rowLit2;
@@ -133,6 +146,12 @@
 	animation: rowLit3;
 	animation-duration: 200ms;
 }
+.drumLit3 {
+	background: white;
+	opacity: 45%;
+	animation: rowLit3;
+	animation-duration: 200ms;
+}
 
 @keyframes rowLit3 {
   from {
@@ -146,7 +165,13 @@
 
 .rowLit4 {
 	background: white;
-	opacity: 35%;
+	opacity: 40%;
+	animation: rowLit4;
+	animation-duration: 200ms;
+}
+.drumLit4 {
+	background: white;
+	opacity: 40%;
 	animation: rowLit4;
 	animation-duration: 200ms;
 }
@@ -157,7 +182,7 @@
   }
   
   to {
-    opacity: 35%;
+    opacity: 40%;
   }
 }
 
@@ -165,16 +190,22 @@
 	animation: rowLit5;
 	animation-duration: 200ms;
 	background: white;
-	opacity: 25%;
+	opacity: 35%;
+}
+.drumLit5 {
+	animation: rowLit5;
+	animation-duration: 200ms;
+	background: white;
+	opacity: 35%;
 }
 
 @keyframes rowlit5 {
   from {
-    opacity: 35%;
+    opacity: 40%;
   }
   
   to {
-    opacity: 25%;
+    opacity: 35%;
   }
 }
 

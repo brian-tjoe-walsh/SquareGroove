@@ -3,14 +3,14 @@ import Cube from './cube';
 import Timer from '../timer/timer';
 import BPM from '../bpm/bpm';
 import $ from "jquery";
-import SampleContainer from '../sample/sample_container'
+import SampleContainer from '../sample/sample_container';
 import { timingSafeEqual } from 'crypto';
 
 
 class Grid extends React.Component {
   constructor(props) {
     super(props);
-    this.grid = this.props.grid;
+    this.grid = this.props.grid.grid;
     this.timer = 0;
     this.bpm = 120;
     this.addTimer = this.addTimer.bind(this);
@@ -32,8 +32,11 @@ class Grid extends React.Component {
     let drum = document.getElementById(`drum${ele}`);
 
     for (let i = 0; i < drum.children.length; i++) {
-      if (drum.children[i].className === "clicked") {
+      if (drum.children[i].className !== "clicked") {
+        $(drum.children[i]).addClass("drumLit1");
+      } else {
         $(drum.children[i]).addClass("kick");
+        $(drum.children[i]).removeClass("clicked");
       }
     }
 
@@ -57,12 +60,14 @@ class Grid extends React.Component {
     drum = document.getElementById(`drum${temp}`);
 
     for (let i = 0; i < drum.children.length; i++) {
-      if ((drum.children[i].className === "clicked kick")) {
+      if ((drum.children[i].className === "ele drumLit1")) {
+        $(drum.children[i]).removeClass("drumLit1");
+        $(drum.children[i]).addClass("drumLit2");
+      } else if (drum.children[i].className === "kick") {
         $(drum.children[i]).removeClass("kick");
+        $(drum.children[i]).addClass("clicked");
       }
     }
-
-
 
     temp = ((ele - 2 + 16) % 16);
     oldCol = document.getElementById(`idx${temp}`);
@@ -74,6 +79,15 @@ class Grid extends React.Component {
       } 
     }
 
+    drum = document.getElementById(`drum${temp}`);
+
+    for (let i = 0; i < drum.children.length; i++) {
+      if ((drum.children[i].className === "ele drumLit2")) {
+        $(drum.children[i]).removeClass("drumLit2");
+        $(drum.children[i]).addClass("drumLit3");
+      }
+    }
+
     temp = ((ele - 3 + 16) % 16);
     oldCol = document.getElementById(`idx${temp}`);
 
@@ -81,6 +95,15 @@ class Grid extends React.Component {
       if ((oldCol.children[i].className === "ele rowLit3")) {
         $(oldCol.children[i]).removeClass("rowLit3");
         $(oldCol.children[i]).addClass("rowLit4");
+      }
+    }
+
+    drum = document.getElementById(`drum${temp}`);
+
+    for (let i = 0; i < drum.children.length; i++) {
+      if ((drum.children[i].className === "ele drumLit3")) {
+        $(drum.children[i]).removeClass("drumLit3");
+        $(drum.children[i]).addClass("drumLit4");
       }
     }
 
@@ -94,6 +117,16 @@ class Grid extends React.Component {
       }
     }
 
+    drum = document.getElementById(`drum${temp}`);
+
+    for (let i = 0; i < drum.children.length; i++) {
+      if ((drum.children[i].className === "ele drumLit4")) {
+        $(drum.children[i]).removeClass("drumLit4");
+        $(drum.children[i]).addClass("drumLit5");
+      }
+    }
+
+
     temp = ((ele - 5 + 16) % 16);
     oldCol = document.getElementById(`idx${temp}`);
 
@@ -102,6 +135,15 @@ class Grid extends React.Component {
         $(oldCol.children[i]).removeClass("rowLit5");
       }
     }
+
+    drum = document.getElementById(`drum${temp}`);
+
+    for (let i = 0; i < drum.children.length; i++) {
+      if ((drum.children[i].className === "ele drumLit5")) {
+        $(drum.children[i]).removeClass("drumLit5");
+      }
+    }
+
   }
 
   addTimer(ele) {
@@ -110,12 +152,16 @@ class Grid extends React.Component {
     }
     
     this.timer = ele;
-    this.playAudioRow(this.grid[this.timer]);
+    let audio = document.getElementById(`sample-14`);
+    let drum = document.getElementById(`drum-2`);
+    if (audio && drum) {
+      this.playAudioRow(this.grid[this.timer]);
+    }
 
   }
 
   playAudioRow(row){
-    console.log(row);
+    // console.log(row);
     // debugger
   
     row.forEach( (ele, idx) => {
@@ -147,54 +193,59 @@ class Grid extends React.Component {
   }
 
   render() {
-    return (
-      <div className="outsideGrid">
-        <div className="gridBackground">
-          <div className="mainGrid">
-            {this.grid.map((row, idx) => ( 
-              <div className="row" id={`idx${idx}`} key={idx}>
-              {row.map((ele, idx2) => {
-                if (idx2 < 15) {
-                  return (
-                    < Cube 
-                    row={idx} 
-                    col={idx2} 
-                    key={idx2} 
-                    ele={ele}
-                    switchPos={this.switchPos}/>
-                  )
-                } 
-              })}
-              </div>
-            ))}
-          </div>
-          <div className="drumRack"> 
-            {this.grid.map((row, idx) => (
-              <div className="row" id={`drum${idx}`} key={idx}>
+    if (!this.grid) {
+      return null;
+    } else {
+      // debugger
+      return (
+        <div className="outsideGrid">
+          <div className="gridBackground">
+            <div className="mainGrid">
+              {this.grid.map((row, idx) => ( 
+                <div className="row" id={`idx${idx}`} key={idx}>
                 {row.map((ele, idx2) => {
-                  if (idx2 >= 15) {
+                  if (idx2 < 15) {
                     return (
-                      < Cube
-                        row={idx}
-                        col={idx2}  
-                        key={idx2}
-                        ele={ele}
-                        switchPos={this.switchPos} />
+                      < Cube 
+                      row={idx} 
+                      col={idx2} 
+                      key={idx2} 
+                      ele={ele}
+                      switchPos={this.switchPos}/>
                     )
-                  }
+                  } 
                 })}
-              </div>
-            ))}
+                </div>
+              ))}
+            </div>
+            <div className="drumRack"> 
+              {this.grid.map((row, idx) => (
+                <div className="row" id={`drum${idx}`} key={idx}>
+                  {row.map((ele, idx2) => {
+                    if (idx2 >= 15) {
+                      return (
+                        < Cube
+                          row={idx}
+                          col={idx2}  
+                          key={idx2}
+                          ele={ele}
+                          switchPos={this.switchPos} />
+                      )
+                    }
+                  })}
+                </div>
+              ))}
+            </div>
+          </div>
+          <div className="bpmComponent">
+            <Timer start={this.timer} addTimer={this.addTimer} bpm={this.bpm}/>
+          </div>
+          <div className="sampleComponent">
+            <SampleContainer />
           </div>
         </div>
-        <div className="bpmComponent">
-          <Timer start={this.timer} addTimer={this.addTimer} bpm={this.bpm}/>
-        </div>
-        <div className="sampleComponent">
-          <SampleContainer />
-        </div>
-      </div>
-    )
+      )
+    }
   }
 }
 
