@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { fetchSamples } from '../../actions/sample_actions';
+import { fetchSamples, fetchDrums } from '../../actions/sample_actions';
 import Sample from './sample';
 
 const mapStateToProps = (state) => {
@@ -10,7 +10,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    fetchSamples: (instrument) => dispatch(fetchSamples(instrument))
+    fetchSamples: (instrument) => dispatch(fetchSamples(instrument)),
+    fetchDrums: () => dispatch(fetchDrums())
   };
 };
 

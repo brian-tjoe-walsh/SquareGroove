@@ -23,7 +23,7 @@ class Timer extends React.Component {
   }
 
   bpmChanger(e) {
-    console.log(e.currentTarget.value);
+    // console.log(e.currentTarget.value);
     // debugger
     this.bpm = e.currentTarget.value;
     clearInterval(this.refreshIntervalId);
@@ -34,7 +34,7 @@ class Timer extends React.Component {
 
   render() {
     this.props.addTimer(this.state.time);
-    console.log(this.bpm);
+    // console.log(this.bpm);
     return(
       <div className="bpmAdjuster">
         <input onChange={this.bpmChanger}

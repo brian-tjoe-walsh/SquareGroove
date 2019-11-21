@@ -1,4 +1,4 @@
-import { RECEIVE_SAMPLES } from '../actions/sample_actions';
+import { RECEIVE_SAMPLES, RECEIVE_DRUMS } from '../actions/sample_actions';
 
 const SamplesReducer = (state = {}, action) => {
     Object.freeze(state);
@@ -8,6 +8,10 @@ const SamplesReducer = (state = {}, action) => {
         let instrument = action.samples.data[0].instrument;
         newState = { [instrument]: action.samples.data };
         return newState;
+
+      case RECEIVE_DRUMS:
+        return Object.assign(newState, {drums: action.drums.data});
+
       default:
         return state;
     }

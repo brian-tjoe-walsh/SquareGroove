@@ -28,7 +28,9 @@
 }
 
 .sampleComponent {
-	height: 0px;
+	/* height: 0px; */
+	visibility: visible;
+	z-index: 100;
 }
 
 .mainGrid {

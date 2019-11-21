@@ -19,7 +19,7 @@ class Cube extends React.Component {
 
 
   render() {
-    console.log(this.props.bpm);
+    // console.log(this.props.bpm);
     return ( null
       // <div className="bpmAdjuster">
       //   <input onChange={this.props.bpmChanger} 

@@ -115,11 +115,22 @@ class Grid extends React.Component {
   }
 
   playAudioRow(row){
+    console.log(row);
+    // debugger
+  
     row.forEach( (ele, idx) => {
-      if (ele === 1){
-        let audio = document.getElementById(`sample-${idx}`);
-        audio.load();
-        audio.play();
+      if (idx <= 14) {
+        if (ele === 1){
+          let audio = document.getElementById(`sample-${idx}`);
+          audio.load();
+          audio.play();
+        }
+      } else {
+        if (ele === 1) {
+          let audio = document.getElementById(`drum-${idx - 15}`);
+          audio.load();
+          audio.play();
+        }
       }
     });
   }
@@ -147,6 +158,7 @@ class Grid extends React.Component {
                   return (
                     < Cube 
                     row={idx} 
+                    col={idx2} 
                     key={idx2} 
                     ele={ele}
                     switchPos={this.switchPos}/>
@@ -164,6 +176,7 @@ class Grid extends React.Component {
                     return (
                       < Cube
                         row={idx}
+                        col={idx2}  
                         key={idx2}
                         ele={ele}
                         switchPos={this.switchPos} />
