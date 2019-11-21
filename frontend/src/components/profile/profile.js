@@ -1,6 +1,7 @@
 // src/components/profile/profile.js
 
 import React from 'react';
+import ProfileGrid from './profile_grid';
 
 class Profile extends React.Component {
     constructor(props) {
@@ -25,8 +26,15 @@ class Profile extends React.Component {
           return (<div>This user has no Grids</div>)
         } else {
           return (
-            <div>
-              <h2>User Profile Page!</h2>
+            <div className="mainBackground">
+              <div className="profileGrids">
+                {this.state.grids.map((grid) => (
+                  <div className="individualGrid">
+                    <ProfileGrid grid={grid}/>
+                    <h3 className="profileTitle">{grid.title}</h3>
+                  </div>
+                ))}
+              </div>
               
             </div>
           );

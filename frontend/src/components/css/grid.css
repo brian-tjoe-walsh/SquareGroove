@@ -100,6 +100,13 @@
 	animation-duration: 200ms;
 }
 
+.drumLit1 {
+	background: white;
+	opacity: 70%;
+	animation: rowLit1;
+	animation-duration: 200ms;
+}
+
 @keyframes rowLit1 {
   from {
     opacity: 35%;
@@ -111,6 +118,12 @@
 }
 
 .rowLit2 {
+	background: white;
+	opacity: 55%;
+	animation: rowLit2;
+	animation-duration: 200ms;
+}
+.drumLit2 {
 	background: white;
 	opacity: 55%;
 	animation: rowLit2;
@@ -133,6 +146,12 @@
 	animation: rowLit3;
 	animation-duration: 200ms;
 }
+.drumLit3 {
+	background: white;
+	opacity: 45%;
+	animation: rowLit3;
+	animation-duration: 200ms;
+}
 
 @keyframes rowLit3 {
   from {
@@ -146,7 +165,13 @@
 
 .rowLit4 {
 	background: white;
-	opacity: 35%;
+	opacity: 40%;
+	animation: rowLit4;
+	animation-duration: 200ms;
+}
+.drumLit4 {
+	background: white;
+	opacity: 40%;
 	animation: rowLit4;
 	animation-duration: 200ms;
 }
@@ -157,7 +182,7 @@
   }
   
   to {
-    opacity: 35%;
+    opacity: 40%;
   }
 }
 
@@ -165,16 +190,22 @@
 	animation: rowLit5;
 	animation-duration: 200ms;
 	background: white;
-	opacity: 25%;
+	opacity: 35%;
+}
+.drumLit5 {
+	animation: rowLit5;
+	animation-duration: 200ms;
+	background: white;
+	opacity: 35%;
 }
 
 @keyframes rowlit5 {
   from {
-    opacity: 35%;
+    opacity: 40%;
   }
   
   to {
-    opacity: 25%;
+    opacity: 35%;
   }
 }
 
@@ -244,3 +275,101 @@
 	width: 500px;
 	height: 100px;
 }
+
+.menuIcon {
+	position: fixed;
+	top: 5%;
+	left: 5%;
+	height: 50px;
+	width: 60px;
+}
+
+.menuIcon .hamburger {
+	position:absolute;
+	left: 5%;
+	top: 5%;
+	transform: translate(-50%, -50%);
+	height: 4px;
+	width: 50px;
+	background-color: #22313F;
+	transition: all .1s;
+	opacity: 0.5;
+}
+
+.menuIcon .hamburger:before {
+	position:absolute;
+	content: '';
+	height: 4px;
+	width: 40px;
+	top: -10px;
+	background-color: #22313F;
+	transition: all .4s;
+	
+}
+
+.menuIcon .hamburger:after {
+	position:absolute;
+	content: '';
+	height: 4px;
+	width: 40px;
+	top: 10px;
+	background-color: #22313F;
+	transition: all .3s;
+}
+.menuIcon:hover .hamburger::after,.menuIcon:hover .hamburger::before {
+	width: 50px;
+}
+
+.menuIcon:hover .hamburger{
+	width: 40px;
+}
+
+.menuIcon:hover {
+	cursor: pointer;
+}
+
+.sidebar {
+	position:fixed;
+	width: 150px;
+	left: 0px;
+	height: 50vh;
+	background-color:rgb(179, 197, 213);
+	color:#FAFAFA;
+	/* -webkit-clip-path: polygon(0% 0%, 50% 0%, 0% 50%, 0% 100%); */
+	transition: all .5s;
+	opacity: 0.6;
+	border-radius: 0px 5px 5px 0px;
+}
+
+.hidebar {
+	position:fixed;
+	width: 150px;
+	left: -150px;
+	height: 50vh;
+	background-color:rgb(179, 197, 213);
+	color:#FAFAFA;
+	/* -webkit-clip-path: polygon(0% 0%, 50% 0%, 0% 50%, 0% 100%); */
+	transition: all .5s;
+	opacity: 0.6;
+	border-radius: 0px 5px 5px 0px;
+}
+
+.sidebar nav ul {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	list-style:none;
+	transform:translate(-50%, -50%);
+	text-align:center;
+}
+
+.sidebar nav ul li {
+	height: 20px;
+	margin-bottom: 80px;
+	margin-top: 60px;
+	font-family: 'Titillium Web', sans-serif;
+	color: #22313F;
+	opacity: 0.8;
+}
+
+

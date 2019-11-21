@@ -1,0 +1,61 @@
+.profileGrids {
+  margin-top: 100px;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.individualGrid {
+  margin: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  height: 400px;
+  width: 300px;
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
+  opacity: 80%;
+}
+
+.profileGrid {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.profileRow {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.profileTitle {
+  height: 10px;
+  font-size: 20px;
+  margin: 10px;
+}
+
+.profile-0 {
+  border-radius: 3px;
+  margin: 2px;
+  height: 15px;
+  width: 15px;
+  color: transparent;
+	background: rgb(171, 237, 241);
+	opacity: 35%;
+}
+
+.profile-1 {
+  border-radius: 3px;
+  margin: 2px;
+  height: 15px;
+  width: 15px;
+  color: transparent;
+	background: rgb(242, 251, 252);
+}
