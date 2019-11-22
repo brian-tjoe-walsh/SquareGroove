@@ -13,8 +13,10 @@ class Grid extends React.Component {
     this.grid = this.props.grid.grid;
     this.timer = 0;
     this.bpm = 120;
+    this.muted = false;
     this.addTimer = this.addTimer.bind(this);
     this.switchPos = this.switchPos.bind(this);
+    this.toggleMute = this.toggleMute.bind(this);
   }
 
   classDispersion(ele) {
@@ -185,7 +187,22 @@ class Grid extends React.Component {
     });
   }
 
-
+  toggleMute() {
+    
+    let samples = document.getElementsByTagName("Audio");
+    if (this.muted === false){
+      Array.from(samples).forEach( sample => {
+        sample.volume = 0;
+        this.muted = true;
+      })
+    } else {
+      Array.from(samples).forEach( sample => {
+        sample.volume = 1;
+        this.muted = false;
+      })
+    }
+  }
+  
 
   switchPos(coord) {
     let pos = this.grid[coord[0]][coord[1]];
@@ -243,6 +260,9 @@ class Grid extends React.Component {
           </div>
           <div className="bpmComponent">
             <Timer start={this.timer} addTimer={this.addTimer} bpm={this.bpm}/>
+          </div>
+          <div onClick={this.toggleMute}>
+            MUTE
           </div>
           <div className="sampleComponent">
             <SampleContainer />
