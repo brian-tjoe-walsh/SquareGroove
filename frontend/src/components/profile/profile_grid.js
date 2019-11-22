@@ -4,7 +4,7 @@ class ProfileGrid extends React.Component {
   constructor(props) {
     super(props);
     this.grid = this.props.grid.grid;
-    debugger;
+    // debugger;
   }
 
   render() {

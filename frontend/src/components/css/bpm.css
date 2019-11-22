@@ -1,15 +1,26 @@
+.bpmComponent {
+  margin: 20px;
+  width: 500px;
+  height: 150px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
 .bpmAdjuster {
   width: 100%; 
   display: flex;
-  justify-content: center;
+  flex-direction:row;
+  justify-content: space-between;
+  align-items: center;
   
 }
 
 .adjuster {
+  margin-right: 15px;
   height: 10px;
   -webkit-appearance: none;
-  margin: 10px;
-  width: 50%;
+  width: 150px;
   background: transparent;
   border: 1px rgb(201, 201, 201) solid; 
   border-radius: 10px;
@@ -29,6 +40,28 @@
   border-radius: 50px;
 }
 
-.bpmComponent {
-  /* height: 20px; */
+
+.pauseFunction {
+  margin: 15px;
+  font-size: 17px;
+  width: 100px;
+  height: 25px;
+  border-radius: 4px;
+  color: white;
+  background: rgba(201, 201, 201, 0.274);
+}
+
+.bpmDisplay {
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bolder;
+  width: 100px;
+  color: white;
+  font-size: 17px;
+  opacity: 80%;
+}
+
+.bpmContainer {
+  display: flex;
+  flex-direction: row;
+  width: 250px;
 }

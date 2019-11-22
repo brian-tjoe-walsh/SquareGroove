@@ -5,12 +5,14 @@ class Timer extends React.Component {
     super(props);
     this.state = {
       time: this.props.start,
+      pause: "play",
+      random: "random"
     };
     this.bpm = this.props.bpm;
     this.interval = 60000 / this.bpm;
     this.bpmChanger = this.bpmChanger.bind(this);
     this._tick = this._tick.bind(this);
-    this.refreshIntervalId = setInterval(this._tick, this.interval);
+    this.pause = this.pause.bind(this);
   }
 
   _tick() {
@@ -25,27 +27,70 @@ class Timer extends React.Component {
   bpmChanger(e) {
     // console.log(e.currentTarget.value);
     // debugger
-    this.bpm = e.currentTarget.value;
-    clearInterval(this.refreshIntervalId);
-    let interval = 60000 / this.bpm;
-    this._tick();
-    this.refreshIntervalId = setInterval(this._tick, interval);
+    if (this.state.pause === "play") {
+      this.bpm = e.currentTarget.value;
+      if (this.state.random === "random") {
+        this.setState({random: "notRandom"});
+      } else {
+        this.setState({random: "random"});
+      }
+    } else {
+      this.bpm = e.currentTarget.value;
+      clearInterval(this.refreshIntervalId);
+      let interval = 60000 / this.bpm;
+      this._tick();
+      this.refreshIntervalId = setInterval(this._tick, interval);
+    }
+  }
+
+  pause() {
+    if (this.refreshIntervalId) {
+      clearInterval(this.refreshIntervalId);
+      this.refreshIntervalId = null;
+      this.setState({pause: "play"});
+    } else {
+      let interval = 60000 / this.bpm;
+      this.refreshIntervalId = setInterval(this._tick, interval);
+      this.setState({pause: "pause"});
+    }
   }
 
   render() {
-    this.props.addTimer(this.state.time);
-    // console.log(this.bpm);
-    return(
-      <div className="bpmAdjuster">
-        <input onChange={this.bpmChanger}
-          className="adjuster"
-          type="range"
-          min="100"
-          max="300"
-          step="20"
-          defaultValue={this.bpm}></input>
-      </div>
-    )
+    if (this.state.pause === "pause") {
+      this.props.addTimer(this.state.time);
+      // console.log(this.bpm);
+      return(
+        <div className="bpmAdjuster">
+          <button className="pauseFunction" onClick={this.pause}>{this.state.pause}</button>
+          <div className="bpmContainer">
+            <p className="bpmDisplay">BPM: {this.bpm}</p>
+            <input onChange={this.bpmChanger}
+              className="adjuster"
+              type="range"
+              min="100"
+              max="300"
+              step="20"
+              defaultValue={this.bpm}></input>
+          </div>
+        </div>
+      )
+    } else {
+      return (
+        <div className="bpmAdjuster">
+          <button className="pauseFunction" onClick={this.pause}>{this.state.pause}</button>
+          <div className="bpmContainer">
+            <p className="bpmDisplay">BPM: {this.bpm}</p>
+            <input onChange={this.bpmChanger}
+              className="adjuster"
+              type="range"
+              min="100"
+              max="300"
+              step="20"
+              defaultValue={this.bpm}></input>
+          </div>
+        </div>
+      )
+    }
   }
 }
 

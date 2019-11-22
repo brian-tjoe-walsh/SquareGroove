@@ -1,9 +1,11 @@
 .profileGrids {
-  margin-top: 100px;
+  margin: 50px 0px;
   width: 100%;
+  height: 100%;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  overflow: auto;
 }
 
 .individualGrid {
@@ -39,6 +41,7 @@
   height: 10px;
   font-size: 20px;
   margin: 10px;
+  text-decoration: none;
 }
 
 .profile-0 {
@@ -58,4 +61,8 @@
   width: 15px;
   color: transparent;
 	background: rgb(242, 251, 252);
+}
+
+a {
+  text-decoration: none;
 }

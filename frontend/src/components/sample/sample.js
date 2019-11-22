@@ -16,7 +16,7 @@ class Sample extends React.Component {
         <div className="sampleComponent">
             {this.props.samples.bell.map((sample, idx) => (
                 <div key={idx}>
-                    <audio controls id={`sample-${idx}`}>
+                    <audio id={`sample-${idx}`}>
                         <source src={sample.url} type="audio/mp3"/>
                     </audio>
                     <br/>
@@ -24,7 +24,7 @@ class Sample extends React.Component {
             ))}
             {this.props.samples.drums.map((sample, idx) => (
                 <div key={idx}>
-                    <audio controls id={`drum-${idx}`}>
+                    <audio id={`drum-${idx}`}>
                         <source src={sample.url} type="audio/mp3"/>
                     </audio>
                     <br/>
