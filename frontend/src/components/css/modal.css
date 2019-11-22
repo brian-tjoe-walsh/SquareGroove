@@ -9,28 +9,38 @@
   }
   
   .modal-child {
-    -webkit-border-radius: 25px;
+    /* -webkit-border-radius: 25px; */
     -moz-border-radius: 25px;
     -moz-border-radius-topleft: 0;
-    border-radius: 50px;
+    border-radius: 0px;
+    border: 4px solid transparent;
+    border-image: linear-gradient(217deg, rgb(0, 251, 255), rgb(255, 255, 255));
+    border-image-slice: 1;
     position: absolute;
     top: 50%;
     left: 50%;
-    width: 25%;
-    height: 45%;
+    width: 22%;
+    height: 35%;
     transform: translate(-50%, -50%);
     background: linear-gradient(to bottom right, rgb(62, 186, 238), rgb(26, 104, 199));
     opacity: 90%;
-    font-size: 18px;
+    font-size: 20px;
     min-width: 400px;
-    min-height: 400px;
+    min-height: 350px;
   }
 
 .loginForm {
   text-align: center;
-  padding-top: 30%;
+  padding-top: 22.5%;
   font-family: Helvetica;
   color: white;
+}
+
+.signupForm {
+  text-align: center;
+  font-family: Helvetica;
+  color: white;
+  padding-top: 16%;
 }
 
 .loginInputEmail  {
@@ -43,9 +53,16 @@
 
 .loginInputPassword {
   padding: 12px;
-  margin-bottom: 20px;
   width: 200px;
   height: 0px;
+}
+
+.signupInput{
+  width: 200px;
+  height: 0px;
+  padding: 12px;
+  margin-bottom: 5px;
+  margin-top: 5px;
 }
 
 input[type=text]:focus {
@@ -65,7 +82,7 @@ input[type=text]:focus {
 	top:1px;
 }
 
-.submit-btn{
+.submit-btn-login{
   background: rgb(160, 98, 247);
   width: 30%;
   height: 40px;
@@ -74,6 +91,17 @@ input[type=text]:focus {
   color: white;
   border-radius: 25px;
   margin: 20px;
+}
+
+.submit-btn-signup{
+  background: rgb(160, 98, 247);
+  width: 35%;
+  height: 40px;
+  border:none;
+  font-size:1em;
+  color: white;
+  border-radius: 25px;
+  margin: 10px;
 }
 
 .submit-btn:hover{
