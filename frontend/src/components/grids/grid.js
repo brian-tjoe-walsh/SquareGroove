@@ -224,7 +224,10 @@ class Grid extends React.Component {
     } else {
       // debugger
       return (
-        <div className="outsideGrid">
+        <div className="outsideGrid"> 
+            <div className='mute-btn' onClick={this.toggleMute}>
+                MUTE
+            </div>
           <div className="gridBackground">
             <div className="mainGrid">
               {this.grid.map((row, idx) => ( 
@@ -265,9 +268,6 @@ class Grid extends React.Component {
           </div>
           <div className="bpmComponent">
             <Timer start={this.timer} addTimer={this.addTimer} bpm={this.bpm}/>
-          </div>
-          <div onClick={this.toggleMute}>
-            MUTE
           </div>
           <div className="sampleComponent">
             <SampleContainer />

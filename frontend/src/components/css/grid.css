@@ -420,3 +420,9 @@
   0%,100% { opacity: .25; }
   50% { opacity: 1; }
 }
+
+.mute-btn{
+	height: 5px;
+	text-align: right;
+	padding-right: 100px;
+}

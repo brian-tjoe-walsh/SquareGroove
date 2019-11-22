@@ -7,6 +7,8 @@ import jwt_decode from 'jwt-decode';
 import { setAuthToken } from './util/session_api_util';
 import { logout } from './actions/session_actions';
 
+import { fetchSamples } from './actions/sample_actions';
+
 document.addEventListener('DOMContentLoaded', () => {
   let store;
 
@@ -31,7 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
   console.log(root);
   window.dispatch = store.dispatch;
   window.logout = logout;
-
+  
   const ele = React.createElement(Root, { store: store });
   window.playAudio = () => {
     let audio = document.getElementById("audio");
