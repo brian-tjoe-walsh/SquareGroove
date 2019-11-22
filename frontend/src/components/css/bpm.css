@@ -13,7 +13,7 @@
   flex-direction:row;
   justify-content: space-between;
   align-items: center;
-  
+  outline: none;
 }
 
 .adjuster {
@@ -24,6 +24,7 @@
   background: transparent;
   border: 1px rgb(201, 201, 201) solid; 
   border-radius: 10px;
+  outline: none;
 }
 
 .adjuster:hover {
@@ -49,6 +50,7 @@
   border-radius: 4px;
   color: white;
   background: rgba(201, 201, 201, 0.274);
+  outline: none;
 }
 
 .bpmDisplay {
