@@ -11,6 +11,7 @@ class Grid extends React.Component {
   constructor(props) {
     super(props);
     this.grid = this.props.grid.grid;
+    // debugger
     this.timer = 0;
     this.bpm = 120;
     this.muted = false;
@@ -19,6 +20,10 @@ class Grid extends React.Component {
     this.toggleMute = this.toggleMute.bind(this);
   }
 
+
+  // grab all elements and save to state on render, then just grab from state
+  // instead of constantly grabbing a ton of things every second
+  
   classDispersion(ele) {
     let col = document.getElementById(`idx${ele}`);
 

@@ -27,7 +27,7 @@ router.get('/:id', (req, res) => {
   Grid.findById(req.params.id)
     .then(grid => res.json(grid))
     .catch(err =>
-      res.status(404).json({ nogridfound: 'No tweet found with that ID' })
+      res.status(404).json({ nogridfound: 'No grid found with that ID' })
     );
 });
 

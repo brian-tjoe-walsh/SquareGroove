@@ -13,7 +13,7 @@ export const receiveGrids = grids => ({
 });
 
 export const receiveGrid = grid => ({
-  type: RECEIVE_GRIDS,
+  type: RECEIVE_GRID,
   grid
 });
 

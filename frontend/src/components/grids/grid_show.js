@@ -1,36 +1,36 @@
 import React from 'react';
 import Grid from './grid';
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import $ from 'jquery';
 import ProfileContainer from '../profile/profile_container';
 import Loading from '../loading/loading';
 
-class GridPage extends React.Component {
+
+class GridShow extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { grid: null};
-    this.toggleSidebar = this.toggleSidebar.bind(this);
-  } 
+    // debugger
+    this.state = { grid: null };
+  }
 
   componentDidMount() {
-    this.props.fetchGrids()
-      .then((res) => this.setState({ grid: res.grids.data[res.grids.data.length - 2]}));
+    this.props.fetchGrid(this.props.gridId)
+      .then((res) => this.setState({ grid: res.grid.data }));
   }
 
   toggleSidebar() {
-    let sidebar = $('#sidebar');
+    let sidebar = $('.sidebar');
     sidebar.toggleClass('hidebar');
   }
 
   render() {
-    
+
     if (!this.state.grid) {
       // debugger
       return (<Loading />);
     } else {
       // debugger
-      
-      return(
+      return (
         <div className="mainBackground">
           <div className="menuIcon" onClick={this.toggleSidebar}>
             <div className="hamburger"></div>
@@ -44,12 +44,11 @@ class GridPage extends React.Component {
               </ul>
             </nav>
           </div>
-            <Grid grid={this.state.grid}/>
-            { this.toggleSidebar() }
+          <Grid grid={this.state.grid} />
         </div>
       )
     }
   }
 }
 
-export default GridPage;
+export default GridShow;

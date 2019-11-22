@@ -13,6 +13,8 @@ import SampleContainer from './sample/sample_container'
 import Modal from './modal/modal';
 import UserAuth from './session/user_auth';
 import ProfileContainer from './profile/profile_container';
+import GridShowContainer from './grids/grid_show_container';
+import Loading from './loading/loading';
 // import GridComposeContainer from './grids/grid_compose_container';
 import './css/grid.css';
 import './css/bpm.css';
@@ -29,6 +31,8 @@ const App = () => (
     <Switch>
       <Route exact path="/" component={GridPageContainer} />
       <Route exact path="/sample" component={SampleContainer} />
+      <Route exact path="/grids/:gridId" component={GridShowContainer} />
+      <Route exact path="/loading" component={Loading} />
       {/* <AuthRoute exact path="/login" component={LoginFormContainer} />
       <AuthRoute exact path="/signup" component={SignupFormContainer} /> */}
       <AuthRoute exact path="/auth" component={UserAuth} />

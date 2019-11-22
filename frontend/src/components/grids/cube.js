@@ -26,6 +26,10 @@ class Cube extends React.Component {
   }
 
   render() {
+    if (this.ele === 1 && this.state.class !== "clicked") {
+      this.setState({class: "clicked"});
+    }
+
     return (
       <div onClick={this.handleClick.bind(this)} className={this.state.class} >
         {this.ele}
