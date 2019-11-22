@@ -1,14 +1,20 @@
 import React from 'react';
 
 class Sample extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {loaded: false};
+    }
 
   componentDidMount(){
-    this.props.fetchSamples("bell");
-    this.props.fetchDrums();
+    this.props.fetchSamples("bell")
+        .then(() => this.props.fetchDrums())
+        .then(() => this.setState({loaded: true}));
   }
 
   render() {
     if (Object.keys(this.props.samples).length !== 2 ){
+    // if (!this.state.loaded) {
         return null;
     } else {
         // debugger
