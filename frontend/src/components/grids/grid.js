@@ -160,6 +160,10 @@ class Grid extends React.Component {
 
   }
 
+  // fullyLoaded() {
+  //   this.setState({loaded: true});
+  // }
+
   playAudioRow(row){
     // console.log(row);
     // debugger
