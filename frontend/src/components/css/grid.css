@@ -18,7 +18,7 @@
 }
 
 .gridBackground {
-	margin-top: 50px;
+	margin-top: 10px;
 	background: none;
 	display: flex; 
 	flex-direction: column;
@@ -337,11 +337,12 @@
 	left: 0px;
 	height: 50vh;
 	background-color:rgb(179, 197, 213);
-	color:#FAFAFA;
+	color:##22313F;
 	/* -webkit-clip-path: polygon(0% 0%, 50% 0%, 0% 50%, 0% 100%); */
 	transition: all .5s;
 	opacity: 0.6;
 	border-radius: 0px 5px 5px 0px;
+	outline: none;
 }
 
 .hidebar {
@@ -421,6 +422,58 @@
   50% { opacity: 1; }
 }
 
+<<<<<<< HEAD
+.gridShowTitle {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 50px;
+	width: 545px;
+	font-size: 30px;
+	font-family: Arial, Helvetica, sans-serif;
+	color: white;
+	font-weight: bolder;
+	opacity: 50%;
+	margin-top: 20px;
+	letter-spacing: 1px;
+}
+
+.gridTitleDisplay {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	
+}
+
+.inputTitle {
+	-webkit-appearance: none;
+	font-size: 30px;
+	color: white;
+	font-weight: bolder;
+	width: 300px;
+	background: transparent;
+	height: 30px;
+	border: 1px solid white;
+	outline: none;
+	letter-spacing: 2px;
+}
+
+.titleSubmit {
+	margin: 15px;
+  font-size: 17px;
+  width: 100px;
+  height: 25px;
+  border-radius: 4px;
+  color: white;
+  background: rgba(201, 201, 201, 0.274);
+	outline: none;
+	opacity: 100%;
+}
+
+a {
+	color: inherit;
+=======
 .mute-btn{
 	height: 50px;
 	text-align: right;
@@ -431,4 +484,5 @@
 .fas{
 	font-size: 50px;
 	color: black;
+>>>>>>> master
 }

@@ -7,12 +7,14 @@ import Profile from './profile';
 const mapStateToProps = (state) => {
   return {
     grids: Object.values(state.grids.user),
-    currentUser: state.session.user
+    currentUser: state.session.user,
+    // gridId: ownProps.match.params.gridId
   };
 };
 
 const mapDispatchToProps = dispatch => {
   return {
+    // makeGrid: data => dispatch(makeGrid(data)),
     fetchUserGrids: id => dispatch(fetchUserGrids(id))
   };
 };

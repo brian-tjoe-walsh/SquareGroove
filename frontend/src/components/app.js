@@ -32,7 +32,7 @@ const App = () => (
     <Switch>
       <Route exact path="/" component={GridPageContainer} />
       <Route exact path="/sample" component={SampleContainer} />
-      <Route exact path="/grids/:gridId" component={GridShowContainer} />
+      <Route exact path="/grids/:gridId" component={GridPageContainer} />
       <Route exact path="/loading" component={Loading} />
       {/* <AuthRoute exact path="/login" component={LoginFormContainer} />
       <AuthRoute exact path="/signup" component={SignupFormContainer} /> */}
