@@ -12,6 +12,6 @@ export const getUserGrids = id => {
   return axios.get(`/api/grids/user/${id}`);
 };
 
-export const createGrid = data => {
-  return axios.post('/api/grids/', data);
+export const createGrid = grid => {
+  return axios.post('/api/grids/', grid);
 };

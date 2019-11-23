@@ -1,19 +1,28 @@
 import { connect } from 'react-redux';
-import { makeGrid, fetchGrids } from '../../actions/grid_actions';
+import { makeGrid, fetchGrid } from '../../actions/grid_actions';
 import  GridPage  from './grid_page';
 // import { }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state, ownProps) => {
+  let gridId;
+
+  if (ownProps.match.params.gridId) {
+    gridId = ownProps.match.params.gridId;
+  } else {
+    gridId = "5dd87c2aea9c9434c9a0588d";
+  }
+
   return {
     currentUser: state.session.user,
-    newGrid: state.grids.new
+    newGrid: state.grids.new,
+    gridId: gridId
   };
 };
 
 const mapDispatchToProps = dispatch => {
   return {
     makeGrid: data => dispatch(makeGrid(data)),
-    fetchGrids: () => dispatch(fetchGrids())
+    fetchGrid: (gridId) => dispatch(fetchGrid(gridId))
   };
 };
 

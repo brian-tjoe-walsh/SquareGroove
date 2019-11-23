@@ -1,11 +1,22 @@
 const Validator = require('validator');
+const validText = require('./valid-text');
+
 
 module.exports = function validateGridInput(data) {
   let errors = {};
-  let grid = JSON.parse(data.grid);
-  // debugger
-
+  let grid;
+  if (typeof data.grid === "string") {
+    grid = JSON.parse(data.grid);
+  } else {
+    grid = data.grid;
+  }
+  
   data.grid = Array.isArray(grid) ? grid : '';
+  data.title = validText(data.title) ? data.title : '';
+
+  if (Validator.isEmpty(data.title)) {
+    errors.email = 'Title field is required';
+  }
 
   if (data.grid.length !== 16) {
     errors.grid = 'Grid is not correct length (16 bars)';

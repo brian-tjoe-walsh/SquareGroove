@@ -5,19 +5,26 @@ import BPM from '../bpm/bpm';
 import $ from "jquery";
 import SampleContainer from '../sample/sample_container';
 import { timingSafeEqual } from 'crypto';
+import Title from './title';
 
 
 class Grid extends React.Component {
   constructor(props) {
     super(props);
     this.grid = this.props.grid.grid;
-    // debugger
+    this.style = this.props.grid.style;
+    this.title = this.props.grid.title;
+    debugger
     this.timer = 0;
     this.bpm = 120;
     this.muted = false;
     this.addTimer = this.addTimer.bind(this);
     this.switchPos = this.switchPos.bind(this);
     this.toggleMute = this.toggleMute.bind(this);
+    this.titleChange = this.titleChange.bind(this);
+    this.rows = {};
+    this.drums = {};
+    this.samples = {};
   }
 
 
@@ -25,7 +32,12 @@ class Grid extends React.Component {
   // instead of constantly grabbing a ton of things every second
   
   classDispersion(ele) {
-    let col = document.getElementById(`idx${ele}`);
+    if (!this.rows[`idx${ele}`]) {
+      let col = document.getElementById(`idx${ele}`);
+      this.rows[`idx${ele}`] = col;
+    } 
+
+    let col = this.rows[`idx${ele}`];
 
     for (let i = 0; i < col.children.length; i++) {
       if (col.children[i].className !== "clicked") {
@@ -36,7 +48,12 @@ class Grid extends React.Component {
       }
     }
 
-    let drum = document.getElementById(`drum${ele}`);
+    if (!this.drums[`drum${ele}`]) {
+      let col = document.getElementById(`drum${ele}`);
+      this.drums[`drum${ele}`] = col;
+    }
+
+    let drum = this.drums[`drum${ele}`];
 
     for (let i = 0; i < drum.children.length; i++) {
       if (drum.children[i].className !== "clicked") {
@@ -51,7 +68,12 @@ class Grid extends React.Component {
     let oldCol;
 
     temp = ((ele - 1 + 16) % 16);
-    oldCol = document.getElementById(`idx${temp}`);
+
+    if (!this.rows[`idx${temp}`]) {
+      let col = document.getElementById(`idx${temp}`);
+      this.rows[`idx${temp}`] = col;
+    } 
+    oldCol = this.rows[`idx${temp}`];
 
     for (let i = 0; i < oldCol.children.length; i++) {
       // debugger
@@ -64,7 +86,14 @@ class Grid extends React.Component {
       }
     }
 
-    drum = document.getElementById(`drum${temp}`);
+    if (!this.drums[`drum${temp}`]) {
+      let col = document.getElementById(`drum${temp}`);
+      this.drums[`drum${temp}`] = col;
+    }
+
+    // debugger
+
+    drum = this.drums[`drum${temp}`];
 
     for (let i = 0; i < drum.children.length; i++) {
       if ((drum.children[i].className === "ele drumLit1")) {
@@ -77,7 +106,12 @@ class Grid extends React.Component {
     }
 
     temp = ((ele - 2 + 16) % 16);
-    oldCol = document.getElementById(`idx${temp}`);
+
+    if (!this.rows[`idx${temp}`]) {
+      let col = document.getElementById(`idx${temp}`);
+      this.rows[`idx${temp}`] = col;
+    }
+    oldCol = this.rows[`idx${temp}`];
 
     for (let i = 0; i < oldCol.children.length; i++) {
       if ((oldCol.children[i].className === "ele rowLit2")) {
@@ -86,7 +120,12 @@ class Grid extends React.Component {
       } 
     }
 
-    drum = document.getElementById(`drum${temp}`);
+    if (!this.drums[`drum${temp}`]) {
+      let col = document.getElementById(`drum${temp}`);
+      this.drums[`drum${temp}`] = col;
+    }
+
+    drum = this.drums[`drum${temp}`];
 
     for (let i = 0; i < drum.children.length; i++) {
       if ((drum.children[i].className === "ele drumLit2")) {
@@ -96,7 +135,12 @@ class Grid extends React.Component {
     }
 
     temp = ((ele - 3 + 16) % 16);
-    oldCol = document.getElementById(`idx${temp}`);
+
+    if (!this.rows[`idx${temp}`]) {
+      let col = document.getElementById(`idx${temp}`);
+      this.rows[`idx${temp}`] = col;
+    }
+    oldCol = this.rows[`idx${temp}`];
 
     for (let i = 0; i < oldCol.children.length; i++) {
       if ((oldCol.children[i].className === "ele rowLit3")) {
@@ -105,7 +149,12 @@ class Grid extends React.Component {
       }
     }
 
-    drum = document.getElementById(`drum${temp}`);
+    if (!this.drums[`drum${temp}`]) {
+      let col = document.getElementById(`drum${temp}`);
+      this.drums[`drum${temp}`] = col;
+    }
+
+    drum = this.drums[`drum${temp}`];
 
     for (let i = 0; i < drum.children.length; i++) {
       if ((drum.children[i].className === "ele drumLit3")) {
@@ -115,7 +164,12 @@ class Grid extends React.Component {
     }
 
     temp = ((ele - 4 + 16) % 16);
-    oldCol = document.getElementById(`idx${temp}`);
+    
+    if (!this.rows[`idx${temp}`]) {
+      let col = document.getElementById(`idx${temp}`);
+      this.rows[`idx${temp}`] = col;
+    }
+    oldCol = this.rows[`idx${temp}`];
 
     for (let i = 0; i < oldCol.children.length; i++) {
       if ((oldCol.children[i].className === "ele rowLit4")) {
@@ -124,7 +178,12 @@ class Grid extends React.Component {
       }
     }
 
-    drum = document.getElementById(`drum${temp}`);
+    if (!this.drums[`drum${temp}`]) {
+      let col = document.getElementById(`drum${temp}`);
+      this.drums[`drum${temp}`] = col;
+    }
+
+    drum = this.drums[`drum${temp}`];
 
     for (let i = 0; i < drum.children.length; i++) {
       if ((drum.children[i].className === "ele drumLit4")) {
@@ -135,7 +194,12 @@ class Grid extends React.Component {
 
 
     temp = ((ele - 5 + 16) % 16);
-    oldCol = document.getElementById(`idx${temp}`);
+    
+    if (!this.rows[`idx${temp}`]) {
+      let col = document.getElementById(`idx${temp}`);
+      this.rows[`idx${temp}`] = col;
+    }
+    oldCol = this.rows[`idx${temp}`];
 
     for (let i = 0; i < oldCol.children.length; i++) {
       if ((oldCol.children[i].className === "ele rowLit5")) {
@@ -143,7 +207,12 @@ class Grid extends React.Component {
       }
     }
 
-    drum = document.getElementById(`drum${temp}`);
+    if (!this.drums[`drum${temp}`]) {
+      let col = document.getElementById(`drum${temp}`);
+      this.drums[`drum${temp}`] = col;
+    }
+
+    drum = this.drums[`drum${temp}`];
 
     for (let i = 0; i < drum.children.length; i++) {
       if ((drum.children[i].className === "ele drumLit5")) {
@@ -167,10 +236,6 @@ class Grid extends React.Component {
 
   }
 
-  // fullyLoaded() {
-  //   this.setState({loaded: true});
-  // }
-
   playAudioRow(row){
     // console.log(row);
     // debugger
@@ -178,13 +243,21 @@ class Grid extends React.Component {
     row.forEach( (ele, idx) => {
       if (idx <= 14) {
         if (ele === 1){
-          let audio = document.getElementById(`sample-${idx}`);
+          if (!this.samples[`sample-${idx}`]) {
+            this.samples[`sample-${idx}`] = document.getElementById(`sample-${idx}`);
+          }
+
+          let audio = this.samples[`sample-${idx}`];
           audio.currentTime = 0;
           audio.play();
         }
       } else {
         if (ele === 1) {
-          let audio = document.getElementById(`drum-${idx - 15}`);
+          if (!this.samples[`drum-${idx - 15}`]) {
+            this.samples[`drum-${idx - 15}`] = document.getElementById(`drum-${idx - 15}`);
+          }
+
+          let audio = this.samples[`drum-${idx - 15}`];
           audio.currentTime = 0;
           audio.play();
         }
@@ -216,6 +289,12 @@ class Grid extends React.Component {
     } else {
       this.grid[coord[0]][coord[1]] = 1;
     }
+    this.props.saveGrid([this.title, this.style, this.grid]);
+  }
+
+  titleChange(newTitle) {
+    this.title = newTitle;
+    this.props.saveGrid([this.title, this.style, this.grid]);
   }
 
   render() {
@@ -225,6 +304,9 @@ class Grid extends React.Component {
       // debugger
       return (
         <div className="outsideGrid">
+          <div className="gridTitleDisplay">
+            <Title title={this.title} titleChange={this.titleChange}/>
+          </div>
           <div className="gridBackground">
             <div className="mainGrid">
               {this.grid.map((row, idx) => ( 

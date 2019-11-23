@@ -14,10 +14,17 @@ class Profile extends React.Component {
         };
     }
     
-    componentWillMount() {
+    componentDidMount() {
+      debugger
         // console.log(this.props.currentUser.id);
         this.props.fetchUserGrids(this.props.currentUser.id);
     }
+
+    // componentDidUpdate() {
+    //   debugger
+    //   // console.log(this.props.currentUser.id);
+    //   this.props.fetchUserGrids(this.props.currentUser.id);
+    // }
 
     componentWillReceiveProps(newState) {
         this.setState({ grids: newState.grids });

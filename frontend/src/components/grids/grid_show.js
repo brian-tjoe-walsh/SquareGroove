@@ -9,8 +9,15 @@ import Loading from '../loading/loading';
 class GridShow extends React.Component {
   constructor(props) {
     super(props);
-    // debugger
     this.state = { grid: null };
+    this.toggleSidebar = this.toggleSidebar.bind(this);
+    this.savedGrid = {
+      title: null,
+      style: null,
+      grid: null
+    };
+    this.saveGrid = this.saveGrid.bind(this);
+    this.commitSave = this.commitSave.bind(this);
   }
 
   componentDidMount() {
@@ -21,6 +28,22 @@ class GridShow extends React.Component {
   toggleSidebar() {
     let sidebar = $('.sidebar');
     sidebar.toggleClass('hidebar');
+  }
+
+  saveGrid(eles) {
+    this.savedGrid = {
+      title: eles[0],
+      style: eles[1],
+      grid: eles[2]
+    };
+
+    debugger;
+  }
+
+  commitSave() {
+    debugger
+    this.props.makeGrid(this.savedGrid)
+      .then(() => this.props.history.push('/profile'));
   }
 
   render() {
@@ -41,10 +64,12 @@ class GridShow extends React.Component {
                 <Link to="/profile">Profile</Link>
                 <li>Index</li>
                 <li>Logout</li>
+                <Link onClick={this.commitSave} to="/profile">Save</Link>
               </ul>
             </nav>
           </div>
-          <Grid grid={this.state.grid} />
+          <Grid grid={this.state.grid} saveGrid={this.saveGrid} />
+            {this.toggleSidebar()}
         </div>
       )
     }
