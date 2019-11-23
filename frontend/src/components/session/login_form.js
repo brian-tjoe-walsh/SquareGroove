@@ -37,6 +37,7 @@ class LoginForm extends React.Component {
 
   // Handle form submission
   handleSubmit(e) {
+    debugger
     e.preventDefault();
 
     let user = {
@@ -44,7 +45,7 @@ class LoginForm extends React.Component {
       password: this.state.password
     };
 
-    this.props.login(user).then(() => this.props.closeModal());
+    this.props.login(user)
   }
 
   handleClickEmail() {
@@ -59,6 +60,7 @@ class LoginForm extends React.Component {
 
   // Render the session errors if there are any
   renderErrors() {
+    debugger
     return(
       <ul>
         {Object.keys(this.state.errors).map((error, i) => (
@@ -94,7 +96,6 @@ class LoginForm extends React.Component {
               />
             <br/>
             <input type="submit" className= "submit-btn-login" value="Login" />
-            {this.renderErrors()}
           </div>
         </form>
       </div>

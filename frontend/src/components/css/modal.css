@@ -6,6 +6,7 @@
     left: 0;
     background: linear-gradient(to bottom right, rgb(28, 229, 243), rgb(30, 142, 235));
     z-index: 10;
+    opacity: 0.9;
   }
   
   .modal-child {
@@ -27,6 +28,11 @@
     font-size: 20px;
     min-width: 400px;
     min-height: 350px;
+    animation: slideDown .5s;
+  }
+  @keyframes slideDown {
+    from { top: 0%;}
+    to { top: 50%;}
   }
 
 .loginForm {
