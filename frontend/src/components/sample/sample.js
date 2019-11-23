@@ -3,24 +3,45 @@ import React from 'react';
 class Sample extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {loaded: false};
+        this.state = {loaded: false, instrument: "bell", changing: false};
+        this.changeSample = this.changeSample.bind(this);
     }
 
   componentDidMount(){
-    this.props.fetchSamples("bell")
+    debugger
+    this.props.fetchSamples(this.state.instrument)
         .then(() => this.props.fetchDrums())
         .then(() => this.setState({loaded: true}));
   }
 
+  changeSample(newInstrument){
+      this.setState({loaded: false, instrument: newInstrument, changing: true});
+  }
+
+  componentDidUpdate(){
+      debugger
+      if (this.state.changing === true){
+          this.props.fetchSamples(this.state.instrument)
+            .then(() => this.props.fetchDrums())
+            .then(() => this.setState({loaded: true, changing: false}));
+      }
+  }
+
   render() {
-    if (Object.keys(this.props.samples).length !== 2 ){
-    // if (!this.state.loaded) {
-        return null;
+    if (Object.keys(this.props.samples).length !== 2 || this.state.loaded === false){
+        debugger
+        return (
+            <div>
+                <div className="instrument-select" onClick={() => this.changeSample("bell")}> BELL </div><br/>
+                <div className="instrument-select" onClick={() => this.changeSample("piano")}> PIANO </div><br/>
+                <div className="instrument-select" onClick={() => this.changeSample("voice")}> VOICE </div>
+            </div>
+        );
     } else {
-        // debugger
+        debugger
         return (
         <div className="sampleComponent">
-            {this.props.samples.bell.map((sample, idx) => (
+            {this.props.samples[this.state.instrument].map((sample, idx) => (
                 <div key={idx}>
                     <audio id={`sample-${idx}`}>
                         <source src={sample.url} type="audio/mp3"/>
@@ -36,6 +57,9 @@ class Sample extends React.Component {
                     <br/>
                 </div>
             ))}
+            <div className="instrument-select" onClick={() => this.changeSample("bell")}> BELL </div><br/>
+            <div className="instrument-select" onClick={() => this.changeSample("piano")}> PIANO </div><br/>
+            <div className="instrument-select" onClick={() => this.changeSample("voice")}> VOICE </div>
         </div>
         )
     }

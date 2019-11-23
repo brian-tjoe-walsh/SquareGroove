@@ -422,6 +422,7 @@
   50% { opacity: 1; }
 }
 
+<<<<<<< HEAD
 .gridShowTitle {
 	display: flex;
 	justify-content: center;
@@ -472,4 +473,16 @@
 
 a {
 	color: inherit;
+=======
+.mute-btn{
+	height: 50px;
+	text-align: right;
+	padding-right: 100px;
+	cursor: pointer;
+}
+
+.fas{
+	font-size: 50px;
+	color: black;
+>>>>>>> master
 }

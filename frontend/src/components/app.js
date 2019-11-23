@@ -21,6 +21,7 @@ import './css/bpm.css';
 import './app.css';
 import './css/modal.css';
 import './css/profile.css';
+import './css/sample.css';
 
 
 

@@ -307,6 +307,9 @@ class Grid extends React.Component {
           <div className="gridTitleDisplay">
             <Title title={this.title} titleChange={this.titleChange}/>
           </div>
+          <div className='mute-btn' onClick={this.toggleMute}>
+            <i className="fas fa-volume-up"></i>
+          </div>
           <div className="gridBackground">
             <div className="mainGrid">
               {this.grid.map((row, idx) => ( 
@@ -348,11 +351,8 @@ class Grid extends React.Component {
           <div className="bpmComponent">
             <Timer start={this.timer} addTimer={this.addTimer} bpm={this.bpm}/>
           </div>
-          <div onClick={this.toggleMute}>
-            MUTE
-          </div>
           <div className="sampleComponent">
-            <SampleContainer />
+            <SampleContainer instrument={this.props.grid.style}/>
           </div>
         </div>
       )
