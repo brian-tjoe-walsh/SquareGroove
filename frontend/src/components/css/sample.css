@@ -1,0 +1,7 @@
+audio {
+    visibility: none;
+}
+
+.instrument-select{
+    cursor: pointer;
+}
