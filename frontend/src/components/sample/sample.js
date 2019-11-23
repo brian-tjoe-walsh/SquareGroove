@@ -32,8 +32,9 @@ class Sample extends React.Component {
         debugger
         return (
             <div>
-                <div onClick={() => this.changeSample("voice")}> VOICE </div><br/>
-                <div onClick={() => this.changeSample("bell")}> BELL </div>
+                <div className="instrument-select" onClick={() => this.changeSample("bell")}> BELL </div><br/>
+                <div className="instrument-select" onClick={() => this.changeSample("piano")}> PIANO </div><br/>
+                <div className="instrument-select" onClick={() => this.changeSample("voice")}> VOICE </div>
             </div>
         );
     } else {
@@ -56,8 +57,9 @@ class Sample extends React.Component {
                     <br/>
                 </div>
             ))}
-            <div onClick={() => this.changeSample("voice")}> VOICE </div><br/>
-            <div onClick={() => this.changeSample("bell")}> BELL </div>
+            <div className="instrument-select" onClick={() => this.changeSample("bell")}> BELL </div><br/>
+            <div className="instrument-select" onClick={() => this.changeSample("piano")}> PIANO </div><br/>
+            <div className="instrument-select" onClick={() => this.changeSample("voice")}> VOICE </div>
         </div>
         )
     }

@@ -226,7 +226,7 @@ class Grid extends React.Component {
       return (
         <div className="outsideGrid"> 
             <div className='mute-btn' onClick={this.toggleMute}>
-                MUTE
+              <i className="fas fa-volume-up"></i>
             </div>
           <div className="gridBackground">
             <div className="mainGrid">
@@ -270,7 +270,7 @@ class Grid extends React.Component {
             <Timer start={this.timer} addTimer={this.addTimer} bpm={this.bpm}/>
           </div>
           <div className="sampleComponent">
-            <SampleContainer />
+            <SampleContainer instrument={this.props.grid.style}/>
           </div>
         </div>
       )
