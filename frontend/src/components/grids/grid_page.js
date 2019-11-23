@@ -4,11 +4,12 @@ import {Link} from 'react-router-dom';
 import $ from 'jquery';
 import ProfileContainer from '../profile/profile_container';
 import Loading from '../loading/loading';
+import LoginButton from '../session/login_button';
 
 class GridPage extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { grid: null};
+    this.state = { grid: null };
     this.toggleSidebar = this.toggleSidebar.bind(this);
   } 
 
@@ -18,18 +19,37 @@ class GridPage extends React.Component {
   }
 
   toggleSidebar() {
-    let sidebar = $('#sidebar');
+    let sidebar = $('.sidebar');
+    let welcome = $('.welcomeMessage');
     sidebar.toggleClass('hidebar');
+    welcome.toggleClass('hideMessage');
   }
 
   render() {
-    
+    console.log(this.props);
     if (!this.state.grid) {
-      // debugger
       return (<Loading />);
+    } else if (this.props.currentUser) {
+      return(
+        <div className="mainBackground">
+          <div className="menuIcon" onClick={this.toggleSidebar}>
+            <div className="hamburger"></div>
+          </div>
+          <div className="welcomeMessage">Welcome, {this.props.currentUser.handle}</div>
+          <div>Text</div>
+          <div className="sidebar">
+            <nav>
+              <ul>
+                <Link to="/profile">Profile</Link>
+                <li>Index</li>
+                <LoginButton/>
+              </ul>
+            </nav>
+          </div>
+            <Grid grid={this.state.grid}/>
+          </div>
+      )
     } else {
-      // debugger
-      
       return(
         <div className="mainBackground">
           <div className="menuIcon" onClick={this.toggleSidebar}>
@@ -38,15 +58,14 @@ class GridPage extends React.Component {
           <div className="sidebar">
             <nav>
               <ul>
-                <Link to="/profile">Profile</Link>
+                <a onClick={this.props.login}>Profile</a>
                 <li>Index</li>
-                <li>Logout</li>
+                <LoginButton/>
               </ul>
             </nav>
           </div>
             <Grid grid={this.state.grid}/>
-            { this.toggleSidebar() }
-        </div>
+          </div>
       )
     }
   }
