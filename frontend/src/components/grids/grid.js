@@ -167,7 +167,6 @@ class Grid extends React.Component {
     }
 
     temp = ((ele - 4 + 16) % 16);
-
     if (!this.rows[`idx${temp}`]) {
       let col = document.getElementById(`idx${temp}`);
       this.rows[`idx${temp}`] = col;
@@ -197,7 +196,6 @@ class Grid extends React.Component {
 
 
     temp = ((ele - 5 + 16) % 16);
-
     if (!this.rows[`idx${temp}`]) {
       let col = document.getElementById(`idx${temp}`);
       this.rows[`idx${temp}`] = col;
@@ -258,13 +256,13 @@ class Grid extends React.Component {
   //   this.setState({loaded: true});
   // }
 
-  playAudioRow(row){
+  playAudioRow(row) {
     // console.log(row);
     // debugger
-  
-    row.forEach( (ele, idx) => {
+
+    row.forEach((ele, idx) => {
       if (idx <= 14) {
-        if (ele === 1){
+        if (ele === 1) {
           let audio = document.getElementById(`sample-${idx}`);
           audio.currentTime = 0;
           audio.play();
@@ -304,7 +302,6 @@ class Grid extends React.Component {
       this.grid[coord[0]][coord[1]] = 1;
     }
     this.props.saveGrid([this.title, this.style, this.grid]);
-
   }
 
   titleChange(newTitle) {

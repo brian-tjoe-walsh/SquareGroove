@@ -28,6 +28,7 @@ class Cube extends React.Component {
       this.setState({class: "ele"});
     }
     this.props.switchPos([this.props.row, this.props.col]);
+    debugger;
   }
 
   render() {

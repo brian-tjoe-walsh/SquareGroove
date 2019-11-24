@@ -37,6 +37,7 @@ class LoginForm extends React.Component {
 
   // Handle form submission
   handleSubmit(e) {
+    debugger
     e.preventDefault();
 
     let user = {
@@ -60,6 +61,7 @@ class LoginForm extends React.Component {
 
   // Render the session errors if there are any
   renderErrors() {
+    debugger
     return(
       <ul>
         {Object.keys(this.state.errors).map((error, i) => (

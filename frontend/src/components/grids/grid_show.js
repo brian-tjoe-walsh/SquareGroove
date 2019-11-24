@@ -1,13 +1,12 @@
 import React from 'react';
 import Grid from './grid';
-import {Link, Redirect} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import $ from 'jquery';
 import ProfileContainer from '../profile/profile_container';
 import Loading from '../loading/loading';
-import LoginButton from '../session/login_button';
 
 
-class GridPage extends React.Component {
+class GridShow extends React.Component {
   constructor(props) {
     super(props);
     this.state = { grid: null };
@@ -19,7 +18,7 @@ class GridPage extends React.Component {
     };
     this.saveGrid = this.saveGrid.bind(this);
     this.commitSave = this.commitSave.bind(this);
-  } 
+  }
 
   componentDidMount() {
     this.props.fetchGrid(this.props.gridId)
@@ -27,13 +26,8 @@ class GridPage extends React.Component {
   }
 
   toggleSidebar() {
-    let sidebar = $('#sidebar');
-    if (sidebar) {
-      sidebar.toggleClass('hidebar');
-    } else {
-      sidebar = $('#hidebar');
-      sidebar.toggleClass('sidebar');
-    }
+    let sidebar = $('.sidebar');
+    sidebar.toggleClass('hidebar');
   }
 
   saveGrid(eles) {
@@ -42,26 +36,44 @@ class GridPage extends React.Component {
       style: eles[1],
       grid: eles[2]
     };
+
+    debugger;
   }
 
   commitSave() {
+    debugger
     this.props.makeGrid(this.savedGrid)
       .then(() => this.props.history.push('/profile'));
   }
 
   render() {
-    console.log(this.props);
+
     if (!this.state.grid) {
+      // debugger
       return (<Loading />);
-    } else {      
-      return(
+    } else {
+      // debugger
+      return (
         <div className="mainBackground">
-          <Grid saveGrid={this.saveGrid} grid={this.state.grid}/>
-          { this.toggleSidebar() }
+          <div className="menuIcon" onClick={this.toggleSidebar}>
+            <div className="hamburger"></div>
+          </div>
+          <div className="sidebar">
+            <nav>
+              <ul>
+                <Link to="/profile">Profile</Link>
+                <li>Index</li>
+                <li>Logout</li>
+                <Link onClick={this.commitSave} to="/profile">Save</Link>
+              </ul>
+            </nav>
+          </div>
+          <Grid grid={this.state.grid} saveGrid={this.saveGrid} />
+            {this.toggleSidebar()}
         </div>
       )
     }
   }
 }
 
-export default GridPage;
+export default GridShow;
