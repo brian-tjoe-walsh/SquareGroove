@@ -56,21 +56,25 @@ class GridPage extends React.Component {
     } else if (this.props.currentUser) {
       return(
         <div className="mainBackground">
-          <div className="menuIcon" onClick={this.toggleSidebar}>
-            <div className="hamburger"></div>
-          </div>
-          <div className="welcomeMessage">Welcome, {this.props.currentUser.handle}</div>
-          <div>Text</div>
-          <div className="sidebar">
+          <div className="mainNavBar">
+            <div className="menuIcon" onClick={this.toggleSidebar}>
+              <div className="hamburger"></div>
+            </div>
+            {/* <div className="welcomeMessage">Welcome, {this.props.currentUser.handle}</div> */}
+            {/* <div>Text</div> */}
+            <div className="sidebar">
             <nav>
-              <ul>
+              <ul className="sidebarOptions">
                 <Link to="/profile" >Profile</Link>
                 <li>Index</li>
                 <LoginButton/>
               </ul>
             </nav>
           </div>
+          </div>
+
           <Grid saveGrid={this.saveGrid} grid={this.state.grid}/>
+
           { this.toggleSidebar() }
         </div>
          

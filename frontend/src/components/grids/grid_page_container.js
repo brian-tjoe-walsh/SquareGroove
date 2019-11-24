@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { makeGrid, fetchGrid } from '../../actions/grid_actions';
+import { makeGrid, fetchGrid, fetchGrids } from '../../actions/grid_actions';
 import  GridPage  from './grid_page';
 import { openModal } from '../../actions/modal_actions';
 // import { }
