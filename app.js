@@ -4,7 +4,7 @@ const db = require('./config/keys').mongoURI;
 const mongoose = require('mongoose');
 const users = require("./routes/api/users");
 const grids = require("./routes/api/grids");
-const samples = require("./routes/api/samples")
+const samples = require("./routes/api/samples");
 const User = require('./models/User');
 const bodyParser = require('body-parser');
 const passport = require('passport');
@@ -14,7 +14,7 @@ if (process.env.NODE_ENV === 'production') {
   app.use(express.static('frontend/build'));
   app.get('/', (req, res) => {
     res.sendFile(path.resolve(__dirname, 'frontend', 'build', 'index.html'));
-  })
+  });
 }
 
 
@@ -33,16 +33,16 @@ require('./config/passport')(passport);
 
 app.use(bodyParser.json());
 
-app.get("/", (req, res) => {
-  const user = new User({
-    handle: 'vibe',
-    email: 'vibe@vibe.vibe',
-    password: 'issaVibe'
-  });
+// app.get("/", (req, res) => {
+//   const user = new User({
+//     handle: 'vibe',
+//     email: 'vibe@vibe.vibe',
+//     password: 'issaVibe'
+//   });
 
-  user.save();
-  res.send("Hello World!");
-});
+//   user.save();
+//   res.send("Hello World!");
+// });
 
 app.use("/api/users", users);
 app.use("/api/grids", grids);
