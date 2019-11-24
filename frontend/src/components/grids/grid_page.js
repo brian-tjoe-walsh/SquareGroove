@@ -1,10 +1,10 @@
 import React from 'react';
 import Grid from './grid';
-import {Link, Redirect} from 'react-router-dom';
+// import {Link, Redirect} from 'react-router-dom';
 import $ from 'jquery';
-import ProfileContainer from '../profile/profile_container';
+// import ProfileContainer from '../profile/profile_container';
 import Loading from '../loading/loading';
-import LoginButton from '../session/login_button';
+// import LoginButton from '../session/login_button';
 
 
 class GridPage extends React.Component {

@@ -3,7 +3,7 @@ import Cube from './cube';
 import Timer from '../timer/timer';
 import $ from "jquery";
 import SampleContainer from '../sample/sample_container';
-import { timingSafeEqual } from 'crypto';
+// import { timingSafeEqual } from 'crypto';
 import Title from './title';
 import { Link } from 'react-router-dom';
 import LoginButton from '../session/login_button';
