@@ -1,4 +1,4 @@
-// src/components/app.js
+// src/components/App.js
 
 import React from 'react';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
