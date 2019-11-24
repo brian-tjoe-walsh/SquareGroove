@@ -56,7 +56,7 @@ class GridPage extends React.Component {
     } else {      
       return(
         <div className="mainBackground">
-          <Grid saveGrid={this.saveGrid} grid={this.state.grid}/>
+          <Grid saveGrid={this.saveGrid} grid={this.state.grid} commitSave = {this.commitSave}/>
           { this.toggleSidebar() }
         </div>
       )

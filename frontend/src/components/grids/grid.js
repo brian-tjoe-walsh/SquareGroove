@@ -325,7 +325,7 @@ class Grid extends React.Component {
                 <ul className="sidebarOptions">
                   <Link to="/profile" >Profile</Link>
                   <li>Index</li>
-                  <li onClick={this.commitSave}>Save</li>
+                  <li onClick={this.props.commitSave}>Save</li>
                   <div className="dropdown">
                     <button className="dropbtn">Samples</button>
                     <div className="dropdown-content">
