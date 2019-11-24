@@ -4,12 +4,12 @@
   "description": "",
   "main": "app.js",
   "scripts": {
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix frontend && npm run build --prefix frontend",
     "server": "nodemon app.js || true",
     "start": "node app.js",
     "frontend-install": "npm install --prefix frontend",
     "frontend": "npm start --prefix frontend || true",
-    "dev": "concurrently \"npm run server\" \"npm run frontend\" || true",
-    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix frontend && npm run build --prefix frontend"
+    "dev": "concurrently \"npm run server\" \"npm run frontend\" || true"
   },
   "author": "",
   "license": "ISC",

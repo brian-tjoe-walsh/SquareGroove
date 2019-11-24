@@ -7,7 +7,7 @@ import { openModal } from '../../actions/modal_actions';
 const mapStateToProps = (state, ownProps) => {
   let gridId;
 
-  if (ownProps.match.params.gridId) {
+  if (ownProps && ownProps.match.params.gridId) {
     gridId = ownProps.match.params.gridId;
   } else {
     gridId = "5dd87c2aea9c9434c9a0588d";
