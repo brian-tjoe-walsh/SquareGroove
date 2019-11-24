@@ -7,8 +7,8 @@ import { Switch, Route } from 'react-router-dom';
 
 import GridPageContainer from './grids/grid_page_container';
 // import MainPage from './main/main_page';
-import LoginFormContainer from './session/login_form_container';
-import SignupFormContainer from './session/signup_form_container';
+// import LoginFormContainer from './session/login_form_container';
+// import SignupFormContainer from './session/signup_form_container';
 import SampleContainer from './sample/sample_container'
 import Modal from './modal/modal';
 import UserAuth from './session/user_auth';

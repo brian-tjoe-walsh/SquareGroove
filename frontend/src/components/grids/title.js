@@ -1,6 +1,4 @@
 import React from 'react';
-import $ from "jquery";
-
 
 class Title extends React.Component {
   constructor(props) {
