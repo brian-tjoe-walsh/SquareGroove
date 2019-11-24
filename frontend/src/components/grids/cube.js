@@ -16,6 +16,11 @@ class Cube extends React.Component {
     e.preventDefault();
 
     // debugger;
+    if (this.ele === 1) {
+      this.ele = 0;
+    } else {
+      this.ele = 1;
+    }
 
     if (this.state.class === "ele") {
       this.setState({class: "clicked"});

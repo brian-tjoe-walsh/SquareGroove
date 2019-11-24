@@ -8,7 +8,7 @@ class Sample extends React.Component {
     }
 
   componentDidMount(){
-    debugger
+    // debugger
     this.props.fetchSamples(this.state.instrument)
         .then(() => this.props.fetchDrums())
         .then(() => this.setState({loaded: true}));
@@ -19,7 +19,7 @@ class Sample extends React.Component {
   }
 
   componentDidUpdate(){
-      debugger
+    //   debugger
       if (this.state.changing === true){
           this.props.fetchSamples(this.state.instrument)
             .then(() => this.props.fetchDrums())
@@ -29,7 +29,7 @@ class Sample extends React.Component {
 
   render() {
     if (Object.keys(this.props.samples).length !== 2 || this.state.loaded === false){
-        debugger
+        // debugger
         return (
             <div>
                 <div className="instrument-select" onClick={() => this.changeSample("bell")}> BELL </div><br/>
@@ -38,7 +38,7 @@ class Sample extends React.Component {
             </div>
         );
     } else {
-        debugger
+        // debugger
         return (
         <div className="sampleComponent">
             {this.props.samples[this.state.instrument].map((sample, idx) => (

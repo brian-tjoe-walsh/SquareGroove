@@ -1,16 +1,20 @@
 import React from 'react';
 import Cube from './cube';
 import Timer from '../timer/timer';
-import BPM from '../bpm/bpm';
 import $ from "jquery";
 import SampleContainer from '../sample/sample_container';
 import { timingSafeEqual } from 'crypto';
+import Title from './title';
+import { Link } from 'react-router-dom';
+import LoginButton from '../session/login_button';
 
 
 class Grid extends React.Component {
   constructor(props) {
     super(props);
     this.grid = this.props.grid.grid;
+    this.style = this.props.grid.style;
+    this.title = this.props.grid.title;
     // debugger
     this.timer = 0;
     this.bpm = 120;
@@ -18,6 +22,12 @@ class Grid extends React.Component {
     this.addTimer = this.addTimer.bind(this);
     this.switchPos = this.switchPos.bind(this);
     this.toggleMute = this.toggleMute.bind(this);
+    this.titleChange = this.titleChange.bind(this);
+    this.rows = {};
+    this.drums = {};
+    this.samples = {};
+    this.sidebar = "hidebar";
+    this.toggleSidebar = this.toggleSidebar.bind(this);
   }
 
 
@@ -25,7 +35,12 @@ class Grid extends React.Component {
   // instead of constantly grabbing a ton of things every second
   
   classDispersion(ele) {
-    let col = document.getElementById(`idx${ele}`);
+    if (!this.rows[`idx${ele}`]) {
+      let col = document.getElementById(`idx${ele}`);
+      this.rows[`idx${ele}`] = col;
+    }
+
+    let col = this.rows[`idx${ele}`];
 
     for (let i = 0; i < col.children.length; i++) {
       if (col.children[i].className !== "clicked") {
@@ -36,7 +51,12 @@ class Grid extends React.Component {
       }
     }
 
-    let drum = document.getElementById(`drum${ele}`);
+    if (!this.drums[`drum${ele}`]) {
+      let col = document.getElementById(`drum${ele}`);
+      this.drums[`drum${ele}`] = col;
+    }
+
+    let drum = this.drums[`drum${ele}`];
 
     for (let i = 0; i < drum.children.length; i++) {
       if (drum.children[i].className !== "clicked") {
@@ -51,7 +71,12 @@ class Grid extends React.Component {
     let oldCol;
 
     temp = ((ele - 1 + 16) % 16);
-    oldCol = document.getElementById(`idx${temp}`);
+
+    if (!this.rows[`idx${temp}`]) {
+      let col = document.getElementById(`idx${temp}`);
+      this.rows[`idx${temp}`] = col;
+    }
+    oldCol = this.rows[`idx${temp}`];
 
     for (let i = 0; i < oldCol.children.length; i++) {
       // debugger
@@ -64,7 +89,14 @@ class Grid extends React.Component {
       }
     }
 
-    drum = document.getElementById(`drum${temp}`);
+    if (!this.drums[`drum${temp}`]) {
+      let col = document.getElementById(`drum${temp}`);
+      this.drums[`drum${temp}`] = col;
+    }
+
+    // debugger
+
+    drum = this.drums[`drum${temp}`];
 
     for (let i = 0; i < drum.children.length; i++) {
       if ((drum.children[i].className === "ele drumLit1")) {
@@ -77,16 +109,26 @@ class Grid extends React.Component {
     }
 
     temp = ((ele - 2 + 16) % 16);
-    oldCol = document.getElementById(`idx${temp}`);
+
+    if (!this.rows[`idx${temp}`]) {
+      let col = document.getElementById(`idx${temp}`);
+      this.rows[`idx${temp}`] = col;
+    }
+    oldCol = this.rows[`idx${temp}`];
 
     for (let i = 0; i < oldCol.children.length; i++) {
       if ((oldCol.children[i].className === "ele rowLit2")) {
         $(oldCol.children[i]).removeClass("rowLit2");
         $(oldCol.children[i]).addClass("rowLit3");
-      } 
+      }
     }
 
-    drum = document.getElementById(`drum${temp}`);
+    if (!this.drums[`drum${temp}`]) {
+      let col = document.getElementById(`drum${temp}`);
+      this.drums[`drum${temp}`] = col;
+    }
+
+    drum = this.drums[`drum${temp}`];
 
     for (let i = 0; i < drum.children.length; i++) {
       if ((drum.children[i].className === "ele drumLit2")) {
@@ -96,7 +138,12 @@ class Grid extends React.Component {
     }
 
     temp = ((ele - 3 + 16) % 16);
-    oldCol = document.getElementById(`idx${temp}`);
+
+    if (!this.rows[`idx${temp}`]) {
+      let col = document.getElementById(`idx${temp}`);
+      this.rows[`idx${temp}`] = col;
+    }
+    oldCol = this.rows[`idx${temp}`];
 
     for (let i = 0; i < oldCol.children.length; i++) {
       if ((oldCol.children[i].className === "ele rowLit3")) {
@@ -105,7 +152,12 @@ class Grid extends React.Component {
       }
     }
 
-    drum = document.getElementById(`drum${temp}`);
+    if (!this.drums[`drum${temp}`]) {
+      let col = document.getElementById(`drum${temp}`);
+      this.drums[`drum${temp}`] = col;
+    }
+
+    drum = this.drums[`drum${temp}`];
 
     for (let i = 0; i < drum.children.length; i++) {
       if ((drum.children[i].className === "ele drumLit3")) {
@@ -115,7 +167,12 @@ class Grid extends React.Component {
     }
 
     temp = ((ele - 4 + 16) % 16);
-    oldCol = document.getElementById(`idx${temp}`);
+
+    if (!this.rows[`idx${temp}`]) {
+      let col = document.getElementById(`idx${temp}`);
+      this.rows[`idx${temp}`] = col;
+    }
+    oldCol = this.rows[`idx${temp}`];
 
     for (let i = 0; i < oldCol.children.length; i++) {
       if ((oldCol.children[i].className === "ele rowLit4")) {
@@ -124,7 +181,12 @@ class Grid extends React.Component {
       }
     }
 
-    drum = document.getElementById(`drum${temp}`);
+    if (!this.drums[`drum${temp}`]) {
+      let col = document.getElementById(`drum${temp}`);
+      this.drums[`drum${temp}`] = col;
+    }
+
+    drum = this.drums[`drum${temp}`];
 
     for (let i = 0; i < drum.children.length; i++) {
       if ((drum.children[i].className === "ele drumLit4")) {
@@ -135,7 +197,12 @@ class Grid extends React.Component {
 
 
     temp = ((ele - 5 + 16) % 16);
-    oldCol = document.getElementById(`idx${temp}`);
+
+    if (!this.rows[`idx${temp}`]) {
+      let col = document.getElementById(`idx${temp}`);
+      this.rows[`idx${temp}`] = col;
+    }
+    oldCol = this.rows[`idx${temp}`];
 
     for (let i = 0; i < oldCol.children.length; i++) {
       if ((oldCol.children[i].className === "ele rowLit5")) {
@@ -143,7 +210,12 @@ class Grid extends React.Component {
       }
     }
 
-    drum = document.getElementById(`drum${temp}`);
+    if (!this.drums[`drum${temp}`]) {
+      let col = document.getElementById(`drum${temp}`);
+      this.drums[`drum${temp}`] = col;
+    }
+
+    drum = this.drums[`drum${temp}`];
 
     for (let i = 0; i < drum.children.length; i++) {
       if ((drum.children[i].className === "ele drumLit5")) {
@@ -165,6 +237,21 @@ class Grid extends React.Component {
       this.playAudioRow(this.grid[this.timer]);
     }
 
+  }
+
+  toggleSidebar() {
+    debugger
+    if (this.sidebar === "hidebar") {
+      let hidebar = $('.hidebar');
+      hidebar.addClass('sidebar');
+      hidebar.removeClass('hidebar');
+      this.sidebar = "sidebar";
+    } else {
+      let sidebar = $('.sidebar');
+      sidebar.addClass('hidebar');
+      sidebar.removeClass('sidebar');
+      this.sidebar = "hidebar";
+    }
   }
 
   // fullyLoaded() {
@@ -216,6 +303,13 @@ class Grid extends React.Component {
     } else {
       this.grid[coord[0]][coord[1]] = 1;
     }
+    this.props.saveGrid([this.title, this.style, this.grid]);
+
+  }
+
+  titleChange(newTitle) {
+    this.title = newTitle;
+    this.props.saveGrid([this.title, this.style, this.grid]);
   }
 
   render() {
@@ -224,53 +318,81 @@ class Grid extends React.Component {
     } else {
       // debugger
       return (
-        <div className="outsideGrid"> 
+        <div className="fullOutsideContents">
+          <div className="mainNavBar">
+            <div className="menuIcon" onClick={this.toggleSidebar}>
+              <div className="hamburger"></div>
+            </div>
+            <div className="hidebar">
+              <nav>
+                <ul className="sidebarOptions">
+                  <Link to="/profile" >Profile</Link>
+                  <li>Index</li>
+                  <li onClick={this.commitSave}>Save</li>
+                  <div className="dropdown">
+                    <button className="dropbtn">Samples</button>
+                    <div className="dropdown-content">
+                      <div id="sampleChanges" href="#">Bell</div>
+                      <div id="sampleChanges" href="#">Voice</div>
+                      <div id="sampleChanges" href="#">Piano</div>
+                    </div>
+                  </div>
+                  <LoginButton />
+                </ul>
+              </nav>
+            </div>
+          </div>
+          <div className="outsideGrid">
+            <div className="gridTitleDisplay">
+              <Title title={this.title} titleChange={this.titleChange} />
+            </div>
             <div className='mute-btn' onClick={this.toggleMute}>
               <i className="fas fa-volume-up"></i>
             </div>
-          <div className="gridBackground">
-            <div className="mainGrid">
-              {this.grid.map((row, idx) => ( 
-                <div className="row" id={`idx${idx}`} key={idx}>
-                {row.map((ele, idx2) => {
-                  if (idx2 < 15) {
-                    return (
-                      < Cube 
-                      row={idx} 
-                      col={idx2} 
-                      key={idx2} 
-                      ele={ele}
-                      switchPos={this.switchPos}/>
-                    )
-                  } 
-                })}
-                </div>
-              ))}
+            <div className="gridBackground">
+              <div className="mainGrid">
+                {this.grid.map((row, idx) => (
+                  <div className="row" id={`idx${idx}`} key={idx}>
+                    {row.map((ele, idx2) => {
+                      if (idx2 < 15) {
+                        return (
+                          < Cube
+                            row={idx}
+                            col={idx2}
+                            key={idx2}
+                            ele={ele}
+                            switchPos={this.switchPos} />
+                        )
+                      }
+                    })}
+                  </div>
+                ))}
+              </div>
+              <div className="drumRack">
+                {this.grid.map((row, idx) => (
+                  <div className="row" id={`drum${idx}`} key={idx}>
+                    {row.map((ele, idx2) => {
+                      if (idx2 >= 15) {
+                        return (
+                          < Cube
+                            row={idx}
+                            col={idx2}
+                            key={idx2}
+                            ele={ele}
+                            switchPos={this.switchPos} />
+                        )
+                      }
+                    })}
+                  </div>
+                ))}
+              </div>
             </div>
-            <div className="drumRack"> 
-              {this.grid.map((row, idx) => (
-                <div className="row" id={`drum${idx}`} key={idx}>
-                  {row.map((ele, idx2) => {
-                    if (idx2 >= 15) {
-                      return (
-                        < Cube
-                          row={idx}
-                          col={idx2}  
-                          key={idx2}
-                          ele={ele}
-                          switchPos={this.switchPos} />
-                      )
-                    }
-                  })}
-                </div>
-              ))}
+            <div className="bpmComponent">
+              <Timer start={this.timer} addTimer={this.addTimer} bpm={this.bpm} />
             </div>
-          </div>
-          <div className="bpmComponent">
-            <Timer start={this.timer} addTimer={this.addTimer} bpm={this.bpm}/>
-          </div>
-          <div className="sampleComponent">
-            <SampleContainer instrument={this.props.grid.style}/>
+            <div className="sampleComponent">
+              <SampleContainer instrument={this.props.grid.style} />
+            </div>
           </div>
         </div>
       )

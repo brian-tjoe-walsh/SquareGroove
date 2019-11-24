@@ -1,11 +1,15 @@
 .mainBackground {
 	display: flex;
-	flex-direction: column;
-	justify-content: center;
+	flex-direction: row;
+	justify-content: space-between;
 	align-items: center;
 	background: linear-gradient(to bottom right, rgb(28, 229, 243), rgb(30, 142, 235));
 	width: 100%;
 	height: 100%;
+}
+
+.mainNavBar {
+	width: 0%; 
 }
 
 .outsideGrid {
@@ -18,7 +22,7 @@
 }
 
 .gridBackground {
-	margin-top: 50px;
+	margin-top: 10px;
 	background: none;
 	display: flex; 
 	flex-direction: column;
@@ -281,16 +285,18 @@
 
 .menuIcon {
 	position: fixed;
-	top: 5%;
-	left: 5%;
+	top: 40px;
+	left: 77px;
 	height: 50px;
 	width: 60px;
+	z-index: 5;
 }
 
-.menuIcon .hamburger {
+
+.hamburger {
 	position:absolute;
-	left: 5%;
-	top: 5%;
+	/* left: 12px; */
+	/* top: 8px; */
 	transform: translate(-50%, -50%);
 	height: 4px;
 	width: 50px;
@@ -299,7 +305,7 @@
 	opacity: 0.5;
 }
 
-.menuIcon .hamburger:before {
+.hamburger:before {
 	position:absolute;
 	content: '';
 	height: 4px;
@@ -310,7 +316,7 @@
 	
 }
 
-.menuIcon .hamburger:after {
+.hamburger:after {
 	position:absolute;
 	content: '';
 	height: 4px;
@@ -335,44 +341,78 @@
 	position:fixed;
 	width: 150px;
 	left: 0px;
-	height: 50vh;
-	background-color:rgb(179, 197, 213);
-	color:#FAFAFA;
+	/* top: 70px; */
+	/* height: 35vh; */
+	/* height: 50vh; */
+	/* background-color:rgb(179, 197, 213); */
+	background-color:rgba(255, 255, 255, 0.637);
+	color: #22313F;
 	/* -webkit-clip-path: polygon(0% 0%, 50% 0%, 0% 50%, 0% 100%); */
 	transition: all .5s;
 	opacity: 0.6;
 	border-radius: 0px 5px 5px 0px;
+	border: solid white 0.5px;
+	outline: none;
 }
+
 
 .hidebar {
 	position:fixed;
 	width: 150px;
 	left: -150px;
-	height: 50vh;
-	background-color:rgb(179, 197, 213);
-	color:#FAFAFA;
+	/* height: 100%; */
+	/* background-color:rgb(179, 197, 213); */
+	background-color:rgba(255, 255, 255, 0.637);
+	color: #22313F;
 	/* -webkit-clip-path: polygon(0% 0%, 50% 0%, 0% 50%, 0% 100%); */
 	transition: all .5s;
 	opacity: 0.6;
 	border-radius: 0px 5px 5px 0px;
+	border: solid white 0.5px;
+	outline: none;
 }
 
 .sidebar nav ul {
 	position: absolute;
 	top: 50%;
 	left: 50%;
+	margin-top: 100px;
 	list-style:none;
 	transform:translate(-50%, -50%);
 	text-align:center;
 }
 
-.sidebar nav ul li {
+.sidebar nav ul li, .sidebar nav ul a {
 	height: 20px;
-	margin-bottom: 80px;
+	margin-bottom: 60px;
 	margin-top: 60px;
 	font-family: 'Titillium Web', sans-serif;
 	color: #22313F;
 	opacity: 0.8;
+	text-decoration: none;
+}
+.hidebar nav ul {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin-top: 100px;
+	list-style:none;
+	transform:translate(-50%, -50%);
+	text-align:center;
+}
+
+.hidebar nav ul li, .hidebar nav ul a {
+	height: 20px;
+	margin-bottom: 60px;
+	margin-top: 60px;
+	font-family: 'Titillium Web', sans-serif;
+	color: #22313F;
+	opacity: 0.8;
+	text-decoration: none;
+}
+
+.sidebar nav ul li:hover {
+	cursor: pointer;
 }
 
 .loadingPage {
@@ -421,6 +461,92 @@
   50% { opacity: 1; }
 }
 
+.welcomeMessage {
+	position: absolute;
+	top: 46%;
+	left: 0.5%;
+	font-family: 'Titillium Web', sans-serif;
+	color: #22313F;
+	opacity: 0.5;
+	transition: all 0.5s;
+}
+
+/* .welcomeMessage:after {
+	position: absolute;
+	top: 2.5%;
+	left: 0%;
+	content: "";
+	background-color: #22313F;
+	width: 1%;
+	height: 3px;
+	animation: underline .8s;
+	animation-fill-mode: forwards;
+}
+
+@keyframes underline {
+	from {width: 1%;}
+	to {width: 16.5%;}
+} */
+.hideMessage {
+	position: absolute;
+	top: 46%;
+	left: -20%;
+	font-family: 'Titillium Web', sans-serif;
+	color: #22313F;
+	opacity: 0.5;
+}
+
+.gridShowTitle {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 50px;
+	width: 545px;
+	font-size: 30px;
+	font-family: Arial, Helvetica, sans-serif;
+	color: white;
+	font-weight: bolder;
+	opacity: 50%;
+	margin-top: 20px;
+	letter-spacing: 1px;
+}
+
+.gridTitleDisplay {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	
+}
+
+.inputTitle {
+	-webkit-appearance: none;
+	font-size: 30px;
+	color: white;
+	font-weight: bolder;
+	width: 300px;
+	background: transparent;
+	height: 30px;
+	border: 1px solid white;
+	outline: none;
+	letter-spacing: 2px;
+}
+
+.titleSubmit {
+	margin: 15px;
+  font-size: 17px;
+  width: 100px;
+  height: 25px;
+  border-radius: 4px;
+  color: white;
+  background: rgba(201, 201, 201, 0.274);
+	outline: none;
+	opacity: 100%;
+}
+
+a {
+	color: inherit;
+}
 .mute-btn{
 	height: 50px;
 	text-align: right;
@@ -428,7 +554,13 @@
 	cursor: pointer;
 }
 
-.fas{
+.fas {
 	font-size: 50px;
 	color: black;
+}
+
+.fullOutsideContents {
+	display: flex;
+	flex-direction: row;
+	
 }

@@ -44,7 +44,8 @@ class LoginForm extends React.Component {
       password: this.state.password
     };
 
-    this.props.login(user).then(() => this.props.closeModal());
+    this.props.login(user)
+      // .then(() => this.props.closeModal());
   }
 
   handleClickEmail() {
@@ -94,7 +95,6 @@ class LoginForm extends React.Component {
               />
             <br/>
             <input type="submit" className= "submit-btn-login" value="Login" />
-            {this.renderErrors()}
           </div>
         </form>
       </div>

@@ -4,48 +4,60 @@ import {Link} from 'react-router-dom';
 import $ from 'jquery';
 import ProfileContainer from '../profile/profile_container';
 import Loading from '../loading/loading';
+import LoginButton from '../session/login_button';
+
 
 class GridPage extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { grid: null};
+    this.state = { grid: null };
     this.toggleSidebar = this.toggleSidebar.bind(this);
+    this.savedGrid = {
+      title: null,
+      style: null,
+      grid: null
+    };
+    this.saveGrid = this.saveGrid.bind(this);
+    this.commitSave = this.commitSave.bind(this);
   } 
 
   componentDidMount() {
-    this.props.fetchGrids()
-      .then((res) => this.setState({ grid: res.grids.data[res.grids.data.length - 2]}));
+    this.props.fetchGrid(this.props.gridId)
+      .then((res) => this.setState({ grid: res.grid.data }));
   }
 
   toggleSidebar() {
     let sidebar = $('#sidebar');
-    sidebar.toggleClass('hidebar');
+    if (sidebar) {
+      sidebar.toggleClass('hidebar');
+    } else {
+      sidebar = $('#hidebar');
+      sidebar.toggleClass('sidebar');
+    }
+  }
+
+  saveGrid(eles) {
+    this.savedGrid = {
+      title: eles[0],
+      style: eles[1],
+      grid: eles[2]
+    };
+  }
+
+  commitSave() {
+    this.props.makeGrid(this.savedGrid)
+      .then(() => this.props.history.push('/profile'));
   }
 
   render() {
     
     if (!this.state.grid) {
-      // debugger
       return (<Loading />);
-    } else {
-      // debugger
-      
+    } else {      
       return(
         <div className="mainBackground">
-          <div className="menuIcon" onClick={this.toggleSidebar}>
-            <div className="hamburger"></div>
-          </div>
-          <div className="sidebar">
-            <nav>
-              <ul>
-                <Link to="/profile">Profile</Link>
-                <li>Index</li>
-                <li>Logout</li>
-              </ul>
-            </nav>
-          </div>
-            <Grid grid={this.state.grid}/>
-            { this.toggleSidebar() }
+          <Grid saveGrid={this.saveGrid} grid={this.state.grid}/>
+          { this.toggleSidebar() }
         </div>
       )
     }
