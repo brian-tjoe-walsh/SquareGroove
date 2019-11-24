@@ -1,11 +1,12 @@
 import React from 'react';
 import Cube from './cube';
 import Timer from '../timer/timer';
-import BPM from '../bpm/bpm';
 import $ from "jquery";
 import SampleContainer from '../sample/sample_container';
 import { timingSafeEqual } from 'crypto';
 import Title from './title';
+import { Link } from 'react-router-dom';
+import LoginButton from '../session/login_button';
 
 
 class Grid extends React.Component {
@@ -14,7 +15,7 @@ class Grid extends React.Component {
     this.grid = this.props.grid.grid;
     this.style = this.props.grid.style;
     this.title = this.props.grid.title;
-    debugger
+    // debugger
     this.timer = 0;
     this.bpm = 120;
     this.muted = false;
@@ -25,6 +26,8 @@ class Grid extends React.Component {
     this.rows = {};
     this.drums = {};
     this.samples = {};
+    this.sidebar = "hidebar";
+    this.toggleSidebar = this.toggleSidebar.bind(this);
   }
 
 
@@ -35,7 +38,7 @@ class Grid extends React.Component {
     if (!this.rows[`idx${ele}`]) {
       let col = document.getElementById(`idx${ele}`);
       this.rows[`idx${ele}`] = col;
-    } 
+    }
 
     let col = this.rows[`idx${ele}`];
 
@@ -72,7 +75,7 @@ class Grid extends React.Component {
     if (!this.rows[`idx${temp}`]) {
       let col = document.getElementById(`idx${temp}`);
       this.rows[`idx${temp}`] = col;
-    } 
+    }
     oldCol = this.rows[`idx${temp}`];
 
     for (let i = 0; i < oldCol.children.length; i++) {
@@ -117,7 +120,7 @@ class Grid extends React.Component {
       if ((oldCol.children[i].className === "ele rowLit2")) {
         $(oldCol.children[i]).removeClass("rowLit2");
         $(oldCol.children[i]).addClass("rowLit3");
-      } 
+      }
     }
 
     if (!this.drums[`drum${temp}`]) {
@@ -164,7 +167,6 @@ class Grid extends React.Component {
     }
 
     temp = ((ele - 4 + 16) % 16);
-    
     if (!this.rows[`idx${temp}`]) {
       let col = document.getElementById(`idx${temp}`);
       this.rows[`idx${temp}`] = col;
@@ -194,7 +196,6 @@ class Grid extends React.Component {
 
 
     temp = ((ele - 5 + 16) % 16);
-    
     if (!this.rows[`idx${temp}`]) {
       let col = document.getElementById(`idx${temp}`);
       this.rows[`idx${temp}`] = col;
@@ -236,28 +237,39 @@ class Grid extends React.Component {
 
   }
 
-  playAudioRow(row){
+  toggleSidebar() {
+    debugger
+    if (this.sidebar === "hidebar") {
+      let hidebar = $('.hidebar');
+      hidebar.addClass('sidebar');
+      hidebar.removeClass('hidebar');
+      this.sidebar = "sidebar";
+    } else {
+      let sidebar = $('.sidebar');
+      sidebar.addClass('hidebar');
+      sidebar.removeClass('sidebar');
+      this.sidebar = "hidebar";
+    }
+  }
+
+  // fullyLoaded() {
+  //   this.setState({loaded: true});
+  // }
+
+  playAudioRow(row) {
     // console.log(row);
     // debugger
-  
-    row.forEach( (ele, idx) => {
-      if (idx <= 14) {
-        if (ele === 1){
-          if (!this.samples[`sample-${idx}`]) {
-            this.samples[`sample-${idx}`] = document.getElementById(`sample-${idx}`);
-          }
 
-          let audio = this.samples[`sample-${idx}`];
+    row.forEach((ele, idx) => {
+      if (idx <= 14) {
+        if (ele === 1) {
+          let audio = document.getElementById(`sample-${idx}`);
           audio.currentTime = 0;
           audio.play();
         }
       } else {
         if (ele === 1) {
-          if (!this.samples[`drum-${idx - 15}`]) {
-            this.samples[`drum-${idx - 15}`] = document.getElementById(`drum-${idx - 15}`);
-          }
-
-          let audio = this.samples[`drum-${idx - 15}`];
+          let audio = document.getElementById(`drum-${idx - 15}`);
           audio.currentTime = 0;
           audio.play();
         }
@@ -303,56 +315,81 @@ class Grid extends React.Component {
     } else {
       // debugger
       return (
-        <div className="outsideGrid">
-          <div className="gridTitleDisplay">
-            <Title title={this.title} titleChange={this.titleChange}/>
-          </div>
-          <div className='mute-btn' onClick={this.toggleMute}>
-            <i className="fas fa-volume-up"></i>
-          </div>
-          <div className="gridBackground">
-            <div className="mainGrid">
-              {this.grid.map((row, idx) => ( 
-                <div className="row" id={`idx${idx}`} key={idx}>
-                {row.map((ele, idx2) => {
-                  if (idx2 < 15) {
-                    return (
-                      < Cube 
-                      row={idx} 
-                      col={idx2} 
-                      key={idx2} 
-                      ele={ele}
-                      switchPos={this.switchPos}/>
-                    )
-                  } 
-                })}
-                </div>
-              ))}
+        <div className="fullOutsideContents">
+          <div className="mainNavBar">
+            <div className="menuIcon" onClick={this.toggleSidebar}>
+              <div className="hamburger"></div>
             </div>
-            <div className="drumRack"> 
-              {this.grid.map((row, idx) => (
-                <div className="row" id={`drum${idx}`} key={idx}>
-                  {row.map((ele, idx2) => {
-                    if (idx2 >= 15) {
-                      return (
-                        < Cube
-                          row={idx}
-                          col={idx2}  
-                          key={idx2}
-                          ele={ele}
-                          switchPos={this.switchPos} />
-                      )
-                    }
-                  })}
-                </div>
-              ))}
+            <div className="hidebar">
+              <nav>
+                <ul className="sidebarOptions">
+                  <Link to="/profile" >Profile</Link>
+                  <li>Index</li>
+                  <li onClick={this.commitSave}>Save</li>
+                  <div className="dropdown">
+                    <button className="dropbtn">Samples</button>
+                    <div className="dropdown-content">
+                      <div id="sampleChanges" href="#">Bell</div>
+                      <div id="sampleChanges" href="#">Voice</div>
+                      <div id="sampleChanges" href="#">Piano</div>
+                    </div>
+                  </div>
+                  <LoginButton />
+                </ul>
+              </nav>
             </div>
           </div>
-          <div className="bpmComponent">
-            <Timer start={this.timer} addTimer={this.addTimer} bpm={this.bpm}/>
-          </div>
-          <div className="sampleComponent">
-            <SampleContainer instrument={this.props.grid.style}/>
+          <div className="outsideGrid">
+            <div className="gridTitleDisplay">
+              <Title title={this.title} titleChange={this.titleChange} />
+            </div>
+            <div className='mute-btn' onClick={this.toggleMute}>
+              <i className="fas fa-volume-up"></i>
+            </div>
+            <div className="gridBackground">
+              <div className="mainGrid">
+                {this.grid.map((row, idx) => (
+                  <div className="row" id={`idx${idx}`} key={idx}>
+                    {row.map((ele, idx2) => {
+                      if (idx2 < 15) {
+                        return (
+                          < Cube
+                            row={idx}
+                            col={idx2}
+                            key={idx2}
+                            ele={ele}
+                            switchPos={this.switchPos} />
+                        )
+                      }
+                    })}
+                  </div>
+                ))}
+              </div>
+              <div className="drumRack">
+                {this.grid.map((row, idx) => (
+                  <div className="row" id={`drum${idx}`} key={idx}>
+                    {row.map((ele, idx2) => {
+                      if (idx2 >= 15) {
+                        return (
+                          < Cube
+                            row={idx}
+                            col={idx2}
+                            key={idx2}
+                            ele={ele}
+                            switchPos={this.switchPos} />
+                        )
+                      }
+                    })}
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div className="bpmComponent">
+              <Timer start={this.timer} addTimer={this.addTimer} bpm={this.bpm} />
+            </div>
+            <div className="sampleComponent">
+              <SampleContainer instrument={this.props.grid.style} />
+            </div>
           </div>
         </div>
       )

@@ -5,7 +5,7 @@ import $ from "jquery";
 class Title extends React.Component {
   constructor(props) {
     super(props);
-    debugger
+    // debugger
     this.state = {
       class: "show"
     };

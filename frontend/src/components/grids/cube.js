@@ -15,7 +15,7 @@ class Cube extends React.Component {
   handleClick(e) {
     e.preventDefault();
 
-    debugger;
+    // debugger;
     if (this.ele === 1) {
       this.ele = 0;
     } else {

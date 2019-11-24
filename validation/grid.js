@@ -10,14 +10,14 @@ module.exports = function validateGridInput(data) {
   } else {
     grid = data.grid;
   }
-  
+
   data.grid = Array.isArray(grid) ? grid : '';
   data.title = validText(data.title) ? data.title : '';
 
   if (Validator.isEmpty(data.title)) {
     errors.email = 'Title field is required';
   }
-
+  
   if (data.grid.length !== 16) {
     errors.grid = 'Grid is not correct length (16 bars)';
   }

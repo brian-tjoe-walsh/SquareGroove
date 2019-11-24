@@ -13,7 +13,6 @@ import SampleContainer from './sample/sample_container'
 import Modal from './modal/modal';
 import UserAuth from './session/user_auth';
 import ProfileContainer from './profile/profile_container';
-import GridShowContainer from './grids/grid_show_container';
 import Loading from './loading/loading';
 // import GridComposeContainer from './grids/grid_compose_container';
 import './css/grid.css';
@@ -22,6 +21,7 @@ import './app.css';
 import './css/modal.css';
 import './css/profile.css';
 import './css/sample.css';
+import './css/dropdown.css';
 
 
 

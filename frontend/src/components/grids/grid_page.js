@@ -27,10 +27,13 @@ class GridPage extends React.Component {
   }
 
   toggleSidebar() {
-    let sidebar = $('.sidebar');
-    let welcome = $('.welcomeMessage');
-    sidebar.toggleClass('hidebar');
-    welcome.toggleClass('hideMessage');
+    let sidebar = $('#sidebar');
+    if (sidebar) {
+      sidebar.toggleClass('hidebar');
+    } else {
+      sidebar = $('#hidebar');
+      sidebar.toggleClass('sidebar');
+    }
   }
 
   saveGrid(eles) {
@@ -39,12 +42,9 @@ class GridPage extends React.Component {
       style: eles[1],
       grid: eles[2]
     };
-
-    debugger;
   }
 
   commitSave() {
-    debugger
     this.props.makeGrid(this.savedGrid)
       .then(() => this.props.history.push('/profile'));
   }
@@ -53,47 +53,9 @@ class GridPage extends React.Component {
     console.log(this.props);
     if (!this.state.grid) {
       return (<Loading />);
-    } else if (this.props.currentUser) {
+    } else {      
       return(
         <div className="mainBackground">
-          <div className="mainNavBar">
-            <div className="menuIcon" onClick={this.toggleSidebar}>
-              <div className="hamburger"></div>
-            </div>
-            {/* <div className="welcomeMessage">Welcome, {this.props.currentUser.handle}</div> */}
-            {/* <div>Text</div> */}
-            <div className="sidebar">
-            <nav>
-              <ul className="sidebarOptions">
-                <Link to="/profile" >Profile</Link>
-                <li>Index</li>
-                <LoginButton/>
-              </ul>
-            </nav>
-          </div>
-          </div>
-
-          <Grid saveGrid={this.saveGrid} grid={this.state.grid}/>
-
-          { this.toggleSidebar() }
-        </div>
-         
-      )
-    } else {
-      return(
-        <div className="mainBackground">
-          <div className="menuIcon" onClick={this.toggleSidebar}>
-            <div className="hamburger"></div>
-          </div>
-          <div className="sidebar">
-            <nav>
-              <ul>
-                <a onClick={this.props.login}>Profile</a>
-                <li>Index</li>
-                <LoginButton/>
-              </ul>
-            </nav>
-          </div>
           <Grid saveGrid={this.saveGrid} grid={this.state.grid}/>
           { this.toggleSidebar() }
         </div>

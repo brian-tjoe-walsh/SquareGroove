@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { makeGrid, fetchGrid, fetchGrids } from '../../actions/grid_actions';
+import { makeGrid, fetchGrid } from '../../actions/grid_actions';
 import  GridPage  from './grid_page';
 import { openModal } from '../../actions/modal_actions';
 // import { }
@@ -23,9 +23,8 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = dispatch => {
   return {
     makeGrid: data => dispatch(makeGrid(data)),
-    fetchGrids: () => dispatch(fetchGrids()),
-    login: () => dispatch(openModal('login')),
-    fetchGrid: (gridId) => dispatch(fetchGrid(gridId))
+    fetchGrid: (gridId) => dispatch(fetchGrid(gridId)),
+    login: () => dispatch(openModal('login'))
   };
 };
 

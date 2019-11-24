@@ -285,8 +285,8 @@
 
 .menuIcon {
 	position: fixed;
-	top: 6%;
-	left: 7%;
+	top: 40px;
+	left: 77px;
 	height: 50px;
 	width: 60px;
 	z-index: 5;
@@ -343,8 +343,9 @@
 	left: 0px;
 	/* top: 70px; */
 	/* height: 35vh; */
-	height: 50vh;
-	background-color:rgb(179, 197, 213);
+	/* height: 50vh; */
+	/* background-color:rgb(179, 197, 213); */
+	background-color:rgba(255, 255, 255, 0.637);
 	color: #22313F;
 	/* -webkit-clip-path: polygon(0% 0%, 50% 0%, 0% 50%, 0% 100%); */
 	transition: all .5s;
@@ -359,13 +360,16 @@
 	position:fixed;
 	width: 150px;
 	left: -150px;
-	height: 35vh;
-	background-color:rgb(179, 197, 213);
-	color:#FAFAFA;
+	/* height: 100%; */
+	/* background-color:rgb(179, 197, 213); */
+	background-color:rgba(255, 255, 255, 0.637);
+	color: #22313F;
 	/* -webkit-clip-path: polygon(0% 0%, 50% 0%, 0% 50%, 0% 100%); */
 	transition: all .5s;
 	opacity: 0.6;
 	border-radius: 0px 5px 5px 0px;
+	border: solid white 0.5px;
+	outline: none;
 }
 
 .sidebar nav ul {
@@ -379,6 +383,25 @@
 }
 
 .sidebar nav ul li, .sidebar nav ul a {
+	height: 20px;
+	margin-bottom: 60px;
+	margin-top: 60px;
+	font-family: 'Titillium Web', sans-serif;
+	color: #22313F;
+	opacity: 0.8;
+	text-decoration: none;
+}
+.hidebar nav ul {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin-top: 100px;
+	list-style:none;
+	transform:translate(-50%, -50%);
+	text-align:center;
+}
+
+.hidebar nav ul li, .hidebar nav ul a {
 	height: 20px;
 	margin-bottom: 60px;
 	margin-top: 60px;
@@ -534,4 +557,10 @@ a {
 .fas {
 	font-size: 50px;
 	color: black;
+}
+
+.fullOutsideContents {
+	display: flex;
+	flex-direction: row;
+	
 }
