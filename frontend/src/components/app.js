@@ -1,4 +1,4 @@
-// src/components/App.js
+// src/components/app.js
 
 import React from 'react';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
@@ -9,7 +9,7 @@ import GridPageContainer from './grids/grid_page_container';
 // import MainPage from './main/main_page';
 // import LoginFormContainer from './session/login_form_container';
 // import SignupFormContainer from './session/signup_form_container';
-import SampleContainer from './sample/sample_container'
+import SampleContainer from './sample/sample_container';
 import Modal from './modal/modal';
 import UserAuth from './session/user_auth';
 import ProfileContainer from './profile/profile_container';
