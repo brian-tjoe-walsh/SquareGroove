@@ -8,7 +8,7 @@ class Sample extends React.Component {
     }
 
   componentDidMount(){
-    debugger
+    // debugger
     this.props.fetchSamples(this.state.instrument)
         .then(() => this.props.fetchDrums())
         .then(() => this.setState({loaded: true}));
@@ -19,7 +19,7 @@ class Sample extends React.Component {
   }
 
   componentDidUpdate(){
-    debugger
+    // debugger
     if ((this.props.instrument !== this.state.instrument) && (!this.state.changing)) {
         this.changeSample(this.props.instrument);
     }

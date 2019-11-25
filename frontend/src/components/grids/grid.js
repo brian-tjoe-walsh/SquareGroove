@@ -246,7 +246,7 @@ class Grid extends React.Component {
   }
 
   toggleSidebar() {
-    debugger
+    // debugger
     if (this.sidebar === "hidebar") {
       let hidebar = $('.hidebar');
       hidebar.addClass('sidebar');
@@ -261,9 +261,9 @@ class Grid extends React.Component {
   }
 
   resetGrid() {
-    debugger
+    // debugger
     this.grid = JSON.parse(JSON.stringify(this.original));
-    debugger
+    // debugger
 
     if (!this.state.gridReset) {
       this.setState({ gridReset: true });
@@ -351,7 +351,7 @@ class Grid extends React.Component {
     if (!this.grid) {
       return null;
     } else {
-      debugger
+      // debugger
       return (
         <div className="fullOutsideContents">
           <div className="mainNavBar">
@@ -391,7 +391,7 @@ class Grid extends React.Component {
                   <div className="row" id={`idx${idx}`} key={idx}>
                     {row.map((ele, idx2) => {
                       if (idx2 < 15) {
-                        debugger
+                        // debugger
                         return (
                           < Cube
                             row={idx}

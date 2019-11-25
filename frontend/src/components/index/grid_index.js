@@ -20,7 +20,7 @@ class GridIndex extends React.Component {
     }
     
     componentDidMount() {
-      debugger
+      // debugger
         // console.log(this.props.currentUser.id);
         this.props.fetchGrids()
           .then( (res) => this.setState({grids: res.grids.data}));
@@ -53,7 +53,7 @@ class GridIndex extends React.Component {
           <Loading /> 
           );
         } else {
-          debugger
+          // debugger
           return (
             <div className="mainBackground">
               <div className="mainNavBar">

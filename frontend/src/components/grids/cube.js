@@ -8,17 +8,17 @@ class Cube extends React.Component {
       class: "ele",
       col: null};
     this.handleClick.bind(this);
-    debugger
+    // debugger
   }
 
   componentDidUpdate() {
-    debugger
+    // debugger
   }
 
   handleClick(e) {
     e.preventDefault();
 
-    debugger;
+    // debugger;
     if (this.ele === 1) {
       this.ele = 0;
     } else {
@@ -38,7 +38,7 @@ class Cube extends React.Component {
     if (this.ele === 1 && this.state.class !== "clicked") {
       this.setState({class: "clicked"});
     }
-    debugger
+    // debugger
 
     return (
       <div onClick={this.handleClick.bind(this)} className={this.state.class} >

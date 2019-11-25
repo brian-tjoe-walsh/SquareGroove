@@ -37,11 +37,11 @@ class GridShow extends React.Component {
       grid: eles[2]
     };
 
-    debugger;
+    // debugger;
   }
 
   commitSave() {
-    debugger
+    // debugger
     this.props.makeGrid(this.savedGrid)
       .then(() => this.props.history.push('/profile'));
   }

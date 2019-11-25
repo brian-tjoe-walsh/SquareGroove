@@ -20,7 +20,7 @@ class Profile extends React.Component {
     }
     
     componentDidMount() {
-      debugger
+      // debugger
         // console.log(this.props.currentUser.id);
         this.props.fetchUserGrids(this.props.currentUser.id);
     }
@@ -56,7 +56,7 @@ class Profile extends React.Component {
           <Loading /> 
           );
         } else {
-          debugger
+          // debugger
           return (
             <div className="mainBackground">
               <div className="mainNavBar">
