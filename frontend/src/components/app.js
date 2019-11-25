@@ -16,13 +16,13 @@ import UserAuth from './session/user_auth';
 import ProfileContainer from './profile/profile_container';
 import Loading from './loading/loading';
 // import GridComposeContainer from './grids/grid_compose_container';
-import './css/grid.css';
-import './css/bpm.css';
-import './app.css';
-import './css/modal.css';
-import './css/profile.css';
-import './css/sample.css';
-import './css/dropdown.css';
+import './css/grid.scss';
+import './css/bpm.scss';
+import './app.scss';
+import './css/modal.scss';
+import './css/profile.scss';
+import './css/sample.scss';
+import './css/dropdown.scss';
 
 
 
