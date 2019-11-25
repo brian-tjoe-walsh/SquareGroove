@@ -30,6 +30,19 @@ class GridPage extends React.Component {
       })
   }
 
+  componentDidUpdate(prevProps){
+    if (prevProps.match.params.gridId !== this.props.match.params.gridId){
+        this.props.fetchGrid(this.props.match.params.gridId)
+        .then((res) => {
+          if (res !== undefined) {
+            this.setState({ grid: res.grid.data })
+            window.location.reload();
+          }
+          else this.props.history.push('/index')
+        })
+    }
+}
+
   toggleSidebar() {
     let sidebar = $('#sidebar');
     if (sidebar) {
