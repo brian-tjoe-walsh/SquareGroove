@@ -5,7 +5,7 @@ import $ from 'jquery';
 // import ProfileContainer from '../profile/profile_container';
 import Loading from '../loading/loading';
 // import LoginButton from '../session/login_button';
-
+import { deleteGrid } from '../../util/grid_api_util';
 
 class GridPage extends React.Component {
   constructor(props) {
@@ -19,11 +19,15 @@ class GridPage extends React.Component {
     };
     this.saveGrid = this.saveGrid.bind(this);
     this.commitSave = this.commitSave.bind(this);
+    this.delete = this.delete.bind(this);
   } 
 
   componentDidMount() {
     this.props.fetchGrid(this.props.gridId)
-      .then((res) => this.setState({ grid: res.grid.data }));
+      .then((res) => {
+        if (res !== undefined) this.setState({ grid: res.grid.data })
+        else this.props.history.push('/index')
+      })
   }
 
   toggleSidebar() {
@@ -49,6 +53,11 @@ class GridPage extends React.Component {
       .then(() => this.props.history.push('/profile'));
   }
 
+  delete(){
+    deleteGrid(this.props.gridId)
+      .then(() => this.props.history.push('/profile'));
+  }
+
   render() {
     console.log(this.props);
     if (!this.state.grid) {
@@ -56,7 +65,8 @@ class GridPage extends React.Component {
     } else {      
       return(
         <div className="mainBackground">
-          <Grid saveGrid={this.saveGrid} grid={this.state.grid} commitSave = {this.commitSave}/>
+          <Grid saveGrid={this.saveGrid} grid={this.state.grid} commitSave = {this.commitSave} delete={this.delete}/>
+          <br/>
           { this.toggleSidebar() }
         </div>
       )

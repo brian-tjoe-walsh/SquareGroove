@@ -51,6 +51,17 @@ router.post('/',
   }
 );
 
+router.delete('/:id', (req, res) => {
+  Grid.findById(req.params.id)
+    .then(grid => {
+        grid.delete();
+        res.json(grid);
+    })
+    .catch(err =>
+      res.status(404).json({ nogridfound: 'No grid found with that ID' })
+    );
+});
+
 module.exports = router;
 
 // made another comment

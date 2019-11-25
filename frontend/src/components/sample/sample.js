@@ -25,9 +25,10 @@ class Sample extends React.Component {
     }
 
     if (this.state.changing === true){
+        this.state.changing = false;
         this.props.fetchSamples(this.state.instrument)
             .then(() => this.props.fetchDrums())
-            .then(() => this.setState({loaded: true, changing: false}));
+            .then(() => this.setState({loaded: true}));
     }
   }
 

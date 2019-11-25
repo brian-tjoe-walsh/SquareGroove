@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import $ from 'jquery';
 import ProfileContainer from '../profile/profile_container';
 import Loading from '../loading/loading';
+import { deleteGrid } from '../../util/grid_api_util';
 
 
 class GridShow extends React.Component {
@@ -18,6 +19,7 @@ class GridShow extends React.Component {
     };
     this.saveGrid = this.saveGrid.bind(this);
     this.commitSave = this.commitSave.bind(this);
+    this.delete = this.delete.bind(this);
   }
 
   componentDidMount() {
@@ -46,6 +48,10 @@ class GridShow extends React.Component {
       .then(() => this.props.history.push('/profile'));
   }
 
+  delete(){
+    debugger;
+  }
+
   render() {
 
     if (!this.state.grid) {
@@ -69,7 +75,11 @@ class GridShow extends React.Component {
             </nav>
           </div>
           <Grid grid={this.state.grid} saveGrid={this.saveGrid} />
+          <br/>
             {this.toggleSidebar()}
+          <div onClick={this.delete}>
+            Delete
+          </div>
         </div>
       )
     }
