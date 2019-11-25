@@ -1,14 +1,14 @@
 // src/components/profile/profile.js
 
 import React from 'react';
-import ProfileGrid from './profile_grid';
+import ProfileGrid from '../profile/profile_grid';
 import {Link} from 'react-router-dom';
 import $ from "jquery";
 import Loading from '../loading/loading';
 import LoginButton from '../session/login_button';
 
 
-class Profile extends React.Component {
+class GridIndex extends React.Component {
     constructor(props) {
       super(props);
 
@@ -22,18 +22,9 @@ class Profile extends React.Component {
     componentDidMount() {
       debugger
         // console.log(this.props.currentUser.id);
-        this.props.fetchUserGrids(this.props.currentUser.id);
+        this.props.fetchGrids()
+          .then( (res) => this.setState({grids: res.grids.data}));
     }
-
-    // componentDidUpdate() {
-    //   debugger
-    //   // console.log(this.props.currentUser.id);
-    //   this.props.fetchUserGrids(this.props.currentUser.id);
-    // }
-
-    componentWillReceiveProps(newState) {
-        this.setState({ grids: newState.grids });
-    }   
 
     toggleSidebar() {
       // debugger
@@ -49,6 +40,12 @@ class Profile extends React.Component {
         this.sidebar = "hidebar";
       }
     }
+
+    // componentDidUpdate() {
+    //   debugger
+    //   // console.log(this.props.currentUser.id);
+    //   this.props.fetchUserGrids(this.props.currentUser.id);
+    // }
     
     render() {
         if (this.state.grids.length === 0) {
@@ -75,11 +72,11 @@ class Profile extends React.Component {
               </div>
               <div className="gridIndexMainPage">
                 <div className="gridIndexTitle">
-                  {`${this.props.currentUser.handle}'s Grids`}
+                  Grids In The Community
                 </div>
                 <div className="profileGrids">
                   {this.state.grids.map((grid) => {
-                  return( <Link to={`/grids/${grid._id}`} className="individualGrid">
+                  return( <Link to={`/grids/${grid._id}`} key={grid._id} className="individualGrid">
                       <ProfileGrid grid={grid}/>
                       <h3 className="profileTitle">{grid.title}</h3>
                     </Link>)
@@ -94,4 +91,4 @@ class Profile extends React.Component {
       }
 }
 
-export default Profile;
+export default GridIndex;

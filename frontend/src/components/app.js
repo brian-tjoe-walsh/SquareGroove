@@ -10,6 +10,7 @@ import GridPageContainer from './grids/grid_page_container';
 // import LoginFormContainer from './session/login_form_container';
 // import SignupFormContainer from './session/signup_form_container';
 import SampleContainer from './sample/sample_container';
+import IndexContainer from './index/grid_index_container';
 import Modal from './modal/modal';
 import UserAuth from './session/user_auth';
 import ProfileContainer from './profile/profile_container';
@@ -34,6 +35,7 @@ const App = () => (
       <Route exact path="/sample" component={SampleContainer} />
       <Route exact path="/grids/:gridId" component={GridPageContainer} />
       <Route exact path="/loading" component={Loading} />
+      <Route exact path="/index" component={IndexContainer} />
       {/* <AuthRoute exact path="/login" component={LoginFormContainer} />
       <AuthRoute exact path="/signup" component={SignupFormContainer} /> */}
       <AuthRoute exact path="/auth" component={UserAuth} />

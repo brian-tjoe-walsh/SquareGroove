@@ -3,12 +3,12 @@ import React from 'react';
 class Sample extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {loaded: false, instrument: "bell", changing: false};
+        this.state = {loaded: false, instrument: this.props.instrument, changing: false};
         this.changeSample = this.changeSample.bind(this);
     }
 
   componentDidMount(){
-    // debugger
+    debugger
     this.props.fetchSamples(this.state.instrument)
         .then(() => this.props.fetchDrums())
         .then(() => this.setState({loaded: true}));
@@ -19,12 +19,16 @@ class Sample extends React.Component {
   }
 
   componentDidUpdate(){
-    //   debugger
-      if (this.state.changing === true){
-          this.props.fetchSamples(this.state.instrument)
+    debugger
+    if ((this.props.instrument !== this.state.instrument) && (!this.state.changing)) {
+        this.changeSample(this.props.instrument);
+    }
+
+    if (this.state.changing === true){
+        this.props.fetchSamples(this.state.instrument)
             .then(() => this.props.fetchDrums())
             .then(() => this.setState({loaded: true, changing: false}));
-      }
+    }
   }
 
   render() {

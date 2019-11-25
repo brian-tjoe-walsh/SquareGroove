@@ -46,7 +46,7 @@ class LoginForm extends React.Component {
     };
 
     this.props.login(user)
-      // .then(() => this.props.closeModal());
+      .then(() => this.props.closeModal());
   }
 
   handleClickEmail() {

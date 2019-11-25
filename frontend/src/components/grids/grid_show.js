@@ -62,7 +62,7 @@ class GridShow extends React.Component {
             <nav>
               <ul>
                 <Link to="/profile">Profile</Link>
-                <li>Index</li>
+                <Link to="/index" >Index</Link>
                 <li>Logout</li>
                 <Link onClick={this.commitSave} to="/profile">Save</Link>
               </ul>
