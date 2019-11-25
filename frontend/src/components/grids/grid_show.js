@@ -37,11 +37,11 @@ class GridShow extends React.Component {
       grid: eles[2]
     };
 
-    debugger;
+    // debugger;
   }
 
   commitSave() {
-    debugger
+    // debugger
     this.props.makeGrid(this.savedGrid)
       .then(() => this.props.history.push('/profile'));
   }
@@ -62,7 +62,7 @@ class GridShow extends React.Component {
             <nav>
               <ul>
                 <Link to="/profile">Profile</Link>
-                <li>Index</li>
+                <Link to="/index" >Index</Link>
                 <li>Logout</li>
                 <Link onClick={this.commitSave} to="/profile">Save</Link>
               </ul>

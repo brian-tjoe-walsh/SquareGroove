@@ -13,9 +13,13 @@ class Grid extends React.Component {
   constructor(props) {
     super(props);
     this.grid = this.props.grid.grid;
-    this.style = this.props.grid.style;
+    this.original = JSON.parse(JSON.stringify(this.props.grid.grid));
+    // this.style = this.props.grid.style;
     this.title = this.props.grid.title;
-    // debugger
+    this.state = {
+      style: this.props.grid.style,
+      gridReset: false
+    };
     this.timer = 0;
     this.bpm = 120;
     this.muted = false;
@@ -28,6 +32,10 @@ class Grid extends React.Component {
     this.samples = {};
     this.sidebar = "hidebar";
     this.toggleSidebar = this.toggleSidebar.bind(this);
+    this.switchToPiano = this.switchToPiano.bind(this);
+    this.switchToBell = this.switchToBell.bind(this);
+    this.switchToVoice = this.switchToVoice.bind(this);
+    this.resetGrid = this.resetGrid.bind(this);
   }
 
 
@@ -238,7 +246,7 @@ class Grid extends React.Component {
   }
 
   toggleSidebar() {
-    debugger
+    // debugger
     if (this.sidebar === "hidebar") {
       let hidebar = $('.hidebar');
       hidebar.addClass('sidebar');
@@ -249,6 +257,18 @@ class Grid extends React.Component {
       sidebar.addClass('hidebar');
       sidebar.removeClass('sidebar');
       this.sidebar = "hidebar";
+    }
+  }
+
+  resetGrid() {
+    // debugger
+    this.grid = JSON.parse(JSON.stringify(this.original));
+    // debugger
+
+    if (!this.state.gridReset) {
+      this.setState({ gridReset: true });
+    } else {
+      this.setState({ gridReset: false });
     }
   }
 
@@ -289,7 +309,7 @@ class Grid extends React.Component {
       Array.from(samples).forEach( sample => {
         sample.volume = 1;
         this.muted = false;
-      })
+      });
     }
   }
   
@@ -309,6 +329,24 @@ class Grid extends React.Component {
     this.props.saveGrid([this.title, this.style, this.grid]);
   }
 
+  switchToBell() {
+    if (this.state.style !== "bell") {
+      this.setState({style: "bell"});
+    }
+  }
+
+  switchToVoice() {
+    if (this.state.style !== "voice") {
+      this.setState({ style: "voice" });
+    }
+  }
+
+  switchToPiano() {
+    if (this.state.style !== "piano") {
+      this.setState({ style: "piano" });
+    }
+  }
+
   render() {
     if (!this.grid) {
       return null;
@@ -324,16 +362,17 @@ class Grid extends React.Component {
               <nav>
                 <ul className="sidebarOptions">
                   <Link to="/profile" >Profile</Link>
-                  <li>Index</li>
+                  <Link to="/index" className="indexspacing" >Index</Link>
                   <li onClick={this.props.commitSave}>Save</li>
                   <div className="dropdown">
                     <button className="dropbtn">Samples</button>
                     <div className="dropdown-content">
-                      <div id="sampleChanges" href="#">Bell</div>
-                      <div id="sampleChanges" href="#">Voice</div>
-                      <div id="sampleChanges" href="#">Piano</div>
+                      <div id="sampleChanges" onClick={this.switchToBell}>Bell</div>
+                      <div id="sampleChanges" onClick={this.switchToVoice}>Voice</div>
+                      <div id="sampleChanges" onClick={this.switchToPiano}>Piano</div>
                     </div>
                   </div>
+                  {/* <li onClick={this.resetGrid}>Reset Grid</li> */}
                   <LoginButton />
                 </ul>
               </nav>
@@ -352,13 +391,15 @@ class Grid extends React.Component {
                   <div className="row" id={`idx${idx}`} key={idx}>
                     {row.map((ele, idx2) => {
                       if (idx2 < 15) {
+                        // debugger
                         return (
                           < Cube
                             row={idx}
                             col={idx2}
                             key={idx2}
                             ele={ele}
-                            switchPos={this.switchPos} />
+                            switchPos={this.switchPos} 
+                          />
                         )
                       }
                     })}
@@ -388,7 +429,7 @@ class Grid extends React.Component {
               <Timer start={this.timer} addTimer={this.addTimer} bpm={this.bpm} />
             </div>
             <div className="sampleComponent">
-              <SampleContainer instrument={this.props.grid.style} />
+              <SampleContainer instrument={this.state.style} />
             </div>
           </div>
         </div>

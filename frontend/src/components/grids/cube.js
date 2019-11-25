@@ -8,6 +8,11 @@ class Cube extends React.Component {
       class: "ele",
       col: null};
     this.handleClick.bind(this);
+    // debugger
+  }
+
+  componentDidUpdate() {
+    // debugger
   }
 
   handleClick(e) {
@@ -26,13 +31,14 @@ class Cube extends React.Component {
       this.setState({class: "ele"});
     }
     this.props.switchPos([this.props.row, this.props.col]);
-    debugger;
+    // debugger;
   }
 
   render() {
     if (this.ele === 1 && this.state.class !== "clicked") {
       this.setState({class: "clicked"});
     }
+    // debugger
 
     return (
       <div onClick={this.handleClick.bind(this)} className={this.state.class} >
