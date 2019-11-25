@@ -15,3 +15,7 @@ export const getUserGrids = id => {
 export const createGrid = grid => {
   return axios.post('/api/grids/', grid);
 };
+
+export const deleteGrid = id => {
+  return axios.delete(`/api/grids/${id}`);
+}

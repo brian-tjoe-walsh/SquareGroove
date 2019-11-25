@@ -363,7 +363,6 @@ class Grid extends React.Component {
                 <ul className="sidebarOptions">
                   <Link to="/profile" >Profile</Link>
                   <Link to="/index" className="indexspacing" >Index</Link>
-                  <li onClick={this.props.commitSave}>Save</li>
                   <div className="dropdown">
                     <button className="dropbtn">Samples</button>
                     <div className="dropdown-content">
@@ -372,6 +371,8 @@ class Grid extends React.Component {
                       <div id="sampleChanges" onClick={this.switchToPiano}>Piano</div>
                     </div>
                   </div>
+                  <li onClick={this.props.commitSave}>Save</li>
+                  <li onClick={this.props.delete}>Delete</li>
                   {/* <li onClick={this.resetGrid}>Reset Grid</li> */}
                   <LoginButton />
                 </ul>
