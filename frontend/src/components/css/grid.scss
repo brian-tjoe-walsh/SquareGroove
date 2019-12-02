@@ -557,6 +557,7 @@
 	opacity: 50%;
 	margin-top: 20px;
 	letter-spacing: 1px;
+	z-index: 3;
 }
 
 .gridTitleDisplay {
@@ -597,6 +598,8 @@ a {
 }
 .mute-btn{
 	position: fixed;
+	display: flex;
+	justify-content: flex-end;
 	top: 25px;
 	height: 30px;
 	color: rgba(54, 53, 53, 0.514);
@@ -604,6 +607,7 @@ a {
 	text-align: right;
 	padding-right: 100px;
 	cursor: pointer;
+	z-index: 2;
 }
 
 .fas {
