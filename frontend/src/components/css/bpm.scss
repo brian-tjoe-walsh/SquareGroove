@@ -28,7 +28,7 @@
 }
 
 .adjuster:hover {
-  opacity: 100%; /* Fully shown on mouse-over */
+  opacity: 1; /* Fully shown on mouse-over */
 } 
 
 .adjuster::-webkit-slider-thumb {
@@ -59,7 +59,7 @@
   width: 100px;
   color: white;
   font-size: 17px;
-  opacity: 80%;
+  opacity: .8;
 }
 
 .bpmContainer {

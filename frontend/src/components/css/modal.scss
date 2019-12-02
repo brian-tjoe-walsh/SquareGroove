@@ -6,7 +6,7 @@
     left: 0;
     background: linear-gradient(to bottom right, rgb(28, 229, 243), rgb(30, 142, 235));
     z-index: 10;
-    opacity: 90%;
+    opacity: .9;
   }
   
   .modal-child {
@@ -24,7 +24,7 @@
     height: 35%;
     transform: translate(-50%, -50%);
     background: linear-gradient(to bottom right, rgb(62, 186, 238), rgb(26, 104, 199));
-    opacity: 90%;
+    opacity: .9;
     font-size: 20px;
     min-width: 400px;
     min-height: 350px;
