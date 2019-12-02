@@ -60,7 +60,8 @@
 	margin: 3px;
 	border-radius: 3px;
 	animation-name: unclick;
-  animation-duration: 500ms;
+	animation-duration: 500ms;
+	cursor: pointer;
 }
 
 @keyframes unclick {
