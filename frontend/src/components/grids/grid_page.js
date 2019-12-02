@@ -86,7 +86,7 @@ class GridPage extends React.Component {
       deleteGrid(this.props.gridId)
         .then(() => this.props.history.push('/profile'));
     } else {
-      this.props.history.push('/index');
+      this.props.history.push('/');
     }
   }
 
