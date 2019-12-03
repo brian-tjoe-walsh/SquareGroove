@@ -50,7 +50,7 @@ class GridIndex extends React.Component {
     render() {
         if (this.state.grids.length === 0) {
           return ( 
-          <Loading /> 
+          <Loading currentUser={this.props.currentUser} /> 
           );
         } else {
           // debugger
@@ -65,6 +65,7 @@ class GridIndex extends React.Component {
                     <ul className="sidebarOptions">
                       <Link to="/profile" >Profile</Link>
                       <Link to="/index" className="indexspacing" >Index</Link>
+                      <Link to="/" className="indexspacing" >Create New Grid</Link>
                       <LoginButton />
                     </ul>
                   </nav>

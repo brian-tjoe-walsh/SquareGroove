@@ -4,13 +4,15 @@
     bottom: 0;
     right: 0;
     left: 0;
+    // background: white; 
     background: linear-gradient(to bottom right, rgb(28, 229, 243), rgb(30, 142, 235));
     z-index: 10;
-    opacity: .9;
+    opacity: 1;
   }
-  
+
   .modal-child {
     /* -webkit-border-radius: 25px; */
+    z-index: 11;
     -moz-border-radius: 25px;
     -moz-border-radius-topleft: 0;
     border-radius: 0px;
@@ -41,6 +43,7 @@
   font-family: Helvetica;
   color: white;
   outline: none;
+  opacity: .9;
 }
 
 .signupForm {
