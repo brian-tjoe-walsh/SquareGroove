@@ -18,7 +18,8 @@ class Grid extends React.Component {
     this.title = this.props.grid.title;
     this.state = {
       style: this.props.grid.style,
-      gridReset: false
+      gridReset: false,
+      muteIconUrl: "https://mern-notes.s3-us-west-1.amazonaws.com/icons/audio-on.png"
     };
     this.timer = 0;
     this.bpm = 120;
@@ -304,11 +305,14 @@ class Grid extends React.Component {
       Array.from(samples).forEach( sample => {
         sample.volume = 0;
         this.muted = true;
+        this.setState({muteIconUrl: "https://mern-notes.s3-us-west-1.amazonaws.com/icons/audio-off.png"})
+      
       })
     } else {
       Array.from(samples).forEach( sample => {
         sample.volume = 1;
         this.muted = false;
+        this.setState({muteIconUrl: "https://mern-notes.s3-us-west-1.amazonaws.com/icons/audio-on.png"})
       });
     }
   }
@@ -383,8 +387,10 @@ class Grid extends React.Component {
             <div className="gridTitleDisplay">
               <Title title={this.title} titleChange={this.titleChange} />
             </div>
-            <div className='mute-btn' onClick={this.toggleMute}>
-              <i className="fas fa-volume-up"></i>
+            <div className='mute-btn-container' onClick={this.toggleMute}>
+              <div className='mute-btn'>
+                  <img src={this.state.muteIconUrl}></img>
+              </div>
             </div>
             <div className="gridBackground">
               <div className="mainGrid">
