@@ -11,7 +11,7 @@ import { openModal } from '../../actions/modal_actions';
 class GridPage extends React.Component {
   constructor(props) {
     super(props);
-    // debugger
+    
     this.state = { grid: null };
     this.toggleSidebar = this.toggleSidebar.bind(this);
     this.savedGrid = {
@@ -22,32 +22,38 @@ class GridPage extends React.Component {
     this.saveGrid = this.saveGrid.bind(this);
     this.commitSave = this.commitSave.bind(this);
     this.delete = this.delete.bind(this);
+
+    debugger
   } 
 
   componentDidMount() {
     this.props.fetchGrid(this.props.gridId)
       .then((res) => {
-        // debugger
-        if (res !== undefined) {
-          // debugger;
+        debugger
+        if (res !== undefined && res.grid.data !== null) {
+          debugger;
           this.setState({ grid: res.grid.data });
           this.savedGrid.style = res.grid.data.style;
         }
         else {
+          debugger
           this.props.history.push('/index');
         }
       });
   }
 
   componentDidUpdate(prevProps) {
+    
     if (prevProps.match.params.gridId !== this.props.match.params.gridId) {
       this.props.fetchGrid(this.props.match.params.gridId)
         .then((res) => {
-          if (res !== undefined) {
+          debugger
+          if (res !== undefined && res.grid.data !== null) {
             this.setState({ grid: res.grid.data });
             window.location.reload();
           }
           else {
+          debugger
             this.props.history.push('/index');
         }
       });
@@ -79,7 +85,10 @@ class GridPage extends React.Component {
         this.savedGrid.style = "bell";
       }
       this.props.makeGrid(this.savedGrid)
-        .then(() => this.props.history.push('/profile'));
+        .then(() => {
+          debugger
+          this.props.history.push('/profile')
+        })
     } else {
       this.props.login();
     }
