@@ -6,7 +6,8 @@ class Timer extends React.Component {
     this.state = {
       time: this.props.start,
       pause: "play",
-      random: "random"
+      random: "random",
+      begun: false
     };
     this.bpm = this.props.bpm;
     this.interval = 60000 / this.bpm;
@@ -49,9 +50,17 @@ class Timer extends React.Component {
       this.refreshIntervalId = null;
       this.setState({pause: "play"});
     } else {
-      let interval = 60000 / this.bpm;
-      this.refreshIntervalId = setInterval(this._tick, interval);
-      this.setState({pause: "pause"});
+      if (this.state.time === 0 && !this.state.begun) {
+        this.setState({begun: true});
+        let interval = 60000 / this.bpm;
+        this.refreshIntervalId = setInterval(this._tick, interval);
+        this.setState({pause: "pause"});
+      } else {
+        this._tick();
+        let interval = 60000 / this.bpm;
+        this.refreshIntervalId = setInterval(this._tick, interval);
+        this.setState({ pause: "pause" });
+      }
     }
   }
 
