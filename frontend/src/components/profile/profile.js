@@ -53,7 +53,7 @@ class Profile extends React.Component {
     render() {
         if (this.state.grids.length === 0) {
           return ( 
-          <Loading /> 
+          <Loading currentUser = {this.props.currentUser}/> 
           );
         } else {
           // debugger
@@ -68,6 +68,7 @@ class Profile extends React.Component {
                     <ul className="sidebarOptions">
                       <Link to="/profile" >Profile</Link>
                       <Link to="/index" className="indexspacing" >Index</Link>
+                      <Link to="/" className="indexspacing" >Create New Grid</Link>
                       <LoginButton />
                     </ul>
                   </nav>
@@ -78,9 +79,9 @@ class Profile extends React.Component {
                   {`${this.props.currentUser.handle}'s Grids`}
                 </div>
                 <div className="profileGrids">
-                  {this.state.grids.map((grid) => {
-                  return( <Link to={`/grids/${grid._id}`} className="individualGrid">
-                      <ProfileGrid grid={grid}/>
+                  {this.state.grids.map((grid, idx) => {
+                  return( <Link to={`/grids/${grid._id}`} key={idx} className="individualGrid">
+                      <ProfileGrid grid={grid} key={idx}/>
                       <h3 className="profileTitle">{grid.title}</h3>
                     </Link>)
                   }

@@ -36,6 +36,7 @@ class Grid extends React.Component {
     this.switchToPiano = this.switchToPiano.bind(this);
     this.switchToBell = this.switchToBell.bind(this);
     this.switchToVoice = this.switchToVoice.bind(this);
+    this.profileView = this.profileView.bind(this);
     this.resetGrid = this.resetGrid.bind(this);
   }
 
@@ -262,9 +263,7 @@ class Grid extends React.Component {
   }
 
   resetGrid() {
-    // debugger
     this.grid = JSON.parse(JSON.stringify(this.original));
-    // debugger
 
     if (!this.state.gridReset) {
       this.setState({ gridReset: true });
@@ -273,13 +272,7 @@ class Grid extends React.Component {
     }
   }
 
-  // fullyLoaded() {
-  //   this.setState({loaded: true});
-  // }
-
   playAudioRow(row) {
-    // console.log(row);
-    // debugger
 
     row.forEach((ele, idx) => {
       if (idx <= 14) {
@@ -351,6 +344,17 @@ class Grid extends React.Component {
     }
   }
 
+  profileView() {
+    // debugger
+    let user = this.props.currentUser || {};
+    if (Object.keys(user).length !== 0) {
+      this.props.history.push('/profile');
+    } else {
+      // debugger
+      this.props.login();
+    }
+  }
+
   render() {
     if (!this.grid) {
       return null;
@@ -365,7 +369,7 @@ class Grid extends React.Component {
             <div className="hidebar">
               <nav>
                 <ul className="sidebarOptions">
-                  <Link to="/profile" >Profile</Link>
+                  <li onClick={this.profileView}>Profile</li>
                   <Link to="/index" className="indexspacing" >Index</Link>
                   <div className="dropdown">
                     <button className="dropbtn">Samples</button>

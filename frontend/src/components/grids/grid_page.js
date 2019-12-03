@@ -6,11 +6,12 @@ import $ from 'jquery';
 import Loading from '../loading/loading';
 // import LoginButton from '../session/login_button';
 import { deleteGrid } from '../../util/grid_api_util';
+import { openModal } from '../../actions/modal_actions';
 
 class GridPage extends React.Component {
   constructor(props) {
     super(props);
-    debugger
+    // debugger
     this.state = { grid: null };
     this.toggleSidebar = this.toggleSidebar.bind(this);
     this.savedGrid = {
@@ -26,9 +27,9 @@ class GridPage extends React.Component {
   componentDidMount() {
     this.props.fetchGrid(this.props.gridId)
       .then((res) => {
-        debugger
+        // debugger
         if (res !== undefined) {
-          debugger;
+          // debugger;
           this.setState({ grid: res.grid.data });
           this.savedGrid.style = res.grid.data.style;
         }
@@ -72,33 +73,49 @@ class GridPage extends React.Component {
   }
 
   commitSave() {
-    if (!this.savedGrid.style) {
-      this.savedGrid.style = "bell";
+    let user = this.props.currentUser || {};
+    if (Object.keys(user).length !== 0) {
+      if (!this.savedGrid.style) {
+        this.savedGrid.style = "bell";
+      }
+      this.props.makeGrid(this.savedGrid)
+        .then(() => this.props.history.push('/profile'));
+    } else {
+      this.props.login();
     }
-    debugger
-    this.props.makeGrid(this.savedGrid)
-      .then(() => this.props.history.push('/profile'));
   }
 
   delete(){
-    debugger
-    if (this.props.gridId !== "5de553f3386002e975b94d2f") {
-      deleteGrid(this.props.gridId)
-        .then(() => this.props.history.push('/profile'));
-    } else {
+    let user = this.props.currentUser || {};
+    if (Object.keys(user).length === 0) {
       this.props.history.push('/');
+    } else {
+      debugger
+      if (this.props.currentUser.id === this.state.grid.user && this.props.gridId !== "5de553f3386002e975b94d2f") {
+        deleteGrid(this.props.gridId)
+          .then(() => this.props.history.push('/profile'));
+      } else {
+        this.props.history.push('/');
+      }
+
     }
   }
 
   render() {
     console.log(this.props);
     if (!this.state.grid) {
-      return (<Loading />);
+      return (<Loading currentUser={this.props.currentUser}/>);
     } else {  
-      debugger    
+      // debugger    
       return(
         <div className="mainBackground">
-          <Grid saveGrid={this.saveGrid} grid={this.state.grid} commitSave = {this.commitSave} delete={this.delete}/>
+          <Grid login = {this.props.login} 
+            currentUser={this.props.currentUser} 
+            saveGrid={this.saveGrid} 
+            grid={this.state.grid} 
+            commitSave = {this.commitSave} 
+            delete={this.delete}
+            history={this.props.history}/>
           <br/>
           { this.toggleSidebar() }
         </div>
