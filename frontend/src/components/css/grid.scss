@@ -63,6 +63,12 @@
 	animation-name: unclick;
 	animation-duration: 500ms;
 	cursor: default;
+	-webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
 @keyframes unclick {
@@ -84,6 +90,12 @@
 	animation-duration: 500ms;
 	cursor: default;
 	/* box-shadow: 1px 1px 3px white; */
+	-webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
 @keyframes click {
@@ -599,18 +611,34 @@
 a {
 	color: inherit;
 }
-.mute-btn{
-	position: fixed;
+
+.mute-btn-container{
+	height: 30px;
 	display: flex;
 	justify-content: flex-end;
+}
+
+.mute-btn{
+	position: fixed;
 	top: 25px;
-	height: 30px;
-	color: rgba(54, 53, 53, 0.514);
+	height: 35px;
+	width: 40px;
+	// color: rgba(54, 53, 53, 0.514);
 	font-size: 30px;
 	text-align: right;
-	padding-right: 100px;
-	cursor: pointer;
+	padding-right: 50px;
 	z-index: 2;
+}
+
+.mute-btn img{
+	cursor: pointer;
+	-webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+	user-select: none;
+	opacity: 0.57
 }
 
 .fas {

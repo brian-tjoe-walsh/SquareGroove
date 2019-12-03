@@ -51,6 +51,12 @@
   color: white;
   background: rgba(201, 201, 201, 0.274);
   outline: none;
+  -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
 .bpmDisplay {
@@ -64,6 +70,12 @@
   height: 20px;
   opacity: .8;
   cursor: pointer;
+  -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
 .bpmContainer {
