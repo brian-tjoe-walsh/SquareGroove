@@ -7,7 +7,7 @@ import SampleContainer from '../sample/sample_container';
 import Title from './title';
 import { Link } from 'react-router-dom';
 import LoginButton from '../session/login_button';
-
+import DeleteButton from '../delete_button/delete';
 
 class Grid extends React.Component {
   constructor(props) {
@@ -359,7 +359,7 @@ class Grid extends React.Component {
     if (!this.grid) {
       return null;
     } else {
-      // debugger
+      debugger
       return (
         <div className="fullOutsideContents">
           <div className="mainNavBar">
@@ -380,7 +380,9 @@ class Grid extends React.Component {
                     </div>
                   </div>
                   <li onClick={this.props.commitSave}>Save</li>
-                  <li onClick={this.props.delete}>Delete</li>
+                  {/* <li onClick={this.props.delete}>Delete</li> */}
+                  {/* <DeleteContainer delete={this.props.delete}/> */}
+                  <DeleteButton currentUser={this.props.currentUser} delete={this.props.delete} grid={this.props.grid}/>
                   {/* <li onClick={this.resetGrid}>Reset Grid</li> */}
                   <LoginButton />
                 </ul>
