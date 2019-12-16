@@ -513,12 +513,6 @@
 	/* opacity: 80%; */
 }
 
-
-@-webkit-keyframes fadeinout {
-  0%,100% { opacity: .25; }
-  50% { opacity: 1; }
-}
-
 @keyframes fadeinout {
   0%,100% { opacity: .25; }
   50% { opacity: 1; }

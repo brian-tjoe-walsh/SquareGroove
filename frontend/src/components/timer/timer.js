@@ -1,4 +1,5 @@
 import React from 'react';
+import InfoButton from '../grids/info_button';
 
 class Timer extends React.Component {
   constructor(props) {
@@ -71,6 +72,7 @@ class Timer extends React.Component {
       return(
         <div className="bpmAdjuster">
           <button className="pauseFunction" onClick={this.pause}>{this.state.pause}</button>
+          <InfoButton />
           <div className="bpmContainer">
             <p className="bpmDisplay">BPM: {this.bpm}</p>
             <input onChange={this.bpmChanger}
@@ -87,6 +89,7 @@ class Timer extends React.Component {
       return (
         <div className="bpmAdjuster">
           <button className="pauseFunction" onClick={this.pause}>{this.state.pause}</button>
+          <InfoButton />
           <div className="bpmContainer">
             <p className="bpmDisplay">BPM: {this.bpm}</p>
             <input onChange={this.bpmChanger}

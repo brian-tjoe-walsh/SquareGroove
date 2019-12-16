@@ -25,7 +25,7 @@ class LoginForm extends React.Component {
     }
 
     // Set or clear errors
-    this.setState({errors: nextProps.errors})
+    this.setState({errors: nextProps.errors});
   }
 
   // Handle field updates (called in the render method)
@@ -61,7 +61,6 @@ class LoginForm extends React.Component {
 
   // Render the session errors if there are any
   renderErrors() {
-    // debugger
     return(
       <ul>
         {Object.keys(this.state.errors).map((error, i) => (

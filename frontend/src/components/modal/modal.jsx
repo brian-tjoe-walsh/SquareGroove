@@ -3,6 +3,7 @@ import { closeModal } from '../../actions/modal_actions';
 import { connect } from 'react-redux';
 import LoginFormContainer from '../session/login_form_container';
 import SignupFormContainer from '../session/signup_form_container';
+import Information from '../grids/info';
 
 function Modal({modal, closeModal}) {
   if (!modal) {
@@ -16,17 +17,32 @@ function Modal({modal, closeModal}) {
     case 'signup':
       component = <SignupFormContainer />;
       break;
+    case 'info':
+      component = <Information />;
+      break;
     default:
       return null;
   }
-  return (
-    <div className="modal-background" onClick={closeModal}>
-      {/* <img src="brick.jpg"/> */}
-      <div className="modal-child" onClick={e => e.stopPropagation()}>
-        { component }
+
+  if (modal === 'login' || modal === 'signup') {
+    return (
+      <div className="modal-background" onClick={closeModal}>
+        {/* <img src="brick.jpg"/> */}
+        <div className="modal-child" onClick={e => e.stopPropagation()}>
+          { component }
+        </div>
       </div>
-    </div>
-  );
+    );
+  } else {
+    return (
+      <div className="modal-background" onClick={closeModal}>
+        {/* <img src="brick.jpg"/> */}
+        <div className="modal-info">
+          {component}
+        </div>
+      </div>
+    );
+  }
 }
 
 const mapStateToProps = state => {
