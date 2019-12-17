@@ -23,20 +23,17 @@ class GridPage extends React.Component {
     this.commitSave = this.commitSave.bind(this);
     this.delete = this.delete.bind(this);
 
-    debugger
   } 
 
   componentDidMount() {
     this.props.fetchGrid(this.props.gridId)
       .then((res) => {
-        debugger
+  
         if (res !== undefined && res.grid.data !== null) {
-          debugger;
           this.setState({ grid: res.grid.data });
           this.savedGrid.style = res.grid.data.style;
         }
         else {
-          debugger
           this.props.history.push('/index');
         }
       });
@@ -47,13 +44,11 @@ class GridPage extends React.Component {
     if (prevProps.match.params.gridId !== this.props.match.params.gridId) {
       this.props.fetchGrid(this.props.match.params.gridId)
         .then((res) => {
-          debugger
           if (res !== undefined && res.grid.data !== null) {
             this.setState({ grid: res.grid.data });
             window.location.reload();
           }
           else {
-          debugger
             this.props.history.push('/index');
         }
       });
@@ -86,7 +81,6 @@ class GridPage extends React.Component {
       }
       this.props.makeGrid(this.savedGrid)
         .then(() => {
-          debugger
           this.props.history.push('/profile')
         })
     } else {
@@ -99,7 +93,6 @@ class GridPage extends React.Component {
     if (Object.keys(user).length === 0) {
       this.props.history.push('/');
     } else {
-      debugger
       if (this.props.currentUser.id === this.state.grid.user && this.props.gridId !== "5de553f3386002e975b94d2f") {
         deleteGrid(this.props.gridId)
           .then(() => this.props.history.push('/profile'));
@@ -115,7 +108,7 @@ class GridPage extends React.Component {
     if (!this.state.grid) {
       return (<Loading currentUser={this.props.currentUser}/>);
     } else {  
-      // debugger    
+        
       return(
         <div className="mainBackground">
           <Grid login = {this.props.login} 

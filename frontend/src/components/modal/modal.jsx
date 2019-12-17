@@ -27,7 +27,6 @@ function Modal({modal, closeModal}) {
   if (modal === 'login' || modal === 'signup') {
     return (
       <div className="modal-background" onClick={closeModal}>
-        {/* <img src="brick.jpg"/> */}
         <div className="modal-child" onClick={e => e.stopPropagation()}>
           { component }
         </div>
@@ -36,7 +35,6 @@ function Modal({modal, closeModal}) {
   } else {
     return (
       <div className="modal-background" onClick={closeModal}>
-        {/* <img src="brick.jpg"/> */}
         <div className="modal-info">
           {component}
         </div>
