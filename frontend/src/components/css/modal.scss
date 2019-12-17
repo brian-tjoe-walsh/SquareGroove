@@ -179,20 +179,8 @@ input[type=text]:focus {
 }
 
 .submit-btn-login{
-  background: rgb(160, 98, 247);
-  width: 30%;
-  height: 40px;
-  border:none;
-  font-size:1em;
-  color: white;
-  border-radius: 25px;
-  margin: 20px;
-  outline: none;
-}
-
-.submit-btn-signup{
-  background: rgb(160, 98, 247);
-  width: 35%;
+  background: linear-gradient(to bottom right, rgb(28, 229, 243), rgb(30, 142, 235));
+  width: 20%;
   height: 40px;
   border:none;
   font-size:1em;
@@ -202,7 +190,58 @@ input[type=text]:focus {
   outline: none;
 }
 
+.submit-btn-login:hover {
+  background-color: rgb(30, 142, 235);
+  box-shadow: 0px 0px 20px rgba(28, 229, 243, 0.2);
+  color: #fff;
+  transform: translateY(-1px);
+}
+
+.submit-btn-demo-login {
+  background: linear-gradient(to bottom right, rgb(28, 229, 243), rgb(30, 142, 235));
+  width: 33%;
+  height: 40px;
+  border:none;
+  font-size:1em;
+  color: white;
+  border-radius: 25px;
+  margin: 10px;
+  outline: none;
+}
+.submit-btn-demo-login:hover {
+    background-color: rgb(30, 142, 235);
+    box-shadow: 0px 0px 20px rgba(28, 229, 243, 0.2);
+    color: #fff;
+    transform: translateY(-1px);
+}
+
+.submit-btn-signup{
+  background: linear-gradient(to bottom right, rgb(28, 229, 243), rgb(30, 142, 235));
+  width: 35%;
+  height: 40px;
+  border:none;
+  font-size:1em;
+  color: white;
+  border-radius: 25px;
+  margin: 10px;
+  margin-top: 20px;
+  outline: none;
+}
+
+.submit-btn-signup:hover {
+    background-color: rgb(30, 142, 235);
+    box-shadow: 0px 0px 20px rgba(28, 229, 243, 0.2);
+    color: #fff;
+    transform: translateY(-1px);
+}
+
 .submit-btn:hover{
   cursor: pointer;
   outline: none;
+}
+
+.loginButtons {
+  margin-top: 30px;
+  
+
 }

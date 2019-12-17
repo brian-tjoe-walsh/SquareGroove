@@ -38,8 +38,8 @@ class LoginForm extends React.Component {
   }
 
   handleDemoLogin() {
-    let email = "user@email.com".split();
-    let password = "password".split();
+    let email = "user@email.com".split('');
+    let password = "password".split('');
     this.setState({ email: "", password: "" }, () => this.loginGuest(email, password))
   }
 
@@ -116,9 +116,11 @@ class LoginForm extends React.Component {
                 className="loginInputPassword"
               />
             <br/>
-            <input type="submit" className="submit-btn-login" value="Login" />
-            <input type="button" className="submit-btn-login" value="Demo Login"
-                  onClick={this.handleDemoLogin}/>
+            <div className="loginButtons">
+              <input type="submit" className="submit-btn-login" value="Login" />
+              <input type="button" className="submit-btn-demo-login" value="Demo Login"
+                    onClick={this.handleDemoLogin}/>
+            </div>
           </div>
         </form>
       </div>
