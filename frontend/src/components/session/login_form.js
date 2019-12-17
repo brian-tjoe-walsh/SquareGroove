@@ -16,6 +16,8 @@ class LoginForm extends React.Component {
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.renderErrors = this.renderErrors.bind(this);
+    this.handleDemoLogin = this.handleDemoLogin.bind(this);
+    this.loginGuest = this.loginGuest.bind(this);
   }
 
   // Once the user has been authenticated, redirect to the main page
@@ -35,10 +37,29 @@ class LoginForm extends React.Component {
     });
   }
 
+  handleDemoLogin() {
+    let email = "user@email.com".split();
+    let password = "password".split();
+    this.setState({ email: "", password: "" }, () => this.loginGuest(email, password))
+  }
+
+  loginGuest(email, password) {
+    if (email.length > 0) {
+      this.setState({ email: [this.state.email] + email.shift() }, 
+        () => setTimeout(() => this.loginGuest(email, password), 25))
+    } else if (password.length > 0) {
+      this.setState({ password: [this.state.password] + password.shift() }, 
+        () => setTimeout(() => this.loginGuest(email, password), 25))
+    } else {
+      return this.handleSubmit();
+    }
+  }
+
   // Handle form submission
   handleSubmit(e) {
-    // debugger
-    e.preventDefault();
+    if (e !== undefined) {
+      e.preventDefault();
+    }
 
     let user = {
       email: this.state.email,
@@ -95,7 +116,9 @@ class LoginForm extends React.Component {
                 className="loginInputPassword"
               />
             <br/>
-            <input type="submit" className= "submit-btn-login" value="Login" />
+            <input type="submit" className="submit-btn-login" value="Login" />
+            <input type="button" className="submit-btn-login" value="Demo Login"
+                  onClick={this.handleDemoLogin}/>
           </div>
         </form>
       </div>

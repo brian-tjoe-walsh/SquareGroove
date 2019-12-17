@@ -6,7 +6,6 @@ class DeleteButton extends React.Component{
   }
 
   componentDidMount(){
-      debugger
   }
 
   render(){

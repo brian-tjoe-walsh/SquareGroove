@@ -89,7 +89,6 @@ class Grid extends React.Component {
     oldCol = this.rows[`idx${temp}`];
 
     for (let i = 0; i < oldCol.children.length; i++) {
-      // debugger
       if ((oldCol.children[i].className === "ele rowLit1")) {
         $(oldCol.children[i]).removeClass("rowLit1");
         $(oldCol.children[i]).addClass("rowLit2");
@@ -104,7 +103,7 @@ class Grid extends React.Component {
       this.drums[`drum${temp}`] = col;
     }
 
-    // debugger
+
 
     drum = this.drums[`drum${temp}`];
 
@@ -248,7 +247,6 @@ class Grid extends React.Component {
   }
 
   toggleSidebar() {
-    // debugger
     if (this.sidebar === "hidebar") {
       let hidebar = $('.hidebar');
       hidebar.addClass('sidebar');
@@ -345,12 +343,10 @@ class Grid extends React.Component {
   }
 
   profileView() {
-    // debugger
     let user = this.props.currentUser || {};
     if (Object.keys(user).length !== 0) {
       this.props.history.push('/profile');
     } else {
-      // debugger
       this.props.login();
     }
   }
@@ -359,7 +355,6 @@ class Grid extends React.Component {
     if (!this.grid) {
       return null;
     } else {
-      debugger
       return (
         <div className="fullOutsideContents">
           <div className="mainNavBar">
@@ -404,7 +399,6 @@ class Grid extends React.Component {
                   <div className="row" id={`idx${idx}`} key={idx}>
                     {row.map((ele, idx2) => {
                       if (idx2 < 15) {
-                        // debugger
                         return (
                           < Cube
                             row={idx}

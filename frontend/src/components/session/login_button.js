@@ -5,7 +5,6 @@ import { openModal } from '../../actions/modal_actions';
 
 function LoginButton(props) {
     let user = props.currentUser || {};
-    debugger
     if (Object.keys(user).length !== 0) {
         return (
             <li onClick={props.logout}>Logout</li>
