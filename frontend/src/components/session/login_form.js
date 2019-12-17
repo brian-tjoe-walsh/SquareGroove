@@ -116,17 +116,11 @@ class LoginForm extends React.Component {
                 className="loginInputPassword"
               />
             <br/>
-<<<<<<< HEAD
             <div className="loginButtons">
               <input type="submit" className="submit-btn-login" value="Login" />
               <input type="button" className="submit-btn-demo-login" value="Demo Login"
                     onClick={this.handleDemoLogin}/>
             </div>
-=======
-            <input type="submit" className="submit-btn-login" value="Login" />
-            <input type="button" className="submit-btn-login" value="Demo Login"
-                  onClick={this.handleDemoLogin}/>
->>>>>>> master
           </div>
         </form>
       </div>
