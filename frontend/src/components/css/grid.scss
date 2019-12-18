@@ -299,9 +299,9 @@
 }
 
 .menuIcon {
-	position: fixed;
-	top: 40px;
-	left: 77px;
+	position: absolute;
+	top: 30px;
+	left: 44px;
 	height: 50px;
 	width: 60px;
 	z-index: 5;
@@ -309,10 +309,11 @@
 
 
 .hamburger {
+	margin-top: 12px;
 	position:absolute;
 	/* left: 12px; */
 	/* top: 8px; */
-	transform: translate(-50%, -50%);
+	// transform: translate(-50%, -50%);
 	height: 4px;
 	width: 50px;
 	background-color: #22313F;
