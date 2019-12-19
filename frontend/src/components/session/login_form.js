@@ -38,18 +38,18 @@ class LoginForm extends React.Component {
   }
 
   handleDemoLogin() {
-    let email = "user@email.com".split('');
+    let email = "demo@email.com".split('');
     let password = "password".split('');
-    this.setState({ email: "", password: "" }, () => this.loginGuest(email, password))
+    this.setState({ email: "", password: "" }, () => this.loginGuest(email, password));
   }
 
   loginGuest(email, password) {
     if (email.length > 0) {
       this.setState({ email: [this.state.email] + email.shift() }, 
-        () => setTimeout(() => this.loginGuest(email, password), 25))
+        () => setTimeout(() => this.loginGuest(email, password), 25));
     } else if (password.length > 0) {
       this.setState({ password: [this.state.password] + password.shift() }, 
-        () => setTimeout(() => this.loginGuest(email, password), 25))
+        () => setTimeout(() => this.loginGuest(email, password), 25));
     } else {
       return this.handleSubmit();
     }
