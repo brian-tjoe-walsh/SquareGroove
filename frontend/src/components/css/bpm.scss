@@ -1,5 +1,5 @@
 .bpmComponent {
-  margin: 15px;
+  margin: 5px;
   width: 500px;
   height: 150px;
   display: flex;
@@ -14,6 +14,7 @@
   justify-content: space-between;
   align-items: center;
   outline: none;
+  height: 50px;
 }
 
 .adjuster {
