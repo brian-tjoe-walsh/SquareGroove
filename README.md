@@ -15,7 +15,7 @@ Users can create and save their own grids, as well as listen to other grids in t
 
 
 ## Intuitive Interface
-The program is immediately understandable. Start by clicking different notes in the grid pattern. The top grid is to program musical notes, with the bottom grid of three rows programming drums.
+The program is immediately understandable. Start by clicking different notes in the grid pattern. The top grid is to program musical notes, with the bottom grid of three rows for programming drums.
 ```
 VIDEO OF CLICKING ON BUTTONS
 ```
