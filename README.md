@@ -31,7 +31,7 @@ If the program is running too slowly, adjust the speed using the BPM bar
 ```
 VIDEO OF CLICKING ON BUTTONS
 ```
-If you want to try a different sound palette for the melodies, click in the hamburger button on the top lefthand side, hover down to the samples section and choose which sample you'd prefer!
+If you want to try a different sound palette for the melodies, click on the hamburger button at the top lefthand side of the page, hover down to the samples section and choose which sample you'd prefer!
 ```
 VIDEO OF CLICKING ON BUTTONS
 ```
