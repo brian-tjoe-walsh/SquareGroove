@@ -44,6 +44,39 @@ Once you're done, check out the grid's you've created in the Profile section, or
 VIDEO OF CLICKING ON BUTTONS
 ```
 
+## Code Snippets 
+To Create a gradient effect with the grid, different classes are added and removed, depending on which column of notes is being played. The element being passed through the function denotes the column of notes currently playing, and with that you can access prior notes by incrementing the column by -1. Each note leaves a trail of 4 fading notes, which create a gradient effect. At every increment, five columns of notes must have their current classes removed, and be given new classes to update the colorscheme. Below is an example of finding the first trailing column behind the leading notes.
+
+```
+temp = ((ele - 1 + 16) % 16);
+
+if (!this.rows[`idx${temp}`]) {
+  let col = document.getElementById(`idx${temp}`);
+  this.rows[`idx${temp}`] = col;
+}
+oldCol = this.rows[`idx${temp}`];
+
+for (let i = 0; i < oldCol.children.length; i++) {
+  if ((oldCol.children[i].className === "ele rowLit1")) {
+    $(oldCol.children[i]).removeClass("rowLit1");
+    $(oldCol.children[i]).addClass("rowLit2");
+  } else if (oldCol.children[i].className === "bright") {
+    $(oldCol.children[i]).removeClass("bright");
+    $(oldCol.children[i]).addClass("clicked");
+  }
+}
+```
+
+The BPM Adjuster uses an Event Handler to track movement of an input adjuster tag. BPM is created using a setInterval function, by taking 60,000 (the number of miliseconds in a miniute) and dividing it by the intended BPM. That will give an interval number of miliseconds between each tick. When the input is modified, the bpmChanger function is triggered, creating a new setInterval function with the desired interval. 
+
+```
+  this.bpm = e.currentTarget.value;
+  clearInterval(this.refreshIntervalId);
+  let interval = 60000 / this.bpm;
+  this._tick();
+  this.refreshIntervalId = setInterval(this._tick, interval);
+```
+
 ### Planned future features
 * Comments
 * Likes
