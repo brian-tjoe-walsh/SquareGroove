@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
     store = configureStore({});
   }
   const root = document.getElementById('root');
-  console.log(root);
+  // console.log(root);
   window.dispatch = store.dispatch;
   window.logout = logout;
   
@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let audio = document.getElementById("audio");
     audio.load();
     audio.play();
-  }
+  };
 
   ReactDOM.render(ele, root);
 

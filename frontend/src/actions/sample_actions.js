@@ -16,11 +16,11 @@ const receiveDrums = drums => ({
 export const fetchSamples = (instrument) => dispatch => (
     getSamples(instrument)
       .then(samples => dispatch(receiveSamples(samples)))
-      .catch(err => console.log(err))
+    //   .catch(err => console.log(err))
 );
 
 export const fetchDrums = () => dispatch => (
     getSamples("drums")
         .then(drums => dispatch(receiveDrums(drums)))
-        .catch(err => console.log(err))
+        // .catch(err => console.log(err))
 );   

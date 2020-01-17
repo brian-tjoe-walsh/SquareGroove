@@ -30,23 +30,23 @@ export const receiveNewGrid = grid => ({
 export const fetchGrids = () => dispatch => (
   getGrids()
     .then(grids => dispatch(receiveGrids(grids)))
-    .catch(err => console.log(err))
+    // .catch(err => console.log(err))
 );
 
 export const fetchGrid = id => dispatch => (
   getGrid(id)
     .then(grid => dispatch(receiveGrid(grid)))
-    .catch(err => console.log(err))
+    // .catch(err => console.log(err))
 );
 
 export const fetchUserGrids = id => dispatch => (
   getUserGrids(id)
     .then(grids => dispatch(receiveUserGrids(grids)))
-    .catch(err => console.log(err))
+    // .catch(err => console.log(err))
 );
 
 export const makeGrid = data => dispatch => (
   createGrid(data)
     .then(grid => dispatch(receiveNewGrid(grid)))
-    .catch(err => console.log(err))
+    // .catch(err => console.log(err))
 );

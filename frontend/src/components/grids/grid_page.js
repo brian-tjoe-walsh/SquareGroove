@@ -104,7 +104,7 @@ class GridPage extends React.Component {
   }
 
   render() {
-    console.log(this.props);
+    // console.log(this.props);
     if (!this.state.grid) {
       return (<Loading currentUser={this.props.currentUser}/>);
     } else {  
