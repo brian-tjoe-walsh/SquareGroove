@@ -15,34 +15,40 @@ Users can create and save their own grids, as well as listen to other grids in t
 
 
 ## Intuitive Interface
+
+![](squaregroove - clicking buttons.gif)
+
 The program is immediately understandable. Start by clicking different notes in the grid pattern. The top grid is to program musical notes, with the bottom grid of three rows for programming drums.
-```
-VIDEO OF CLICKING ON BUTTONS
-```
+
+![](squaregroove - playing.gif)
+
 When you're ready, click on the play button to hear the song you've made.
-```
-VIDEO OF CLICKING ON BUTTONS
-```
-Want to make some changes? No need to pause, just click or unclick the notes you want to modify
-```
-VIDEO OF CLICKING ON BUTTONS
-```
-If the program is running too slowly, adjust the speed using the BPM bar
-```
-VIDEO OF CLICKING ON BUTTONS
-```
-If you want to try a different sound palette for the melodies, click on the hamburger button at the top lefthand side of the page, hover down to the samples section and choose which sample you'd prefer!
-```
-VIDEO OF CLICKING ON BUTTONS
-```
-If you'd like to save your grid, head to the navigation bar again to login/signup, and save your grid!
-```
-VIDEO OF CLICKING ON BUTTONS
-```
+
+![](squaregroove - click while playing.gif)
+
+Want to make some changes? No need to pause, just click or unclick the notes you want to modify. The clicks will adjust the song seamlessly when it gets to the new notes.
+
+![](squaregroove - navbar.gif)
+
+If you want to try a different sound palette for the melodies, click on the hamburger button at the top lefthand side of the page, hover down to the samples section and choose which sample you'd prefer! This navigation bar also has the options to save, login/signup and logout, depending on which buttons you need
+
+![](squaregroove - change title & save.gif)
+
+If you'd like to save your grid, just change the title at the very top by clicking on it & typing in something new. Then head to the navigation bar and save your grid--remember you have to have an account and log in before you can save!
+
+![](squaregroove - index.gif)
+
 Once you're done, check out the grid's you've created in the Profile section, or other grids in the community by clicking on the Index button.
-```
-VIDEO OF CLICKING ON BUTTONS
-```
+
+![](squaregroove - play other grid.gif)
+
+You can listen to any of the grids in the community just by clicking on them from the index! Make sure to mess around with the BPM adjuster to set the right pace that you'd like to hear the song at!
+
+![](squaregroove - instructions.gif)
+
+And if you forget how to do any of these things, on every grid page there's a questionmark that opens up the instructions modal. This will give you more information on all of the things you can do with the program.
+
+
 
 ## Code Snippets 
 To Create a gradient effect with the grid, different classes are added and removed, depending on which column of notes is being played. The element being passed through the function denotes the column of notes currently playing, and with that you can access prior notes by incrementing the column by -1. Each note leaves a trail of 4 fading notes, which create a gradient effect. At every increment, five columns of notes must have their current classes removed, and be given new classes to update the colorscheme. Below is an example of finding the first trailing column behind the leading notes.
