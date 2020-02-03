@@ -24,27 +24,27 @@ The program is immediately understandable. Start by clicking different notes in 
 
 When you're ready, click on the play button to hear the song you've made.
 
-![](squaregroove - click while playing.gif)
+![](squaregroove-click_while_playing.gif)
 
 Want to make some changes? No need to pause, just click or unclick the notes you want to modify. The clicks will adjust the song seamlessly when it gets to the new notes.
 
-![](squaregroove - navbar.gif)
+![](squaregroove-navbar.gif)
 
 If you want to try a different sound palette for the melodies, click on the hamburger button at the top lefthand side of the page, hover down to the samples section and choose which sample you'd prefer! This navigation bar also has the options to save, login/signup and logout, depending on which buttons you need
 
-![](squaregroove - change title & save.gif)
+![](squaregroove-change_title_and_save.gif)
 
 If you'd like to save your grid, just change the title at the very top by clicking on it & typing in something new. Then head to the navigation bar and save your grid--remember you have to have an account and log in before you can save!
 
-![](squaregroove - index.gif)
+![](squaregroove-index.gif)
 
 Once you're done, check out the grid's you've created in the Profile section, or other grids in the community by clicking on the Index button.
 
-![](squaregroove - play other grid.gif)
+![](squaregroove-play_other_grid.gif)
 
 You can listen to any of the grids in the community just by clicking on them from the index! Make sure to mess around with the BPM adjuster to set the right pace that you'd like to hear the song at!
 
-![](squaregroove - instructions.gif)
+![](squaregroove-instructions.gif)
 
 And if you forget how to do any of these things, on every grid page there's a questionmark that opens up the instructions modal. This will give you more information on all of the things you can do with the program.
 
