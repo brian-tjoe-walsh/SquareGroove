@@ -22,7 +22,7 @@ class Grid extends React.Component {
       muteIconUrl: "https://mern-notes.s3-us-west-1.amazonaws.com/icons/audio-on.png"
     };
     this.timer = 0;
-    this.bpm = 120;
+    this.bpm = 240;
     this.muted = false;
     this.addTimer = this.addTimer.bind(this);
     this.switchPos = this.switchPos.bind(this);
@@ -366,6 +366,7 @@ class Grid extends React.Component {
     if (!this.grid) {
       return null;
     } else {
+      debugger
       return (
         <div className="fullOutsideContents">
           <div className="mainNavBar">
@@ -445,7 +446,7 @@ class Grid extends React.Component {
               </div>
             </div>
             <div className="bpmComponent">
-              <Timer start={this.timer} addTimer={this.addTimer} bpm={this.bpm} />
+              <Timer start={this.timer} addTimer={this.addTimer} bpm={this.bpm} open={this.props.open} openPage={this.props.openPage}/>
             </div>
             <div className="sampleComponent">
               <SampleContainer instrument={this.state.style} />

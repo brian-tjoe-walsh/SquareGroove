@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import { makeGrid, fetchGrid } from '../../actions/grid_actions';
 import  GridPage  from './grid_page';
 import { openModal } from '../../actions/modal_actions';
-// import { }
+import { openPage } from '../../actions/open_actions';
 
 const mapStateToProps = (state, ownProps) => {
   let gridId;
@@ -15,6 +15,7 @@ const mapStateToProps = (state, ownProps) => {
 
   return {
     currentUser: state.session.user,
+    state: state,
     newGrid: state.grids.new,
     gridId: gridId
   };
@@ -24,7 +25,8 @@ const mapDispatchToProps = dispatch => {
   return {
     makeGrid: data => dispatch(makeGrid(data)),
     fetchGrid: (gridId) => dispatch(fetchGrid(gridId)),
-    login: () => dispatch(openModal('login'))
+    login: () => dispatch(openModal('login')),
+    openPage: () => dispatch(openPage())
   };
 };
 

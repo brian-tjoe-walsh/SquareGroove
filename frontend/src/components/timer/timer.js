@@ -72,7 +72,7 @@ class Timer extends React.Component {
       return(
         <div className="bpmAdjuster">
           <button className="pauseFunction" onClick={this.pause}>{this.state.pause}</button>
-          <InfoButton />
+          <InfoButton openPage={this.props.openPage} open={this.props.open}/>
           <div className="bpmContainer">
             <p className="bpmDisplay">BPM: {this.bpm}</p>
             <input onChange={this.bpmChanger}
@@ -89,7 +89,7 @@ class Timer extends React.Component {
       return (
         <div className="bpmAdjuster">
           <button className="pauseFunction" onClick={this.pause}>{this.state.pause}</button>
-          <InfoButton />
+          <InfoButton openPage={this.props.openPage} open={this.props.open}/>
           <div className="bpmContainer">
             <p className="bpmDisplay">BPM: {this.bpm}</p>
             <input onChange={this.bpmChanger}

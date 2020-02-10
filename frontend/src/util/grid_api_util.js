@@ -18,4 +18,4 @@ export const createGrid = grid => {
 
 export const deleteGrid = id => {
   return axios.delete(`/api/grids/${id}`);
-}
+};

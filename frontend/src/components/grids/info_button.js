@@ -12,7 +12,10 @@ import { openModal } from '../../actions/modal_actions';
 
 class InfoButton extends React.Component {
   componentDidMount() {
-    this.props.info();
+    if (!this.props.open) {
+      this.props.openPage();
+      this.props.info();
+    }
   }
 
   render() {

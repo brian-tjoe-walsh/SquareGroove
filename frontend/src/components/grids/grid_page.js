@@ -108,7 +108,7 @@ class GridPage extends React.Component {
     if (!this.state.grid) {
       return (<Loading currentUser={this.props.currentUser}/>);
     } else {  
-        
+        debugger
       return(
         <div className="mainBackground">
           <Grid login = {this.props.login} 
@@ -117,7 +117,9 @@ class GridPage extends React.Component {
             grid={this.state.grid} 
             commitSave = {this.commitSave} 
             delete={this.delete}
-            history={this.props.history}/>
+            open={this.props.state.ui.open}
+            history={this.props.history}
+            openPage={this.props.openPage}/>
           <br/>
           { this.toggleSidebar() }
         </div>
