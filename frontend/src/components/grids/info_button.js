@@ -2,12 +2,26 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { openModal } from '../../actions/modal_actions';
 
-function InfoButton(props) {
-  return (
-    <div className="infoButton" onClick={props.info}>
-      <i className="fas fa-question"></i>
-    </div>
-  )
+// function InfoButton(props) {
+//   return (
+//     <div className="infoButton" onClick={props.info}>
+//       <i className="fas fa-question"></i>
+//     </div>
+//   )
+// }
+
+class InfoButton extends React.Component {
+  componentDidMount() {
+    this.props.info();
+  }
+
+  render() {
+    return (
+      <div className="infoButton" onClick={this.props.info}>
+        <i className="fas fa-question"></i>
+      </div>
+    )
+  }
 }
 
 const mapStateToProps = state => ({

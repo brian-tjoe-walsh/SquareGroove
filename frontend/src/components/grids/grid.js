@@ -38,8 +38,19 @@ class Grid extends React.Component {
     this.switchToVoice = this.switchToVoice.bind(this);
     this.profileView = this.profileView.bind(this);
     this.resetGrid = this.resetGrid.bind(this);
+    this.clickSave = this.clickSave.bind(this);
   }
 
+
+  clickSave() {
+    debugger
+    if (this.title === "SQUAREGROOVE") {
+      alert(`You can't save a grid under the title "SQUAREGROOVE"! 
+      Please change the title by clicking on it.`);
+    } else {
+      this.props.commitSave();
+    }
+  }
 
   // grab all elements and save to state on render, then just grab from state
   // instead of constantly grabbing a ton of things every second
@@ -366,6 +377,7 @@ class Grid extends React.Component {
                 <ul className="sidebarOptions">
                   <li onClick={this.profileView}>Profile</li>
                   <Link to="/index" className="indexspacing" >Index</Link>
+                  <Link to="/grids/5de553f3386002e975b94d2f" className="indexspacing" >Create New Grid</Link>
                   <div className="dropdown">
                     <button className="dropbtn">Samples</button>
                     <div className="dropdown-content">
@@ -374,7 +386,7 @@ class Grid extends React.Component {
                       <div id="sampleChanges" onClick={this.switchToPiano}>Piano</div>
                     </div>
                   </div>
-                  <li onClick={this.props.commitSave}>Save</li>
+                  <li onClick={this.clickSave}>Save</li>
                   {/* <li onClick={this.props.delete}>Delete</li> */}
                   {/* <DeleteContainer delete={this.props.delete}/> */}
                   <DeleteButton currentUser={this.props.currentUser} delete={this.props.delete} grid={this.props.grid}/>

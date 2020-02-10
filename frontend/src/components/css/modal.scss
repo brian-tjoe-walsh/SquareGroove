@@ -57,7 +57,7 @@
     background: linear-gradient(to bottom right, rgb(62, 186, 238), rgb(26, 104, 199));
     opacity: .9;
     font-size: 20px;
-    min-width: 400px;
+    min-width: 430px;
     min-height: 350px;
     animation: fadein 1s;
   }
@@ -106,13 +106,13 @@
 	justify-content: center;
 	align-items: center;
 	height: 40px;
-	width: 80%;
+	width: 70%;
 	font-size: 13px;
 	font-family: Arial, Helvetica, sans-serif;
 	color: white;
 	opacity: .7;
   // padding: 10px;
-  margin-left: 60px;
+  // margin-left: 60px;
 }
 
 .loginForm {
