@@ -6,7 +6,6 @@ import $ from 'jquery';
 import Loading from '../loading/loading';
 // import LoginButton from '../session/login_button';
 import { deleteGrid } from '../../util/grid_api_util';
-import { openModal } from '../../actions/modal_actions';
 
 class GridPage extends React.Component {
   constructor(props) {
@@ -108,7 +107,7 @@ class GridPage extends React.Component {
     if (!this.state.grid) {
       return (<Loading currentUser={this.props.currentUser}/>);
     } else {  
-        debugger
+        // debugger
       return(
         <div className="mainBackground">
           <Grid login = {this.props.login} 

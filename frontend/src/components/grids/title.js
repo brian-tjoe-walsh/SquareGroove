@@ -16,7 +16,7 @@ class Title extends React.Component {
   handleClick(e) {
     e.preventDefault();
 
-    // debugger;
+    debugger;
 
     if (this.state.class === "show") {
       this.setState({ class: "input" });
@@ -51,6 +51,7 @@ class Title extends React.Component {
             type="text"
             defaultValue={this.title}>
           </input>
+          {/* <i className="fas fa-times-circle" onClick={this.handleClick}></i> */}
           <input type="submit" className="titleSubmit" value="Submit"/>
           </form>
       )

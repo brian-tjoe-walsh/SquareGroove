@@ -557,6 +557,7 @@
 
 .gridShowTitle {
 	display: flex;
+	flex-direction: row;
 	justify-content: center;
 	align-items: center;
 	height: 50px;
@@ -569,6 +570,17 @@
 	margin-top: 20px;
 	letter-spacing: 1px;
 	z-index: 3;
+}
+
+.gridShowTitleForm {
+	min-width: 300px;
+}
+
+.fa-times-circle {
+	position: relative;
+	// margin-bottom: 40px;
+	bottom: 20px;
+	font-size: 15px;
 }
 
 .gridTitleDisplay {

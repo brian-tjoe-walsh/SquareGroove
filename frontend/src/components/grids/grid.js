@@ -43,7 +43,7 @@ class Grid extends React.Component {
 
 
   clickSave() {
-    debugger
+    // debugger
     if (this.title === "SQUAREGROOVE") {
       alert(`You can't save a grid under the title "SQUAREGROOVE"! 
       Please change the title by clicking on it.`);
@@ -366,7 +366,7 @@ class Grid extends React.Component {
     if (!this.grid) {
       return null;
     } else {
-      debugger
+      // debugger
       return (
         <div className="fullOutsideContents">
           <div className="mainNavBar">
@@ -403,7 +403,7 @@ class Grid extends React.Component {
             </div>
             <div className='mute-btn-container' onClick={this.toggleMute}>
               <div className='mute-btn'>
-                  <img src={this.state.muteIconUrl}></img>
+                  <img alt="" src={this.state.muteIconUrl}></img>
               </div>
             </div>
             <div className="gridBackground">
@@ -421,6 +421,8 @@ class Grid extends React.Component {
                             switchPos={this.switchPos} 
                           />
                         )
+                      } else {
+                        return null;
                       }
                     })}
                   </div>
@@ -439,7 +441,10 @@ class Grid extends React.Component {
                             ele={ele}
                             switchPos={this.switchPos} />
                         )
+                      } else {
+                        return null;
                       }
+
                     })}
                   </div>
                 ))}

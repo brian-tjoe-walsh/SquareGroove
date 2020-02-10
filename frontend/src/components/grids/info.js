@@ -6,7 +6,7 @@ class Information extends React.Component {
   // }
 
   render() {
-    debugger
+    // debugger
     return (
       <div className="fullOutsideContents">
         <div className="infoScreen">
