@@ -46,6 +46,10 @@
     height: 30px;
   }
 
+  ::selection {
+  background: #ffb7b7; /* WebKit/Blink Browsers */
+  }
+
   .modal-info {
     /* -webkit-border-radius: 25px; */
     display: flex;
