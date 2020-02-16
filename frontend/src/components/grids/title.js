@@ -16,7 +16,7 @@ class Title extends React.Component {
   handleClick(e) {
     e.preventDefault();
 
-    debugger;
+    // debugger;
 
     if (this.state.class === "show") {
       this.setState({ class: "input" });

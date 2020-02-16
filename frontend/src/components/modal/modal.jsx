@@ -35,6 +35,9 @@ function Modal({modal, closeModal}) {
   } else {
     return (
       <div className="modal-background" onClick={closeModal}>
+        <div class="x-button">
+          <i class="fas fa-times"></i>
+        </div>
         <div className="modal-info">
           {component}
         </div>

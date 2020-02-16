@@ -48,7 +48,7 @@
 	align-items: center;
 	background: none;
 	width: 500px;
-	height: 500px;
+	height: 460px;
 }
 
 .ele {
@@ -294,6 +294,7 @@
 	justify-content: center;
 	align-items: center;
 	background: none;
+	margin-top: 20px;
 	width: 500px;
 	height: 100px;
 }
@@ -560,14 +561,14 @@
 	flex-direction: row;
 	justify-content: center;
 	align-items: center;
-	height: 50px;
+	height: 30px;
 	width: 545px;
 	font-size: 30px;
 	font-family: Arial, Helvetica, sans-serif;
 	color: white;
 	font-weight: bolder;
 	opacity: .5;
-	margin-top: 20px;
+	margin-top: 25px;
 	letter-spacing: 1px;
 	z-index: 3;
 }
@@ -585,10 +586,43 @@
 
 .gridTitleDisplay {
 	display: flex;
-	flex-direction: row;
+	flex-direction: column;
 	justify-content: center;
 	align-items: center;
 	height: 100px;
+}
+
+.grid-title-error {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	height: 30px;
+	width: 100%;
+	font-family: Arial, Helvetica, sans-serif;
+	color: rgba(245, 245, 255, 0.774);
+	font-size: 17px;
+	animation: fade-inwards;
+	animation-duration: 1s;
+}
+
+.fa-exclamation-circle {
+	color: rgba(245, 245, 255, 0.774);
+	font-size: 17px;
+	margin: 10px;
+}
+.grid-title-error-blank {	
+	height: 30px;
+}
+
+@keyframes fade-inwards {
+  from {
+    opacity: 0;
+  }
+  
+  to {
+    opacity: 1;
+  }
 }
 
 .inputTitle {
@@ -621,7 +655,7 @@ a {
 }
 
 .mute-btn-container{
-	height: 30px;
+	height: 10px;
 	display: flex;
 	justify-content: flex-end;
 }

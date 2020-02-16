@@ -37,6 +37,15 @@
     to { top: 50%;}
   }
 
+  .x-button {
+    margin: 10px 20px;
+    font-size: 30px;
+    color: #94fdff;
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+  }
+
   .modal-info {
     /* -webkit-border-radius: 25px; */
     display: flex;

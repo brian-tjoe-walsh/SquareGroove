@@ -19,7 +19,8 @@ class Grid extends React.Component {
     this.state = {
       style: this.props.grid.style,
       gridReset: false,
-      muteIconUrl: "https://mern-notes.s3-us-west-1.amazonaws.com/icons/audio-on.png"
+      muteIconUrl: "https://mern-notes.s3-us-west-1.amazonaws.com/icons/audio-on.png",
+      error: null
     };
     this.timer = 0;
     this.bpm = 240;
@@ -41,12 +42,19 @@ class Grid extends React.Component {
     this.clickSave = this.clickSave.bind(this);
   }
 
+  componentDidUpdate() {
+    if (this.title !== "SQUAREGROOVE" && this.state.error !== null) {
+      this.setState({error: null});
+    }
+  }
+
 
   clickSave() {
     // debugger
     if (this.title === "SQUAREGROOVE") {
-      alert(`You can't save a grid under the title "SQUAREGROOVE"! 
-      Please change the title by clicking on it.`);
+      this.setState({
+        error: `Please provide a unique title for your grid by clicking on it.`
+      });
     } else {
       this.props.commitSave();
     }
@@ -400,6 +408,17 @@ class Grid extends React.Component {
           <div className="outsideGrid">
             <div className="gridTitleDisplay">
               <Title title={this.title} titleChange={this.titleChange} />
+              {(this.state.error) ? (
+                <div className="grid-title-error">
+                  <i class="fas fa-exclamation-circle"></i>
+                  {this.state.error}
+                  <i class="fas fa-exclamation-circle"></i>
+                </div>
+              ) : (
+                <div className="grid-title-error-blank">
+                  {null}
+                </div>                
+              )}
             </div>
             <div className='mute-btn-container' onClick={this.toggleMute}>
               <div className='mute-btn'>

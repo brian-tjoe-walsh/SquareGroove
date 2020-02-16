@@ -80,7 +80,7 @@ class GridPage extends React.Component {
       }
       this.props.makeGrid(this.savedGrid)
         .then(() => {
-          this.props.history.push('/profile')
+          this.props.history.push('/profile');
         })
     } else {
       this.props.login();
