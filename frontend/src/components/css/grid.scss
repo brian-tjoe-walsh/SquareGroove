@@ -1,3 +1,7 @@
+body {
+	height: 100%;
+	position: fixed;
+}
 
 .mainBackground {
 	display: flex;
@@ -5,6 +9,7 @@
 	justify-content: space-between;
 	align-items: center;
 	background: linear-gradient(to bottom right, rgb(28, 229, 243), rgb(30, 142, 235));
+	position: fixed;
 	width: 100%;
 	height: 100%;
 }
@@ -21,8 +26,6 @@
 	align-items: center;
 	width: 100%;
 	height: 100%;
-	top: 0px;
-	left: 0px;
 }
 
 .gridBackground {
@@ -694,7 +697,8 @@ a {
 .fullOutsideContents {
 	display: flex;
 	flex-direction: row;
-	
+	height: 100%;
+	width: 100%;
 }
 
 .gridIndexTitle {
