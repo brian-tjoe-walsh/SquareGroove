@@ -20,7 +20,7 @@ class Grid extends React.Component {
       style: this.props.grid.style,
       gridReset: false,
       muteIconUrl: "https://mern-notes.s3-us-west-1.amazonaws.com/icons/audio-on.png",
-      error: null
+      // error: null
     };
     this.timer = 0;
     this.bpm = 240;
@@ -43,18 +43,26 @@ class Grid extends React.Component {
   }
 
   componentDidUpdate() {
+    // debugger
     if (this.title !== "SQUAREGROOVE" && this.state.error !== null) {
-      this.setState({error: null});
+      let gridError = document.querySelector('.grid-title-error');
+      if (gridError) gridError.remove();
     }
   }
-
 
   clickSave() {
     // debugger
     if (this.title === "SQUAREGROOVE") {
-      this.setState({
-        error: `Please provide a unique title for your grid by clicking on it.`
+      let errorContainer = document.querySelector('.error-container');
+      Array.from(errorContainer.children).forEach(child => {
+        child.remove();
       });
+      let error = document.createElement('div');
+      error.className = 'grid-title-error';
+      error.innerHTML = "<div class='grid-title-error'><i class='fas fa-exclamation-circle'></i>Please provide a unique title for your grid by clicking on it.<i class='fas fa-exclamation-circle'></i></div>"
+      errorContainer.appendChild(error);
+      console.log(errorContainer);
+      
     } else {
       this.props.commitSave();
     }
@@ -341,6 +349,7 @@ class Grid extends React.Component {
   titleChange(newTitle) {
     this.title = newTitle;
     this.props.saveGrid([this.title, this.style, this.grid]);
+    this.forceUpdate();
   }
 
   switchToBell() {
@@ -408,17 +417,21 @@ class Grid extends React.Component {
           <div className="outsideGrid">
             <div className="gridTitleDisplay">
               <Title title={this.title} titleChange={this.titleChange} />
-              {(this.state.error) ? (
+              <div className = 'error-container'>
+                <div className="grid-title-error-blank">  
+                </div>
+              </div>  
+              {/* {this.state.error ? (
                 <div className="grid-title-error">
-                  <i class="fas fa-exclamation-circle"></i>
+                  <i className="fas fa-exclamation-circle"></i>
                   {this.state.error}
-                  <i class="fas fa-exclamation-circle"></i>
+                  <i className="fas fa-exclamation-circle"></i>
                 </div>
               ) : (
                 <div className="grid-title-error-blank">
                   {null}
                 </div>                
-              )}
+              )} */}
             </div>
             <div className='mute-btn-container' onClick={this.toggleMute}>
               <div className='mute-btn'>
